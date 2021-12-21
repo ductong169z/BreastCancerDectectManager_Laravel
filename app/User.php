@@ -2,13 +2,23 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +26,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'last_name', 'email', 'password',
+        'name',
+        'email',
+        'username',
+        'password',
     ];
 
     /**
@@ -25,7 +38,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -38,24 +52,10 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the user's full name.
+     * Always encrypt password when it is updated.
      *
+     * @param $value
      * @return string
-     */
-    public function getFullNameAttribute()
-    {
-        if (is_null($this->last_name)) {
-            return "{$this->name}";
-        }
-
-        return "{$this->name} {$this->last_name}";
-    }
-
-    /**
-     * Set the user's password.
-     *
-     * @param string $value
-     * @return void
      */
     public function setPasswordAttribute($value)
     {
