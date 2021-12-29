@@ -11,7 +11,6 @@ class ModelPredict extends Model
     use SoftDeletes;
 
     protected $table = 'model';
-    protected $fillable = [
-    ];
+    protected $fillable = [];
     protected $primaryKey = 'id';
 }
