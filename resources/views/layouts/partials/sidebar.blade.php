@@ -2,7 +2,8 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home.index')}}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center"
+        href="{{ route('home.index') }}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laptop-code"></i>
         </div>
@@ -55,7 +56,7 @@
             <span>{{ __('Roles Management') }}</span>
         </a>
     </li>
-    <!-- Nav Item - Profile -->
+    <!-- Nav Item - Users Management -->
     <li class="nav-item {{ Nav::isRoute('users.index') }}">
         <a class="nav-link" href="{{ route('users.index') }}">
             <i class="fas fa-fw fa-user"></i>
@@ -66,6 +67,13 @@
         <a class="nav-link" href="{{ route('models.index') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>{{ __('Models Management') }}</span>
+        </a>
+    </li>
+    <!-- Nav Item - Patient Management -->
+    <li class="nav-item {{ Nav::isRoute('patients.index') }}">
+        <a class="nav-link" href="{{ route('patients.index') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>{{ __('Patient Management') }}</span>
         </a>
     </li>
     <!-- Nav Item - About -->
