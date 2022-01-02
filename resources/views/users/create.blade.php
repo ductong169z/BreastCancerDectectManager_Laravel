@@ -44,17 +44,32 @@
                         <span class="text-danger text-left">{{ $errors->first('username') }}</span>
                     @endif
                 </div>
+                
                 <div class="mb-3">
-                    <label for="phone" class="form-label">Phone</label>
-                    <input value="{{ old('phone') }}"
-                           type="text"
+                    <label for="password" class="form-label">Password</label>
+                    <input value="{{ old('password') }}"
+                           type="password"
                            class="form-control"
-                           name="phone"
-                           placeholder="phone" required>
-
-                    @if ($errors->has('phone'))
-                        <span class="text-danger text-left">{{ $errors->first('phone') }}</span>
-                    @endif
+                           name="password"
+                           placeholder="password" required>
+                   
+                </div>
+                <div class="mb-3">
+                    <label for="confirm_password" class="form-label">Confirm password</label>
+                    <input value="{{ old('password') }}"
+                           type="password"
+                           class="form-control"
+                           name="confirm_password"
+                           placeholder="Confirm password" required>
+                  
+                </div>
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <select class="form-control" name="role" required>
+                        @foreach ($roles as $role)
+                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                        @endforeach
+                    </select>        
                 </div>
                 <button type="submit" class="btn btn-primary">Save user</button>
                 <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
