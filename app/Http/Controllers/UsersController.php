@@ -18,7 +18,9 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::latest()->paginate(10);
-        return view('users.index', compact('users'));
+        return view('users.index', compact('users'),[
+            'roles' => Role::latest()->get()
+        ]);
     }
 
     /**
@@ -28,7 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('users.create',['roles' => Role::latest()->get()]);
     }
 
     /**
@@ -43,10 +45,12 @@ class UsersController extends Controller
     {
         //For demo purposes only. When creating user or inviting a user
         // you should create a generated random password and email it to the user
+        $user->syncRoles($request->get('role'));
         $user->create(array_merge($request->validated(), [
-            'password' => 'test'
-        ]));
-
+            'password' => 'test',
+            'role' => $request->role,
+        ])); 
+        
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));
     }
@@ -80,6 +84,12 @@ class UsersController extends Controller
             'roles' => Role::latest()->get()
         ]);
     }
+    public function resetpassword(User $user)
+    {
+        return view('users.resetpassword', [
+            'user' => $user
+        ]);
+    }
 
     /**
      * Update user data
@@ -91,9 +101,25 @@ class UsersController extends Controller
      */
     public function update(User $user, UpdateUserRequest $request)
     {
+        $user->status = $request->status;
         $user->update($request->validated());
 
         $user->syncRoles($request->get('role'));
+
+        return redirect()->route('users.index')
+            ->withSuccess(__('User updated successfully.'));
+    }
+
+    /**
+     * Update user data
+     *
+     * @param User $user
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function savechange(User $user)
+    {
+        $user->save();
 
         return redirect()->route('users.index')
             ->withSuccess(__('User updated successfully.'));
@@ -113,4 +139,12 @@ class UsersController extends Controller
         return redirect()->route('users.index')
             ->withSuccess(__('User deleted successfully.'));
     }
+
+    public function search()
+    {
+        $search = $require->get('search');
+        $users = Users::where('name','LIKE','%'.$search.'%')->get();
+        return view('users.index', compact('users'));
+    }
+
 }

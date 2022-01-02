@@ -66,8 +66,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::post('/create', 'UsersController@store')->name('users.store');
             Route::get('/{user}/show', 'UsersController@show')->name('users.show');
             Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
+            Route::get('/search', 'UsersController@search')->name('users.search');
             Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
             Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
+            Route::patch('/savechange', 'UsersController@savechange')->name('users.savechange');
+            Route::get('/{user}/admin_reset_password', 'UsersController@resetpassword')->name('users.admin_reset_password');
         });
 
 
