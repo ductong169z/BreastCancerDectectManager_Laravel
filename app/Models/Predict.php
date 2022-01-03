@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Predict extends Model
 {
     protected $table = 'predict';
-    protected $fillable = [
-    ];
+    protected $guarded = [];
+
     protected $primaryKey = 'id';
 }

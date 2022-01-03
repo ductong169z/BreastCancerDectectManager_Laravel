@@ -1619,7 +1619,8 @@ esources\\views/permissions/index.blade.php(46): Illuminate\\View\\Factory->make
 #47 C:\\xampp\\htdocs\\project\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
-[2021-12-21 09:26:43] local.ERROR: Invalid argument supplied for foreach() (View: C:\xampp\htdocs\project\resources\views\users\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\project\esources\\views/users/index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1888170905 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1279</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-12-21 09:26:43] local.ERROR: Invalid argument supplied for foreach() (View: C:\xampp\htdocs\project\resources\views\users\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\project\
+esources\\views/users/index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1888170905 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1279</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1888170905\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -1646,9 +1647,12 @@ esources\\views/permissions/index.blade.php(46): Illuminate\\View\\Factory->make
   </samp>]
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1833099014\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Invalid argument supplied for foreach() (View: C:\\xampp\\htdocs\\project\esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\project\esources\\views/users/index.blade.php:36)
+"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Invalid argument supplied for foreach() (View: C:\\xampp\\htdocs\\project\
+esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\project\
+esources\\views/users/index.blade.php:36)
 [stacktrace]
-#0 C:\\xampp\\htdocs\\project\esources\\views/users/index.blade.php(36): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Invalid argumen...', 'C:\\\\xampp\\\\htdocs...', 34, Array)
+#0 C:\\xampp\\htdocs\\project\
+esources\\views/users/index.blade.php(36): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Invalid argumen...', 'C:\\\\xampp\\\\htdocs...', 34, Array)
 #1 C:\\xampp\\htdocs\\project\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #2 C:\\xampp\\htdocs\\project\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\xampp\\htdocs\\project\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -1768,7 +1772,8 @@ esources\\views/permissions/index.blade.php(46): Illuminate\\View\\Factory->make
 #56 C:\\xampp\\htdocs\\project\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 {main}
 "} 
-[2021-12-21 09:27:41] local.ERROR: Invalid argument supplied for foreach() (View: C:\xampp\htdocs\project\resources\views\users\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\project\esources\\views/users/index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-410976854 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1279</a><samp data-depth=1 class=sf-dump-expanded>
+[2021-12-21 09:27:41] local.ERROR: Invalid argument supplied for foreach() (View: C:\xampp\htdocs\project\resources\views\users\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\project\
+esources\\views/users/index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-410976854 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1279</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-410976854\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -1795,9 +1800,12 @@ esources\\views/permissions/index.blade.php(46): Illuminate\\View\\Factory->make
   </samp>]
 </samp>}
 </pre><script>Sfdump(\"sf-dump-566358052\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Invalid argument supplied for foreach() (View: C:\\xampp\\htdocs\\project\esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\project\esources\\views/users/index.blade.php:36)
+"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Invalid argument supplied for foreach() (View: C:\\xampp\\htdocs\\project\
+esources\\views\\users\\index.blade.php) at C:\\xampp\\htdocs\\project\
+esources\\views/users/index.blade.php:36)
 [stacktrace]
-#0 C:\\xampp\\htdocs\\project\esources\\views/users/index.blade.php(36): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Invalid argumen...', 'C:\\\\xampp\\\\htdocs...', 34, Array)
+#0 C:\\xampp\\htdocs\\project\
+esources\\views/users/index.blade.php(36): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Invalid argumen...', 'C:\\\\xampp\\\\htdocs...', 34, Array)
 #1 C:\\xampp\\htdocs\\project\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #2 C:\\xampp\\htdocs\\project\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\xampp\\htdocs\\project\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -2183,10 +2191,12 @@ Did you mean one of these?
 #18 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(60): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
 #19 {main}
 "} 
-[2022-01-01 07:53:23] local.ERROR: Route [models.index] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\layouts\partials\sidebar.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.index] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\layouts\\partials\\sidebar.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
+[2022-01-01 07:53:23] local.ERROR: Route [models.index] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\layouts\partials\sidebar.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.index] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\layouts\\partials\\sidebar.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(726): Illuminate\\Routing\\UrlGenerator->route('models.index', Array, true)
-#1 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/layouts/partials/sidebar.blade.php(59): route('models.index')
+#1 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/layouts/partials/sidebar.blade.php(59): route('models.index')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #4 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -2195,7 +2205,8 @@ Did you mean one of these?
 #7 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(139): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('C:\\\\xampp\\\\htdocs...', Array)
 #8 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(122): Illuminate\\View\\View->getContents()
 #9 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(91): Illuminate\\View\\View->renderContents()
-#10 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/layouts/admin.blade.php(30): Illuminate\\View\\View->render()
+#10 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/layouts/admin.blade.php(30): Illuminate\\View\\View->render()
 #11 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #12 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #13 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -2204,7 +2215,8 @@ Did you mean one of these?
 #16 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(139): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('C:\\\\xampp\\\\htdocs...', Array)
 #17 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(122): Illuminate\\View\\View->getContents()
 #18 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(91): Illuminate\\View\\View->renderContents()
-#19 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/home.blade.php(224): Illuminate\\View\\View->render()
+#19 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/home.blade.php(224): Illuminate\\View\\View->render()
 #20 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #21 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #22 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -2339,10 +2351,12 @@ Did you mean one of these?
 #73 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #74 {main}
 "} 
-[2022-01-01 07:56:21] local.ERROR: Route [models.index] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\layouts\partials\sidebar.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.index] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\layouts\\partials\\sidebar.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
+[2022-01-01 07:56:21] local.ERROR: Route [models.index] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\layouts\partials\sidebar.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.index] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\layouts\\partials\\sidebar.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(726): Illuminate\\Routing\\UrlGenerator->route('models.index', Array, true)
-#1 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/layouts/partials/sidebar.blade.php(59): route('models.index')
+#1 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/layouts/partials/sidebar.blade.php(59): route('models.index')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #4 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -2351,7 +2365,8 @@ Did you mean one of these?
 #7 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(139): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('C:\\\\xampp\\\\htdocs...', Array)
 #8 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(122): Illuminate\\View\\View->getContents()
 #9 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(91): Illuminate\\View\\View->renderContents()
-#10 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/layouts/admin.blade.php(30): Illuminate\\View\\View->render()
+#10 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/layouts/admin.blade.php(30): Illuminate\\View\\View->render()
 #11 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #12 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #13 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -2360,7 +2375,8 @@ Did you mean one of these?
 #16 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(139): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('C:\\\\xampp\\\\htdocs...', Array)
 #17 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(122): Illuminate\\View\\View->getContents()
 #18 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(91): Illuminate\\View\\View->renderContents()
-#19 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/home.blade.php(224): Illuminate\\View\\View->render()
+#19 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/home.blade.php(224): Illuminate\\View\\View->render()
 #20 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #21 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #22 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -2495,10 +2511,12 @@ Did you mean one of these?
 #73 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #74 {main}
 "} 
-[2022-01-01 07:56:35] local.ERROR: Route [models.index] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\layouts\partials\sidebar.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.index] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\layouts\\partials\\sidebar.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
+[2022-01-01 07:56:35] local.ERROR: Route [models.index] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\layouts\partials\sidebar.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.index] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\layouts\\partials\\sidebar.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(726): Illuminate\\Routing\\UrlGenerator->route('models.index', Array, true)
-#1 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/layouts/partials/sidebar.blade.php(59): route('models.index')
+#1 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/layouts/partials/sidebar.blade.php(59): route('models.index')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #4 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -2507,7 +2525,8 @@ Did you mean one of these?
 #7 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(139): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('C:\\\\xampp\\\\htdocs...', Array)
 #8 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(122): Illuminate\\View\\View->getContents()
 #9 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(91): Illuminate\\View\\View->renderContents()
-#10 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/layouts/admin.blade.php(30): Illuminate\\View\\View->render()
+#10 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/layouts/admin.blade.php(30): Illuminate\\View\\View->render()
 #11 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #12 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #13 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -2516,7 +2535,8 @@ Did you mean one of these?
 #16 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(139): Facade\\Ignition\\Views\\Engines\\CompilerEngine->get('C:\\\\xampp\\\\htdocs...', Array)
 #17 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(122): Illuminate\\View\\View->getContents()
 #18 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(91): Illuminate\\View\\View->renderContents()
-#19 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/home.blade.php(224): Illuminate\\View\\View->render()
+#19 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/home.blade.php(224): Illuminate\\View\\View->render()
 #20 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #21 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #22 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -3163,7 +3183,8 @@ Did you mean one of these?
 #59 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #60 {main}
 "} 
-[2022-01-01 08:29:04] local.ERROR: Undefined variable: users (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1548099508 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1291</a><samp data-depth=1 class=sf-dump-expanded>
+[2022-01-01 08:29:04] local.ERROR: Undefined variable: users (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1548099508 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1291</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1548099508\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -3187,9 +3208,12 @@ Did you mean one of these?
   </samp>]
 </samp>}
 </pre><script>Sfdump(\"sf-dump-2045485238\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: users (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php:51)
+"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined variable: users (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php:51)
 [stacktrace]
-#0 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php(51): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\\\xampp\\\\htdocs...', 51, Array)
+#0 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php(51): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\\\xampp\\\\htdocs...', 51, Array)
 #1 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -3309,7 +3333,8 @@ Did you mean one of these?
 #56 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 {main}
 "} 
-[2022-01-01 08:33:56] local.ERROR: Undefined property: Illuminate\Pagination\LengthAwarePaginator::$id (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-370667083 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1291</a><samp data-depth=1 class=sf-dump-expanded>
+[2022-01-01 08:33:56] local.ERROR: Undefined property: Illuminate\Pagination\LengthAwarePaginator::$id (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-370667083 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1291</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-370667083\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -3336,9 +3361,12 @@ Did you mean one of these?
   </samp>]
 </samp>}
 </pre><script>Sfdump(\"sf-dump-28045741\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined property: Illuminate\\Pagination\\LengthAwarePaginator::$id (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php:31)
+"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined property: Illuminate\\Pagination\\LengthAwarePaginator::$id (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php:31)
 [stacktrace]
-#0 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php(31): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined prope...', 'C:\\\\xampp\\\\htdocs...', 29, Array)
+#0 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php(31): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined prope...', 'C:\\\\xampp\\\\htdocs...', 29, Array)
 #1 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -3458,7 +3486,8 @@ Did you mean one of these?
 #56 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 {main}
 "} 
-[2022-01-01 08:35:55] local.ERROR: Undefined property: Illuminate\Pagination\LengthAwarePaginator::$id (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-2134076870 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1289</a><samp data-depth=1 class=sf-dump-expanded>
+[2022-01-01 08:35:55] local.ERROR: Undefined property: Illuminate\Pagination\LengthAwarePaginator::$id (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-2134076870 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1289</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-2134076870\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -3485,9 +3514,12 @@ Did you mean one of these?
   </samp>]
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1226795106\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined property: Illuminate\\Pagination\\LengthAwarePaginator::$id (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php:37)
+"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Undefined property: Illuminate\\Pagination\\LengthAwarePaginator::$id (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php:37)
 [stacktrace]
-#0 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php(37): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined prope...', 'C:\\\\xampp\\\\htdocs...', 35, Array)
+#0 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php(37): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Undefined prope...', 'C:\\\\xampp\\\\htdocs...', 35, Array)
 #1 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -3607,11 +3639,13 @@ Did you mean one of these?
 #56 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 {main}
 "} 
-[2022-01-01 08:36:43] local.ERROR: Call to undefined method App\Models\ModelPredict::links() (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Call to undefined method App\\Models\\ModelPredict::links() (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php:50)
+[2022-01-01 08:36:43] local.ERROR: Call to undefined method App\Models\ModelPredict::links() (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Call to undefined method App\\Models\\ModelPredict::links() (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php:50)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php(36): Illuminate\\Database\\Eloquent\\Model::throwBadMethodCallException('links')
 #1 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1991): Illuminate\\Database\\Eloquent\\Model->forwardCallTo(Object(Illuminate\\Database\\Eloquent\\Builder), 'links', Array)
-#2 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php(50): Illuminate\\Database\\Eloquent\\Model->__call('links', Array)
+#2 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php(50): Illuminate\\Database\\Eloquent\\Model->__call('links', Array)
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #4 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #5 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -3733,10 +3767,12 @@ Did you mean one of these?
 #58 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 {main}
 "} 
-[2022-01-01 08:53:07] local.ERROR: Route [model.index] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\create.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [model.index] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\create.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
+[2022-01-01 08:53:07] local.ERROR: Route [model.index] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\create.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [model.index] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\create.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(726): Illuminate\\Routing\\UrlGenerator->route('model.index', Array, true)
-#1 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/create.blade.php(46): route('model.index')
+#1 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/create.blade.php(46): route('model.index')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #4 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -3857,10 +3893,12 @@ Did you mean one of these?
 #57 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #58 {main}
 "} 
-[2022-01-01 09:03:50] local.ERROR: Route [models.store] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\create.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.store] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\create.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
+[2022-01-01 09:03:50] local.ERROR: Route [models.store] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\create.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.store] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\create.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(726): Illuminate\\Routing\\UrlGenerator->route('models.store', Array, true)
-#1 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/create.blade.php(8): route('models.store')
+#1 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/create.blade.php(8): route('models.store')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #4 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -3981,10 +4019,12 @@ Did you mean one of these?
 #57 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #58 {main}
 "} 
-[2022-01-01 09:04:14] local.ERROR: Route [models.store] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\create.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.store] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\create.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
+[2022-01-01 09:04:14] local.ERROR: Route [models.store] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\create.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.store] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\create.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(726): Illuminate\\Routing\\UrlGenerator->route('models.store', Array, true)
-#1 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/create.blade.php(8): route('models.store')
+#1 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/create.blade.php(8): route('models.store')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #4 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -4105,10 +4145,12 @@ Did you mean one of these?
 #57 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #58 {main}
 "} 
-[2022-01-01 09:05:19] local.ERROR: Route [Models.models.store] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\create.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [Models.models.store] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\create.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
+[2022-01-01 09:05:19] local.ERROR: Route [Models.models.store] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\create.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [Models.models.store] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\create.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(726): Illuminate\\Routing\\UrlGenerator->route('Models.models.s...', Array, true)
-#1 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/create.blade.php(8): route('Models.models.s...')
+#1 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/create.blade.php(8): route('Models.models.s...')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #4 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -5748,10 +5790,12 @@ Did you mean one of these?
 #47 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
-[2022-01-02 05:36:04] local.ERROR: Route [models.delete] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.delete] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
+[2022-01-02 05:36:04] local.ERROR: Route [models.delete] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [models.delete] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(726): Illuminate\\Routing\\UrlGenerator->route('models.delete', 14, true)
-#1 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php(37): route('models.delete', 14)
+#1 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php(37): route('models.delete', 14)
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #4 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -5872,10 +5916,12 @@ Did you mean one of these?
 #57 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #58 {main}
 "} 
-[2022-01-02 05:36:26] local.ERROR: Route [] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
+[2022-01-02 05:36:26] local.ERROR: Route [] not defined. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Route [] not defined. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:427)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(726): Illuminate\\Routing\\UrlGenerator->route('', 14, true)
-#1 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php(37): route('', 14)
+#1 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php(37): route('', 14)
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #4 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -5996,9 +6042,11 @@ Did you mean one of these?
 #57 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #58 {main}
 "} 
-[2022-01-02 05:45:34] local.ERROR: Method Illuminate\Database\Eloquent\Collection::render does not exist. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Method Illuminate\\Database\\Eloquent\\Collection::render does not exist. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php:103)
+[2022-01-02 05:45:34] local.ERROR: Method Illuminate\Database\Eloquent\Collection::render does not exist. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Method Illuminate\\Database\\Eloquent\\Collection::render does not exist. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php:103)
 [stacktrace]
-#0 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php(43): Illuminate\\Support\\Collection->__call('render', Array)
+#0 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php(43): Illuminate\\Support\\Collection->__call('render', Array)
 #1 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -6118,9 +6166,11 @@ Did you mean one of these?
 #56 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 {main}
 "} 
-[2022-01-02 05:46:02] local.ERROR: Method Illuminate\Database\Eloquent\Collection::render does not exist. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Method Illuminate\\Database\\Eloquent\\Collection::render does not exist. (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php:103)
+[2022-01-02 05:46:02] local.ERROR: Method Illuminate\Database\Eloquent\Collection::render does not exist. (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php","data":[]},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Method Illuminate\\Database\\Eloquent\\Collection::render does not exist. (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\index.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Macroable\\Traits\\Macroable.php:103)
 [stacktrace]
-#0 C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/index.blade.php(43): Illuminate\\Support\\Collection->__call('render', Array)
+#0 C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/index.blade.php(43): Illuminate\\Support\\Collection->__call('render', Array)
 #1 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #2 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -6240,7 +6290,8 @@ Did you mean one of these?
 #56 C:\\xampp\\htdocs\\CodeLuanVan\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 {main}
 "} 
-[2022-01-02 09:22:49] local.ERROR: syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ')' (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\edit.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/edit.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1167554322 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1299</a><samp data-depth=1 class=sf-dump-expanded>
+[2022-01-02 09:22:49] local.ERROR: syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ')' (View: C:\xampp\htdocs\CodeLuanVan\resources\views\models\edit.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/edit.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-1167554322 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1299</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
 </pre><script>Sfdump(\"sf-dump-1167554322\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
@@ -6299,7 +6350,9 @@ Did you mean one of these?
   </samp>]
 </samp>}
 </pre><script>Sfdump(\"sf-dump-351205173\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ')' (View: C:\\xampp\\htdocs\\CodeLuanVan\esources\\views\\models\\edit.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\esources\\views/models/edit.blade.php:28)
+"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ')' (View: C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views\\models\\edit.blade.php) at C:\\xampp\\htdocs\\CodeLuanVan\
+esources\\views/models/edit.blade.php:28)
 [stacktrace]
 #0 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #1 C:\\xampp\\htdocs\\CodeLuanVan\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
