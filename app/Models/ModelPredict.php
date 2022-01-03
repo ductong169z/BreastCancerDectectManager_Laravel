@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ModelPredict extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
     protected $table = 'model';
     protected $fillable = [];

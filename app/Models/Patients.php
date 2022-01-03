@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Paitients extends Model
+class Patients extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
-    protected $table = 'paitients';
+    protected $table = 'patients';
     protected $fillable = [
     ];
     protected $primaryKey = 'id';

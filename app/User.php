@@ -30,6 +30,7 @@ class User extends Authenticatable
         'email',
         'username',
         'password',
+        'phone'
     ];
 
     /**
@@ -61,4 +62,5 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($value);
     }
+
 }
