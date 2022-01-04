@@ -55,6 +55,12 @@
             <span>{{ __('Users Management') }}</span>
         </a>
     </li>
+    <li class="nav-item {{ Nav::isRoute('models.index') }}">
+        <a class="nav-link" href="{{ route('models.index') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>{{ __('Models Management') }}</span>
+        </a>
+    </li>
     <!-- Nav Item - About -->
     <li class="nav-item {{ Nav::isRoute('about') }}">
         <a class="nav-link" href="{{ route('about') }}">

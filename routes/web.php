@@ -69,7 +69,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
             Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
         });
-
+        Route::group(['prefix' => 'models'], function () {
+            Route::get('/', 'ModelsController@index')->name('models.index');
+            Route::get('/create', 'ModelsController@create')->name('models.create');
+            Route::post('/store', 'ModelsController@store')->name('models.store');
+            Route::get('/{model}/show', 'ModelsController@show')->name('models.show');
+            Route::get('/{model}/edit', 'ModelsController@edit')->name('models.edit');
+            Route::post('/{model}/update', 'ModelsController@update')->name('models.update');
+            Route::get('/{model}/delete', 'ModelsController@delete')->name('models.delete');
+        });
 
         Route::resource('roles', RolesController::class);
         Route::resource('permissions', PermissionsController::class);
