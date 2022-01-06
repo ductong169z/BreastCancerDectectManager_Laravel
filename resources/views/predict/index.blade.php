@@ -13,7 +13,9 @@
         <div class="mt-2">
             @include('layouts.partials.messages')
         </div>
-
+        <div class="mt-2">
+            
+        </div>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -23,7 +25,7 @@
                 <th scope="col" width="15%">Sonographer name</th>
                 <th scope="col" width="15%">Paitients name</th>
                 <th scope="col" width="15%">Doctor confirmation</th>
-                <th scope="col" colspan="3" width="1%"></th>
+                <th scope="col" colspan="3" width="20%"></th>
             </tr>
             </thead>
             <tbody>
@@ -34,7 +36,11 @@
                     <td>{{ $item->sonographer_name }}</td>
                     <td>{{$item->patient_name}}</td>
                     <td>{{$item->doctor_confirmation}}</td>
-                    <td><a href="{{ route('predict.edit', $item->id) }}" class="btn btn-info btn-sm">Edit</a></td>
+                    <td>
+                    <a href="{{ route('predict.edit', $item->id) }}" class="btn btn-info btn-sm">Detail</a>    
+                    <a href="{{ route('predict.edit', $item->id) }}" class="btn btn-info btn-sm">Edit</a>
+                    <a href="{{ route('predict.delete', $item->id) }}" onclick="return confirm('Are you sure you want to delete this')" class="btn btn-warning btn-sm">Delete</a>
+                </td>
 
                     {{--                    <td>--}}
                     {{--                        --}}
