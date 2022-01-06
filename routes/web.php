@@ -78,6 +78,19 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::post('/{model}/update', 'ModelsController@update')->name('models.update');
             Route::get('/{model}/delete', 'ModelsController@delete')->name('models.delete');
         });
+        Route::group(['prefix' => 'predict'], function () {
+            Route::get('/', 'PredictController@index')->name('predict.index');
+            Route::get('/create', 'PredictController@create')->name('predict.create');
+            Route::post('/store', 'PredictController@store')->name('predict.store');
+            Route::get('/edit/{id}', 'PredictController@edit')->name('predict.edit');
+            Route::post('/update', 'PredictController@update')->name('predict.update');
+            Route::get('/detail/{id}', 'PredictController@detail')->name('predict.detail');
+            Route::get('/delete/{id}', 'PredictController@delete')->name('predict.delete');
+
+            Route::post('/sonographer/confirm', 'PredictController@sonographerConfirm')->name('predict.sonographer.confirm');
+            Route::post('/doctor/confirm', 'PredictController@doctorConfirm')->name('predict.doctor.confirm');
+
+        });
 
         Route::resource('roles', RolesController::class);
         Route::resource('permissions', PermissionsController::class);
