@@ -69,7 +69,28 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
             Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
         });
+        Route::group(['prefix' => 'models'], function () {
+            Route::get('/', 'ModelsController@index')->name('models.index');
+            Route::get('/create', 'ModelsController@create')->name('models.create');
+            Route::post('/store', 'ModelsController@store')->name('models.store');
+            Route::get('/{model}/show', 'ModelsController@show')->name('models.show');
+            Route::get('/{model}/edit', 'ModelsController@edit')->name('models.edit');
+            Route::post('/{model}/update', 'ModelsController@update')->name('models.update');
+            Route::get('/{model}/delete', 'ModelsController@delete')->name('models.delete');
+        });
+        Route::group(['prefix' => 'predict'], function () {
+            Route::get('/', 'PredictController@index')->name('predict.index');
+            Route::get('/create', 'PredictController@create')->name('predict.create');
+            Route::post('/store', 'PredictController@store')->name('predict.store');
+            Route::get('/edit/{id}', 'PredictController@edit')->name('predict.edit');
+            Route::post('/update', 'PredictController@update')->name('predict.update');
+            Route::get('/detail/{id}', 'PredictController@detail')->name('predict.detail');
+            Route::get('/delete/{id}', 'PredictController@delete')->name('predict.delete');
 
+            Route::post('/sonographer/confirm', 'PredictController@sonographerConfirm')->name('predict.sonographer.confirm');
+            Route::post('/doctor/confirm', 'PredictController@doctorConfirm')->name('predict.doctor.confirm');
+
+        });
 
         Route::resource('roles', RolesController::class);
         Route::resource('permissions', PermissionsController::class);
