@@ -54,14 +54,14 @@ class PredictController extends Controller
         $predict = Predict::find($id);
         $paitients = Patients::pluck('name', 'id');
         $sonographer = User::role('sonographer')->pluck('name', 'id');
-        $input_image="data:image/png;base64";
+        $input_image = "data:image/png;base64";
         if (Storage::disk('local')->exists($predict->input_image_path)) {
-            $image=Storage::disk('local')->get($predict->input_image_path);
-           $extension=explode('.',$predict->input_image_path);
-           $extension=end($extension);
-            $input_image="data:image/".$extension.";base64,".base64_encode($image);
+            $image = Storage::disk('local')->get($predict->input_image_path);
+            $extension = explode('.', $predict->input_image_path);
+            $extension = end($extension);
+            $input_image = "data:image/" . $extension . ";base64," . base64_encode($image);
         }
-        return view('predict.edit', compact('predict', 'sonographer', 'paitients', 'id','input_image'));
+        return view('predict.edit', compact('predict', 'sonographer', 'paitients', 'id', 'input_image'));
     }
 
     public function update(Request $request)
@@ -92,9 +92,48 @@ class PredictController extends Controller
             return redirect(route('predict.index'))->with('success', 'Thành công');
         } else {
             return redirect(route('predict.index'))->with('error', 'Thất bại');
-
         }
 
 
+    }
+    public function detail($id)
+    {
+        $predict = Predict::find($id);
+        $paitients = Patients::pluck('name', 'id');
+        $sonographer = User::role('sonographer')->pluck('name', 'id');
+        $input_image = "data:image/png;base64";
+        if (Storage::disk('local')->exists($predict->input_image_path)) {
+            $image = Storage::disk('local')->get($predict->input_image_path);
+            $extension = explode('.', $predict->input_image_path);
+            $extension = end($extension);
+            $input_image = "data:image/" . $extension . ";base64," . base64_encode($image);
+        }
+        return view('predict.detail', compact('predict', 'sonographer', 'paitients', 'id', 'input_image'));
+    }
+    public function delete($id)
+    {
+        $predict = Predict::delete($id);
+        return view('predict.detail', compact('predict', 'sonographer', 'paitients', 'id', 'input_image'));
+    }
+    public
+    function doctorConfirm(Request $request)
+    {
+        $name = $request->name;
+        $id = $request->id;
+        Predict::find($id)->update([
+            'doctor_confirmation' => $name,
+        ]);
+        return redirect(route('predict.index'));
+
+    }
+    public
+    function sonographerConfirm(Request $request)
+    {
+        $name = $request->name;
+        $id = $request->id;
+        Predict::find($id)->update([
+            'sonographer_result' => $name,
+        ]);
+        return redirect(route('predict.index'));
     }
 }
