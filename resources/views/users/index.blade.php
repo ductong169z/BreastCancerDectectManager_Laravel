@@ -14,7 +14,7 @@
         </div>
 
         <div class="col-md-4">
-            <form action="{{ route('users.search') }}" method="GET">
+            <form action="{{ route('users.search') }}" method="PUT">
                 <div class="form-group">
                     <input type="search" name="search" class="form-control">
                     <span class="form-control-btn">
@@ -43,30 +43,42 @@
                         <td>{{ $user->username }}</td>
                         <td>
                             @foreach ($user->roles as $userrole)
-                                <select class="badge bg-primary" name="role" required>
+                                <select class="badge bg-primary text-light" name="role" required>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->id }}" @if ($role->name == $userrole->name)
                                             selected
                                     @endif
                                     >{{ $role->name }}</option>
-                                    @endforeach
-                                </select>
                             @endforeach
-                        </td>
-                        <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-warning btn-sm">Show</a></td>
-                        <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a></td>
-                        <td>
-                            {{ Form::select('status', [1 => 'Active', 0 => 'Deactive'], $user->status) }}
-                        </td>
-                    </tr>
+                            </select>
+                @endforeach
+                </td>
+                <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-warning btn-sm">Show</a></td>
+                <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a></td>
+                {{-- <td>
+                    {{ Form::select('status', [1 => 'Active', 0 => 'Deactive'], $user->status) }}
+                </td> --}}
+                <td>
+                    {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
+                    @if ($user->status == 1)
+                        {!! Form::submit('Active', ['class' => 'btn btn-success']) !!}
+                        {!! Form::close() !!}
+                    
+                    @else
+                        {!! Form::submit('Deactive', ['class' => 'btn btn-secondary']) !!}
+                        {!! Form::close() !!}
+                        
+                    @endif
+                </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
         <a href="{{ route('users.savechange', $user) }}" class="btn btn-primary">Save</a>
         <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</button>
-        <div class="d-flex">
-            {!! $users->links() !!}
-        </div>
-        
+            <div class="d-flex">
+                {!! $users->links() !!}
+            </div>
+
     </div>
 @endsection

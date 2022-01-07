@@ -134,17 +134,21 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
-
+        if ($user->status==1) {
+            $user->status=0;
+        } else {
+            $user->status=1;
+        }
+        $user->save();
         return redirect()->route('users.index')
             ->withSuccess(__('User deleted successfully.'));
     }
 
-    public function search()
-    {
-        $search = $require->get('search');
-        $users = Users::where('name','LIKE','%'.$search.'%')->get();
-        return view('users.index', compact('users'));
-    }
+    // public function search(Request request)
+    // {
+    //     $search = $require->get('search');
+    //     $users = Users::where('name','LIKE','%'.$search.'%')->get();
+    //     return view('users.index', compact('users'));
+    // }
 
 }
