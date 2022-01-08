@@ -22,6 +22,11 @@ class PredictController extends Controller
             ->join('patients', 'patients.id', '=', 'patient_id')
             ->join('users as sonographer', 'sonographer.id', '=', 'sonographer_id')
             ->paginate();
+            $patient=$request->patient;
+            if($patient){
+                $predict=$predict->where('patients.name', 'LIKE', '%' . $patient . '%');
+            }
+            $predict=$predict->get();
         return view('predict.index', compact('predict'));
     }
 
