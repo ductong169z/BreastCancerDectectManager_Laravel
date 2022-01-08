@@ -66,7 +66,7 @@
                 <label for="image" class="form-label">Doctor confirmation</label>
                 <label class="form-control">{{ $predict->doctor_confirmation }}</label>
             </div>
-            @if(Auth::user()->hasRole('sonographer')|| Auth::user()->hasRole('doctor'))
+            @if(Auth::user()->hasRole('admin')||Auth::user()->hasRole('sonographer')|| Auth::user()->hasRole('doctor'))
             <div class="mb-3">
                 <label for="image" class="form-label">Confirm result</label>
                 <div class="form-check">

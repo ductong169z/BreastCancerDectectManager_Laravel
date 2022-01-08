@@ -20,9 +20,14 @@ class PredictController extends Controller
         $predict = Predict::select('doctor.name as doctor_name', 'sonographer.name as sonographer_name', 'predict.doctor_confirmation', 'predict.id', 'patients.name as patient_name')
             ->join('users as doctor', 'doctor.id', '=', 'doctor_id')
             ->join('patients', 'patients.id', '=', 'patient_id')
-            ->join('users as sonographer', 'sonographer.id', '=', 'sonographer_id')
-            ->paginate();
-        return view('predict.index', compact('predict'));
+            ->join('users as sonographer', 'sonographer.id', '=', 'sonographer_id');
+            
+            $patient=$request->patient;
+            if($patient){
+                $predict=$predict->where('patients.name', 'LIKE', '%' . $patient . '%');
+            }
+            $predict=$predict->get();
+        return view('predict.index', compact('predict','patient'));
     }
 
     public function create(Request $request)
@@ -44,7 +49,6 @@ class PredictController extends Controller
             'sonographer_id' => $sonographer_id,
             'doctor_id' => Auth::id(),
             'model_id' => $model_id->value
-
         ]);
         return redirect(route('predict.index'));
     }
@@ -78,6 +82,7 @@ class PredictController extends Controller
             ->withFile('image', $image, $image->getClientMimeType(), $imageName)
             ->post();
         $response = json_decode($response, true);
+        dd($response);
         if ($response['status'] == "success") {
             $predict_result = $response['name'];
             $accuracy = $response['score'];
@@ -96,7 +101,7 @@ class PredictController extends Controller
 
 
     }
-    public function detail($id)
+    public function show($id)
     {
         $predict = Predict::find($id);
         $paitients = Patients::pluck('name', 'id');

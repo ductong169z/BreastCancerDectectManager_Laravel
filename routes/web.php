@@ -55,7 +55,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
         /**
          * Logout Routes
          */
-        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+     //   Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 
         /**
          * User Routes
@@ -84,7 +84,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::post('/store', 'PredictController@store')->name('predict.store');
             Route::get('/edit/{id}', 'PredictController@edit')->name('predict.edit');
             Route::post('/update', 'PredictController@update')->name('predict.update');
-            Route::get('/detail/{id}', 'PredictController@detail')->name('predict.detail');
+            Route::get('/show/{id}', 'PredictController@show')->name('predict.show');
             Route::get('/delete/{id}', 'PredictController@delete')->name('predict.delete');
 
             Route::post('/sonographer/confirm', 'PredictController@sonographerConfirm')->name('predict.sonographer.confirm');
