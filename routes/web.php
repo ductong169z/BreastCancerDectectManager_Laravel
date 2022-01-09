@@ -70,7 +70,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
             Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
             Route::patch('/savechange', 'UsersController@savechange')->name('users.savechange');
-            Route::get('/{user}/admin_reset_password', 'UsersController@resetpassword')->name('users.admin_reset_password');
+            Route::get('/{user}/admin_reset_password', 'UsersController@adminResetpassword')->name('users.admin_reset_password');
         });
         Route::group(['prefix' => 'models'], function () {
             Route::get('/', 'ModelsController@index')->name('models.index');

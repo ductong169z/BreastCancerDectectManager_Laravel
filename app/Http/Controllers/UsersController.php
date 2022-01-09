@@ -50,6 +50,7 @@ class UsersController extends Controller
             'password' => 'test',
             'role' => $request->role,
         ])); 
+
         
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));
@@ -84,11 +85,20 @@ class UsersController extends Controller
             'roles' => Role::latest()->get()
         ]);
     }
-    public function resetpassword(User $user)
+    public function adminResetpassword(User $user)
     {
-        return view('users.resetpassword', [
-            'user' => $user
+        return view('users.admin_reset_password', [
+            'user' => $user,
+            'userRole' => $user->roles->pluck('name')->toArray(),
+            'roles' => Role::latest()->get()
         ]);
+    }
+
+    public function passwordReset(User $user, UpdateUserRequest $request)
+    {
+        
+        return redirect()->route('users.index')
+            ->withSuccess(__('User updated successfully.'));
     }
 
     /**
