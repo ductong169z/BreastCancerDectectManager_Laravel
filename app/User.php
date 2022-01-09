@@ -30,7 +30,7 @@ class User extends Authenticatable
         'email',
         'username',
         'password',
-        'phone'
+        'status'
     ];
 
     /**

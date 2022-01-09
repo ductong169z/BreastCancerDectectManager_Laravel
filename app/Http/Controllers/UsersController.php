@@ -18,7 +18,9 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::latest()->paginate(10);
-        return view('users.index', compact('users'));
+        return view('users.index', compact('users'),[
+            'roles' => Role::latest()->get()
+        ]);
     }
 
     /**
@@ -28,7 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('users.create',['roles' => Role::latest()->get()]);
     }
 
     /**
@@ -42,12 +44,14 @@ class UsersController extends Controller
     public function store(User $user, StoreUserRequest $request)
     {
         //For demo purposes only. When creating user or inviting a user
-        // you should create a generated random password and email it to the user\
+        // you should create a generated random password and email it to the user
+        $user->syncRoles($request->get('role'));
         $user->create(array_merge($request->validated(), [
             'password' => 'test',
-            'phone'=>$request->phone
-        ]));
+            'role' => $request->role,
+        ])); 
 
+        
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));
     }
@@ -81,6 +85,56 @@ class UsersController extends Controller
             'roles' => Role::latest()->get()
         ]);
     }
+    public function adminResetpassword(User $user)
+    {
+        return view('users.admin_reset_password', [
+            'user' => $user,
+            'userRole' => $user->roles->pluck('name')->toArray(),
+            'roles' => Role::latest()->get()
+        ]);
+    }
+
+    public function passwordReset(User $user, UpdateUserRequest $request)
+    {
+        //  //Validate form
+        //  $validator = \Validator::make($request->all(),[
+        //     'oldpassword'=>[
+        //         'required', function($attribute, $value, $fail){
+        //             if( !\Hash::check($value, Auth::user()->password) ){
+        //                 return $fail(__('The current password is incorrect'));
+        //             }
+        //         },
+        //         'min:8',
+        //         'max:30'
+        //      ],
+        //      'newpassword'=>'required|min:8|max:30',
+        //      'cnewpassword'=>'required|same:newpassword'
+        //  ],[
+        //      'oldpassword.required'=>'Enter your current password',
+        //      'oldpassword.min'=>'Old password must have atleast 8 characters',
+        //      'oldpassword.max'=>'Old password must not be greater than 30 characters',
+        //      'newpassword.required'=>'Enter new password',
+        //      'newpassword.min'=>'New password must have atleast 8 characters',
+        //      'newpassword.max'=>'New password must not be greater than 30 characters',
+        //      'cnewpassword.required'=>'ReEnter your new password',
+        //      'cnewpassword.same'=>'New password and Confirm new password must match'
+        //  ]);
+
+        // if( !$validator->passes() ){
+        //     return response()->json(['status'=>0,'error'=>$validator->errors()->toArray()]);
+        // }else{
+             
+        //  $update = User::find(Auth::user()->id)->update(['password'=>\Hash::make($request->newpassword)]);
+
+        //  if( !$update ){
+        //      return response()->json(['status'=>0,'msg'=>'Something went wrong, Failed to update password in db']);
+        //  }else{
+        //      return response()->json(['status'=>1,'msg'=>'Your password has been changed successfully']);
+        //  }
+        // }
+        return redirect()->route('users.index')
+            ->withSuccess(__('User updated successfully.'));
+    }
 
     /**
      * Update user data
@@ -92,9 +146,25 @@ class UsersController extends Controller
      */
     public function update(User $user, UpdateUserRequest $request)
     {
+        $user->status = $request->status;
         $user->update($request->validated());
 
         $user->syncRoles($request->get('role'));
+
+        return redirect()->route('users.index')
+            ->withSuccess(__('User updated successfully.'));
+    }
+
+    /**
+     * Update user data
+     *
+     * @param User $user
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function savechange(User $user)
+    {
+        $user->save();
 
         return redirect()->route('users.index')
             ->withSuccess(__('User updated successfully.'));
@@ -109,9 +179,21 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
-
+        if ($user->status==1) {
+            $user->status=0;
+        } else {
+            $user->status=1;
+        }
+        $user->save();
         return redirect()->route('users.index')
             ->withSuccess(__('User deleted successfully.'));
     }
+
+    // public function search(Request request)
+    // {
+    //     $search = $require->get('search');
+    //     $users = Users::where('name','LIKE','%'.$search.'%')->get();
+    //     return view('users.index', compact('users'));
+    // }
+
 }
