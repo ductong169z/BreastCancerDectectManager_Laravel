@@ -63,10 +63,11 @@
                     </td>
                 </tr>
             @endforeach
+           
         </tbody>
     </table>
 
-
+    <!-- {{$predict->links()}} -->
 </div>
 
 @endsection

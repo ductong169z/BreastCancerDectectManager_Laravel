@@ -20,14 +20,13 @@ class PredictController extends Controller
         $predict = Predict::select('doctor.name as doctor_name', 'sonographer.name as sonographer_name', 'predict.doctor_confirmation', 'predict.id', 'patients.name as patient_name')
             ->join('users as doctor', 'doctor.id', '=', 'doctor_id')
             ->join('patients', 'patients.id', '=', 'patient_id')
-            ->join('users as sonographer', 'sonographer.id', '=', 'sonographer_id')
-            ->paginate();
+            ->join('users as sonographer', 'sonographer.id', '=', 'sonographer_id');
             $patient=$request->patient;
             if($patient){
                 $predict=$predict->where('patients.name', 'LIKE', '%' . $patient . '%');
             }
-            $predict=$predict->get();
-        return view('predict.index', compact('predict'));
+            $predict=$predict->paginate();
+        return view('predict.index', compact('predict','patient'));
     }
 
     public function create(Request $request)
