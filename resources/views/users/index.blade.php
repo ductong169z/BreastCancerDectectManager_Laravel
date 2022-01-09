@@ -61,11 +61,11 @@
                 <td>
                     {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
                     @if ($user->status == 1)
-                        {!! Form::submit('Active', ['class' => 'btn btn-success']) !!}
+                        {!! Form::submit('Active', ['class' => 'btn btn-success','onclick'=>"return confirm('Are you want deactive user') "]) !!}
                         {!! Form::close() !!}
                     
                     @else
-                        {!! Form::submit('Deactive', ['class' => 'btn btn-secondary']) !!}
+                        {!! Form::submit('Deactive', ['class' => 'btn btn-secondary','onclick'=>"return confirm('Are you want active user') "]) !!}
                         {!! Form::close() !!}
                         
                     @endif
