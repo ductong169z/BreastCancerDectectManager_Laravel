@@ -14,13 +14,29 @@
             @include('layouts.partials.messages')
         </div>
 
+        <div class="mt-2 mb-2">
+            <form action="{{ route('models.index') }}">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" value="{{ $name }}" name="name"
+                               placeholder="Model name">
+
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-success">Search</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
         <table class="table table-striped">
             <thead>
             <tr>
                 <th scope="col" width="1%">#</th>
-                <th scope="col">name</th>
-                <th scope="col" width="10%">file_name</th>
-                <th scope="col" width="10%">description</th>
+                <th scope="col">Name</th>
+                <th scope="col" width="10%">File name</th>
+                <th scope="col" width="10%">Description</th>
                 <th scope="col" width="1%" colspan="3"></th>
             </tr>
             </thead>

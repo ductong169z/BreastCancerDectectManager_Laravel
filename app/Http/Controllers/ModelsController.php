@@ -13,10 +13,16 @@ class ModelsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $models = ModelPredict::latest()->paginate(10)->where('status', 1);
-        return view('models.index', compact('models'));
+        $models = ModelPredict::select();
+
+        $name=$request->name;
+        if($name){
+            $models=$models->where('model.name', 'LIKE', '%' . $name . '%')->where('status', 1);
+        }
+        $models=$models->get();
+        return view('models.index', compact('models','name'));
     }
 
     /**
