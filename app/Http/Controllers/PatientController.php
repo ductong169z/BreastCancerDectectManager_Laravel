@@ -16,11 +16,17 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $patients = Patient::latest()->paginate(10);
-        return view('patients.index', compact('patients'));
+        $patient=$request->patient;
+        $patients = Patient::latest();
+        if($patients){
+            $patients = $patients->where('patients.name', 'LIKE', '%' . $patient . '%');
+        }
+        $patients = $patients->paginate(10);
+        return view('patients.index', compact('patients', 'patient'));
     }
+
 
     /**
      * Show form for creating patient

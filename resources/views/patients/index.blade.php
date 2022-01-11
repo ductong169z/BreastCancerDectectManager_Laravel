@@ -5,6 +5,23 @@
 
     <div class="bg-light p-4 rounded">
         <h1>patients</h1>
+
+        <div class="mt-2 mb-2">
+            <form action="{{ route('patients.index') }}" id="form1">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" value="{{ $patient }}" class="form-control" name="patient"
+                               placeholder="Patient name">
+
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" form="form1" class="btn btn-success">Search</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
         <div class="lead">
             Manage your patients here.
             <a href="{{ route('patients.create') }}" class="btn btn-primary btn-sm float-right">Add new user</a>
