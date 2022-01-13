@@ -97,4 +97,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
         Route::resource('roles', RolesController::class);
         Route::resource('permissions', PermissionsController::class);
+
+        /**
+         * Patient Routes
+         */
+        Route::group(['prefix' => 'patients'], function () {
+            Route::get('/', 'PatientController@index')->name('patients.index');
+            Route::get('/create', 'PatientController@create')->name('patients.create');
+            Route::post('/create', 'PatientController@store')->name('patients.store');
+            Route::get('/{patient}/show', 'PatientController@show')->name('patients.show');
+            Route::get('/{patient}/edit', 'PatientController@edit')->name('patients.edit');
+            Route::patch('/{patient}/update', 'PatientController@update')->name('patients.update');
+            Route::delete('/{patient}/delete', 'PatientController@destroy')->name('patients.destroy');
+        });
     });
