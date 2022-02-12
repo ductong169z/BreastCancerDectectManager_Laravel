@@ -9,5 +9,11 @@ class Setting extends Model
 {
     protected $table = 'setting';
     protected $fillable = [
+        'id',
+        'name',
+        'value',
+        'create_at',
+        'updated_at',
+        'select'
     ];
     protected $primaryKey = 'id';}
