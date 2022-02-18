@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Ixudra\Curl\Facades\Curl;
 use App\Models\ModelPredict;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class ModelsController extends Controller
@@ -16,7 +17,8 @@ class ModelsController extends Controller
     public function index()
     {
         $models = ModelPredict::latest()->paginate(10)->where('status', 1);
-        return view('models.index', compact('models'));
+        $setting=Setting::where('name', 'model_id')->first();
+        return view('models.index')->with('models',$models)->with('setting',$setting);
     }
 
     /**
@@ -105,5 +107,15 @@ class ModelsController extends Controller
         $model->save();
         return redirect(route('models.index'));
     }
+
+    public function updateSetting(Request $request)
+    {
+        $id=$request->id;
+        $setting = Setting::find(1);
+        $setting->value=$id;
+        $setting->save();
+        return redirect(route('models.index'));
+    }
+
 
 }
