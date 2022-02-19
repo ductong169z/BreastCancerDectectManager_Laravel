@@ -83,16 +83,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::post('/updateSetting', 'ModelsController@updateSetting')->name('models.updateSetting');
         });
         Route::group(['prefix' => 'predict'], function () {
-            Route::get('/', 'PredictController@index')->name('predict.index');
-            Route::get('/create', 'PredictController@create')->name('predict.create');
-            Route::post('/store', 'PredictController@store')->name('predict.store');
-            Route::get('/edit/{id}', 'PredictController@edit')->name('predict.edit');
-            Route::post('/update', 'PredictController@update')->name('predict.update');
-            Route::get('/show/{id}', 'PredictController@show')->name('predict.show');
-            Route::get('/delete/{id}', 'PredictController@delete')->name('predict.delete');
+            Route::get('/', 'PredictionsController@index')->name('predict.index');
+            Route::get('/create', 'PredictionsController@create')->name('predict.create');
+            Route::post('/store', 'PredictionsController@store')->name('predict.store');
+            Route::get('/edit/{id}', 'PredictionsController@edit')->name('predict.edit');
+            Route::post('/update', 'PredictionsController@update')->name('predict.update');
+            Route::get('/show/{id}', 'PredictionsController@show')->name('predict.show');
+            Route::get('/delete/{id}', 'PredictionsController@delete')->name('predict.delete');
+            Route::post('/upload-image', 'PredictionsController@uploadImage')->name('predict.upload');
 
-            Route::post('/sonographer/confirm', 'PredictController@sonographerConfirm')->name('predict.sonographer.confirm');
-            Route::post('/doctor/confirm', 'PredictController@doctorConfirm')->name('predict.doctor.confirm');
+            Route::post('/doctor/confirm', 'PredictionsController@doctorConfirm')->name('predict.doctor.confirm');
 
         });
 

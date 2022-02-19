@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ModelPredict;
 use App\Models\Patients;
-use App\Models\Predict;
+use App\Models\Predictions;
 use App\Models\Setting;
 use App\User;
 use Illuminate\Http\Request;
@@ -12,26 +12,20 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Ixudra\Curl\Facades\Curl;
 use Spatie\Permission\Traits\HasRoles;
+use GuzzleHttp\Client;
 
-class PredictController extends Controller
+class PredictionsController extends Controller
 {
     public function index(Request $request)
     {
-        $predict = Predict::select('doctor.name as doctor_name', 'sonographer.name as sonographer_name', 'predict.doctor_confirmation', 'predict.id', 'patients.name as patient_name')
-            ->join('users as doctor', 'doctor.id', '=', 'doctor_id')
-            ->join('patients', 'patients.id', '=', 'patient_id')
-            ->join('users as sonographer', 'sonographer.id', '=', 'sonographer_id');
-            $patient=$request->patient;
-            if($patient){
-                $predict=$predict->where('patients.name', 'LIKE', '%' . $patient . '%');
-            }
-            $predict=$predict->paginate();
-        return view('predict.index', compact('predict','patient'));
+       
+        $patient = $request->patient;
+        return view('predict.index', compact('patient'));
     }
 
     public function create(Request $request)
     {
-//        $doctor=User::role('doctor')->get();
+        //        $doctor=User::role('doctor')->get();
         $paitients = Patients::pluck('name', 'id');
         $sonographer = User::role('sonographer')->pluck('name', 'id');
 
@@ -43,7 +37,7 @@ class PredictController extends Controller
         $sonographer_id = $request->sonographer;
         $patient_id = $request->patient;
         $model_id = Setting::where('name', 'model_id')->first();
-        Predict::create([
+        Predictions::create([
             'patient_id' => $patient_id,
             'sonographer_id' => $sonographer_id,
             'doctor_id' => Auth::id(),
@@ -54,7 +48,7 @@ class PredictController extends Controller
 
     public function edit($id)
     {
-        $predict = Predict::find($id);
+        $predict = Predictions::find($id);
         $paitients = Patients::pluck('name', 'id');
         $sonographer = User::role('sonographer')->pluck('name', 'id');
         $input_image = "data:image/png;base64";
@@ -72,37 +66,11 @@ class PredictController extends Controller
         $id = $request->id;
         $sonographer_id = $request->sonographer;
         $patient_id = $request->patient;
-        $model_id = Setting::where('name', 'model_id')->first();
-        $model = ModelPredict::find($model_id);
-        $image = $request->image;
-        $imageName = "P_" . $patient_id . '_' . $id . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-        $response = Curl::to('http://127.0.0.1:8000/predict/')
-            ->withData(array('modelName' => 'model.h5'))
-            ->withFile('image', $image, $image->getClientMimeType(), $imageName)
-            ->post();
-        $response = json_decode($response, true);
-        dd($response);
-        if ($response['status'] == "success") {
-            $predict_result = $response['name'];
-            $accuracy = $response['score'];
-            $output_image = "data:" . $image->getClientMimeType() . ";base64, " . $response['image'];
-            Storage::disk('local')->put($imageName, file_get_contents($image));
-            Predict::find($id)->update([
-                'input_image_path' => $imageName,
-                'predict_result' => $predict_result,
-                'output_image' => $output_image,
-                'accuracy' => $accuracy
-            ]);
-            return redirect(route('predict.index'))->with('success', 'Thành công');
-        } else {
-            return redirect(route('predict.index'))->with('error', 'Thất bại');
-        }
-
-
+        return redirect(route('predict.index'))->with('success','Update successful');
     }
     public function show($id)
     {
-        $predict = Predict::find($id);
+        $predict = Predictions::find($id);
         $paitients = Patients::pluck('name', 'id');
         $sonographer = User::role('sonographer')->pluck('name', 'id');
         $input_image = "data:image/png;base64";
@@ -116,7 +84,7 @@ class PredictController extends Controller
     }
     public function delete($id)
     {
-        $predict = Predict::delete($id);
+        $predict = Predictions::delete($id);
         return view('predict.detail', compact('predict', 'sonographer', 'paitients', 'id', 'input_image'));
     }
     public
@@ -124,20 +92,40 @@ class PredictController extends Controller
     {
         $name = $request->name;
         $id = $request->id;
-        Predict::find($id)->update([
+        Predictions::find($id)->update([
             'doctor_confirmation' => $name,
         ]);
         return redirect(route('predict.index'));
-
     }
-    public
-    function sonographerConfirm(Request $request)
+    public function uploadImage(Request $request)
     {
-        $name = $request->name;
         $id = $request->id;
-        Predict::find($id)->update([
-            'sonographer_result' => $name,
-        ]);
-        return redirect(route('predict.index'));
+        $model_id = Setting::where('name', 'model_id')->first();
+        $model = ModelPredict::find($model_id);
+        $image = $request->image;
+        $imageName = "P_" . $id . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+        $response = Curl::to('http://127.0.0.1:8000/predict/')
+            ->withData(array('modelName' => 'model.h5'))
+            ->withFile('image', $image, $image->getClientMimeType(), $imageName)
+            ->post();
+      
+        $response = json_decode($response, true);
+        
+        if ($response['status'] == "success") {
+            $predict_result = $response['name'];
+            $accuracy = $response['score'];
+            $output_image = "data:" . $image->getClientMimeType() . ";base64, " . $response['image'];
+            Storage::disk('local')->put($imageName, file_get_contents($image));
+            Predictions::find($id)->update([
+                'input_image_path' => $imageName,
+                'predict_result' => $predict_result,
+                'output_image' => $output_image,
+                'accuracy' => $accuracy,
+                'status' => 2
+            ]);
+            return ['status' => 'success', 'message' => 'Upload thành công','data'=>json_encode($response)];
+        } else {
+            return ['status' => 'failed', 'message' => 'Upload thất bại','data'=>json_encode($response)];
+        }
     }
 }

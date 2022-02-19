@@ -5,14 +5,23 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css" />
+<style type="text/css">
+    .btn-group-sm>.btn,
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: .6rem;
+        line-height: 1;
+        border-radius: 0.6rem;
+    }
+</style>
 <div class="bg-light p-4 rounded">
     <h2>Prediction</h2>
     <div class="lead">
         Manage your prediction here.
         @can("predict.create")
-            <a href="{{ route('predict.create') }}" class="btn btn-primary btn-sm float-right">Add
-                predict
-                request</a>
+        <a href="{{ route('predict.create') }}" class="btn btn-primary float-right">Add
+            predict
+            request</a>
         @endcan
     </div>
 
@@ -23,8 +32,7 @@
         <form action="{{ route('predict.index') }}">
             <div class="row">
                 <div class="col-md-6">
-                    <input type="text" class="form-control" value="{{ $patient }}" name="patient"
-                        placeholder="Patient name">
+                    <input type="text" class="form-control" value="{{ $patient }}" name="patient" placeholder="Patient name">
 
                 </div>
                 <div class="col-md-2">
@@ -42,43 +50,46 @@
                 <th>Sonographer name</th>
                 <th>Patients name</th>
                 <th>Predict result</th>
-                <!-- <th></th> -->
+                <th>Status</th>
+                <th>
+                </th>
             </tr>
         </thead>
         <tbody>
         </tbody>
-        <!-- <tbody>
-@foreach($predict as $item)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->doctor_name }}</td>
-                    <td>{{ $item->sonographer_name }}</td>
-                    <td>{{ $item->patient_name }}</td>
-                    <td>{{ $item->doctor_confirmation }}</td>
-                    <td>
-                        <a href="{{ route('predict.edit', $item->id) }}"
-                            class="btn btn-info btn-sm">Detail</a>
-                        <a href="{{ route('predict.edit', $item->id) }}"
-                            class="btn btn-info btn-sm">Edit</a>
-                        <a href="{{ route('predict.delete', $item->id) }}"
-                            onclick="return confirm('Are you sure you want to delete this')"
-                            class="btn btn-warning btn-sm">Delete</a>
-                    </td>
-                </tr>
-@endforeach
-           
-        </tbody> -->
+        
     </table>
-
-    <!-- {{ $predict->links() }} -->
+    <!-- Modal upload image-->
+    <div class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-labelledby="uploadImageTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Upload Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="upload-image" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input hidden id="id" name="id">
+                        <input type="file" name="image" class="form-control">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="fetchUploadImage()" class="btn btn-primary">Sumbit</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 
 <script>
-    $('#predict-table').DataTable({
+    let table = $('#predict-table').DataTable({
         searching: false,
         "lengthMenu": [
             [10, 25, 50, -1],
@@ -95,7 +106,7 @@
         "responsive": true,
         "deferRender": true,
         "ajax": {
-            "url": "{{ route('predict.api') }}",
+            "url": "{{ route('predict.api',['role'=>Auth::user()->getRoleNames()[0],'userId'=>Auth::user()->id]) }}",
             "type": "get"
         },
         "columns": [{
@@ -115,13 +126,103 @@
                 name: 'patient_name'
             },
             {
-                data:'predict_result',
-                name:'predict_result'
+                data: 'predict_result',
+                name: 'predict_result'
+            },
+            {
+                data: 'status',
+                name: 'status',
+                "render": function(data, type, row, meta) {
+                    if (data == 0) {
+                        return '<label>Not Yet</label>';
+                    } else if (data == 1) {
+                        return '<label style="color: #00bc8c;">In Progress</label>';
+                    } else if (data == 2) {
+                        return '<label style="color: #006bbc;">Completed</label>';
+                    }
+                }
+            }, {
+                data: function(row, type, val, meta) {
+                    return {
+                        'data_status': row.status,
+                        'data_id': row.id
+                    }
+                },
+                "searchable": false,
+                "render": function(data, type, row, meta) {
+                    if (data.data_status == 0) {
+                        return '<ul class="list-inline d-flex justify-content-center">' +
+                            '@can("predict.upload")' +
+                            '<li class="list-inline-item"><a class="btn btn-primary btn-sm" href="javascript:void(0)" data-type="upload" data-id="' +
+                            data.data_id + '" onclick="show_upload_modal(this)">Upload Image</a></li>' +
+                            '@endcan' +
+                            '@can("predict.show")' +
+                            '<li class="list-inline-item"><a class="btn btn-info btn-sm" href="{{ route('predict.show','') }}/' +
+                        data.data_id + '" data-type="view">View</a></li>' +
+                            '@endcan' +
+                            '@can("predict.edit")' +
+                            '<li class="list-inline-item"><a class="btn btn-warning btn-sm" href="{{ route('predict.edit','') }}/' +
+                        data.data_id + '" data-type="edit" data-id="' +
+                            data.data_id + '" onclick="change_status(this)">Edit</a></li>' +
+                            '@endcan' +
+                            '@can("predict.delete")' +
+                            '<li class="list-inline-item"><a class="btn btn-danger btn-sm" href="{{ route('predict.delete','') }}/' +
+                        data.data_id + '" data-type="delete" data-id="' +
+                            data.data_id + '" onclick="change_status(this)">Delete</a></li>' +
+                            '@endcan' +
+                            '</ul>'
+                    } else {
+                        return '<ul class="list-inline d-flex justify-content-center">' +
+                            '@can("predict.show")' +
+                            '<li class="list-inline-item"><a class="btn btn-info btn-sm" href="{{ route('predict.show','') }}/' +
+                        data.data_id + '" data-type="view">View</a></li>' +
+                            '@endcan' +
+                            '@can("predict.edit")' +
+                            '<li class="list-inline-item"><a class="btn btn-warning btn-sm" href="{{ route('predict.edit','') }}/' +
+                        data.data_id + '" data-type="edit" data-id="' +
+                            data.data_id + '" onclick="change_status(this)">Edit</a></li>' +
+                            '@endcan' +
+                            '@can("predict.delete")' +
+                            '<li class="list-inline-item"><a class="btn btn-danger btn-sm" href="{{ route('predict.delete','') }}/' +
+                        data.data_id + '" data-type="delete" data-id="' +
+                            data.data_id + '" onclick="change_status(this)">Delete</a></li>' +
+                            '@endcan' +
+                            '</ul>'
+                    }
+                }
             }
+
 
         ]
 
     });
 
+    function show_upload_modal(e) {
+        $("#id").val(e.dataset.id)
+        $("#upload-modal").modal();
+
+    }
+
+ 
+
+     function fetchUploadImage() {
+
+        let myForm = document.getElementById('upload-image');
+        let formData = new FormData(myForm);
+        $("#upload-modal").modal('hide');
+        $.ajax({
+            url: "{{ route('predict.upload') }}",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            // async: false,
+            success: function (response) {
+                table.ajax.reload(null, false);
+            }
+        })
+
+    }
+    
 </script>
 @endsection
