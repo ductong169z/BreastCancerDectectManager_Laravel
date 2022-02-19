@@ -35,15 +35,7 @@
                     <span class="text-danger text-left">{{ $errors->first('sonographer') }}</span>
                 @endif
             </div>
-            @if(!Auth::user()->hasRole('sonographer'))
-                <div class="mb-3">
-                    <label for="image" class="form-label">Image</label>
-                    <input type="file" name="image" class="form-control" id="image" required>
-                    @if($errors->has('image'))
-                        <span class="text-danger text-left">{{ $errors->first('image') }}</span>
-                    @endif
-                </div>
-            @endif
+     
 
             @if($predict->accuracy)
                 <div class="mb-3">

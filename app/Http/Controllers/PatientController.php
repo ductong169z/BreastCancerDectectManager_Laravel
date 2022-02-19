@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
-use App\Patient;
+use App\Models\Patients;
 use App\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -19,7 +19,7 @@ class PatientController extends Controller
     public function index(Request $request)
     {
         $patient=$request->patient;
-        $patients = Patient::latest();
+        $patients = Patients::latest();
         if($patients){
             $patients = $patients->where('patients.name', 'LIKE', '%' . $patient . '%');
         }
@@ -46,7 +46,7 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Patient $patient, StorePatientRequest $request)
+    public function store(Patients $patient, StorePatientRequest $request)
     {
         //For demo purposes only. When creating user or inviting a user
         // you should create a generated random password and email it to the user
@@ -65,7 +65,7 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Patient $patient)
+    public function show(Patients $patient)
     {
         return view('patients.show', [
             'patient' => $patient
@@ -96,7 +96,7 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Patient $patient, UpdatePatientRequest $request)
+    public function update(Patients $patient, UpdatePatientRequest $request)
     {
         $patient->update($request->validated());
 
