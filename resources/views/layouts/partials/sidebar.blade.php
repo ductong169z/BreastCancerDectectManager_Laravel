@@ -42,6 +42,13 @@
         </a>
     </li>
     <!-- Nav Item - Profile -->
+    <li class="nav-item {{ Nav::isRoute('predict.index') }}">
+        <a class="nav-link" href="{{ route('predict.index') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>{{ __('Prediction Management') }}</span>
+        </a>
+    </li>
+    <!-- Nav Item - Profile -->
     <li class="nav-item {{ Nav::isRoute('roles.index') }}">
         <a class="nav-link" href="{{ route('roles.index') }}">
             <i class="fas fa-fw fa-user"></i>
@@ -53,6 +60,12 @@
         <a class="nav-link" href="{{ route('users.index') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>{{ __('Users Management') }}</span>
+        </a>
+    </li>
+    <li class="nav-item {{ Nav::isRoute('models.index') }}">
+        <a class="nav-link" href="{{ route('models.index') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>{{ __('Models Management') }}</span>
         </a>
     </li>
     <!-- Nav Item - About -->
