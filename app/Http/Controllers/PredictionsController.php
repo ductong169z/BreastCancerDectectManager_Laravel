@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\ModelPredict;
 use App\Models\Patients;
 use App\Models\Predictions;
-use App\Models\Setting;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,12 +35,11 @@ class PredictionsController extends Controller
     {
         $sonographer_id = $request->sonographer;
         $patient_id = $request->patient;
-        $model_id = Setting::where('name', 'model_id')->first();
         Predictions::create([
             'patient_id' => $patient_id,
             'sonographer_id' => $sonographer_id,
             'doctor_id' => Auth::id(),
-            'model_id' => $model_id->value
+            'model_id' => 1
         ]);
         return redirect(route('predict.index'));
     }
@@ -100,15 +98,12 @@ class PredictionsController extends Controller
     public function uploadImage(Request $request)
     {
         $id = $request->id;
-        $model_id = Setting::where('name', 'model_id')->first();
-        $model = ModelPredict::find($model_id);
         $image = $request->image;
         $imageName = "P_" . $id . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
         $response = Curl::to('http://127.0.0.1:8000/predict/')
             ->withData(array('modelName' => 'model.h5'))
             ->withFile('image', $image, $image->getClientMimeType(), $imageName)
             ->post();
-      
         $response = json_decode($response, true);
         
         if ($response['status'] == "success") {
