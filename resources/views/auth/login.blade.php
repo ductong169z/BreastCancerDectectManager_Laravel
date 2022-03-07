@@ -48,7 +48,7 @@
                                         </button>
                                     </div>
 
-                                    <hr>
+                                    {{-- <hr>
 
                                     <div class="form-group">
                                         <button type="button" class="btn btn-github btn-user btn-block">
@@ -83,7 +83,7 @@
                                     <div class="text-center">
                                         <a class="small" href="{{ route('register') }}">{{ __('Create an Account!') }}</a>
                                     </div>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                     </div>
