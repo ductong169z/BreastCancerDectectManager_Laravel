@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Ixudra\Curl\Facades\Curl;
 use App\Models\ModelPredict;
-use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class ModelsController extends Controller
@@ -17,8 +16,8 @@ class ModelsController extends Controller
     public function index()
     {
         $models = ModelPredict::latest()->paginate(10)->where('status', 1);
-        $setting=Setting::where('name', 'model_id')->first();
-        return view('models.index')->with('models',$models)->with('setting',$setting);
+//$setting=Setting::where('name', 'model_id')->first();
+        return view('models.index')->with('models',$models);
     }
 
     /**
@@ -48,8 +47,8 @@ class ModelsController extends Controller
         if ($request->hasFile('file_name')) {
             $file = $request->file('file_name');;
             $model->status = 1;
+            $model->isSelected=0;
             $model->description = $request->description;
-
             $response = Curl::to('http://127.0.0.1:8000/uploadModel/')
                 ->withFile('file', $file, 'h5', $file->getClientOriginalName())
                 ->post();
@@ -108,12 +107,15 @@ class ModelsController extends Controller
         return redirect(route('models.index'));
     }
 
-    public function updateSetting(Request $request)
+    public function updateSelected(Request $request)
     {
         $id=$request->id;
-        $setting = Setting::find(1);
-        $setting->value=$id;
-        $setting->save();
+        $model = ModelPredict::where('isSelected', 1)->first();
+        $model->isSelected=0;
+        $model->save();
+        $selectedModel = ModelPredict::find($id);
+        $selectedModel->isSelected=1;
+        $selectedModel->save();
         return redirect(route('models.index'));
     }
 
