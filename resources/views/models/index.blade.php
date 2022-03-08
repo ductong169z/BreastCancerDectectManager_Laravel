@@ -29,7 +29,7 @@
             @foreach($models as $model)
                 <tr>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"  >
-                    <td><input type="radio" name="rdoModel"  value="{{$model->id}}" {{ ($setting->value==$model->id)? "checked" : "" }} ></td>
+                    <td><input type="radio" name="rdoModel"  value="{{$model->id}}" {{ ($model->isSelected==1)? "checked" : "" }} ></td>
                     <th scope="row">{{ $model->id }}</th>
                     <td>{{ $model->name }}</td>
                     <td>{{ $model->file_name }}</td>
@@ -55,7 +55,7 @@
             $('input[type="radio"]').click(function(){
                 var rdoModel = $(this).val();
                 $.ajax({
-                    url:"{{ route('models.updateSetting')}}",
+                    url:"{{ route('models.updateSelected')}}",
                     method:"POST",
                     data:{
                         '_token': $('input[name=_token]').val(),

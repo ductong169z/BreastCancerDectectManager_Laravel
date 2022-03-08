@@ -15,6 +15,7 @@ class ModelPredict extends Model
         'name',
         'file_name',
         'description',
+        'isSelected',
         'create_at',
         'status'
     ];

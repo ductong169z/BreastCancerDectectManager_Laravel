@@ -80,7 +80,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::get('/{model}/edit', 'ModelsController@edit')->name('models.edit');
             Route::post('/{model}/update', 'ModelsController@update')->name('models.update');
             Route::get('/{model}/delete', 'ModelsController@delete')->name('models.delete');
-            Route::post('/updateSetting', 'ModelsController@updateSetting')->name('models.updateSetting');
+            Route::post('/updateSelected', 'ModelsController@updateSelected')->name('models.updateSelected');
         });
         Route::group(['prefix' => 'predict'], function () {
             Route::get('/', 'PredictionsController@index')->name('predict.index');

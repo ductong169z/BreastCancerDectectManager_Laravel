@@ -17,7 +17,7 @@ class PredictionsController extends Controller
 {
     public function index(Request $request)
     {
-       
+
         $patient = $request->patient;
         return view('predict.index', compact('patient'));
     }
@@ -106,7 +106,7 @@ class PredictionsController extends Controller
             ->withFile('image', $image, $image->getClientMimeType(), $imageName)
             ->post();
         $response = json_decode($response, true);
-        
+
         if ($response['status'] == "success") {
             $predict_result = $response['name'];
             $accuracy = $response['score'];
