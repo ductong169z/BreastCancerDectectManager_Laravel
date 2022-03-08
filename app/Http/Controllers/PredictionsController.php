@@ -39,6 +39,7 @@ class PredictionsController extends Controller
             'patient_id' => $patient_id,
             'sonographer_id' => $sonographer_id,
             'doctor_id' => Auth::id(),
+            'status'=>0,
             'model_id' => 1
         ]);
         return redirect(route('predict.index'));
