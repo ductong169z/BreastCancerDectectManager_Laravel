@@ -106,7 +106,7 @@
         "responsive": true,
         "deferRender": true,
         "ajax": {
-            "url": "{{ route('predict.api',['role'=>Auth::user()->getRoleNames()[0],'userId'=>Auth::user()->id]) }}",
+            "url": "{{ route('predict.api',['userId'=>Auth::user()->id]) }}",
             "type": "get"
         },
         "columns": [{
