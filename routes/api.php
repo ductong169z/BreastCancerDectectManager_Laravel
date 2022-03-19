@@ -2,9 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Predictions;
+use App\Models\Prediction;
 use Yajra\DataTables\DataTables;
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,12 +26,13 @@ Route::post('image-to-base64', function (Request $request) {
     return ['status' => true, 'predict' => "somthing else", 'image' => $base64];
 });
  Route::get('predict/list',function(Request $request){
-    $predict = Predictions::select('doctor.name as doctor_name', 'sonographer.name as sonographer_name', 'predictions.predict_result', 'predictions.id', 'patients.name as patient_name','predictions.status')
+    $predict = Prediction::select('doctor.name as doctor_name', 'sonographer.name as sonographer_name', 'predictions.predict_result', 'predictions.id', 'patients.name as patient_name','predictions.status')
     ->join('users as doctor', 'doctor.id', '=', 'doctor_id')
     ->join('patients', 'patients.id', '=', 'patient_id')
     ->join('users as sonographer', 'sonographer.id', '=', 'sonographer_id');
-    $role=$request->role;
     $userId=$request->userId;
+    $role=User::find($userId)->roles->first()->name;
+
     if($role == 'doctor'){
         $predict=$predict->where('doctor_id',$userId);
 

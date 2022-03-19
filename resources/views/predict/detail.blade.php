@@ -37,6 +37,7 @@
                     <span class="text-danger text-left">{{ $errors->first('sonographer') }}</span>
                 @endif
             </div>
+            @if($predict->status==2)
             <div class="mb-3">
                 <label for="image" class="form-label">Input image</label>
                 <div class="card">
@@ -84,6 +85,7 @@
                         </label>
                     </div>
                 </div>
+                @endif
                 <button type="submit" class="btn btn-primary">Save</button>
             @endcan
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ModelPredict;
 use App\Models\Patients;
-use App\Models\Predictions;
+use App\Models\Prediction;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,11 +31,11 @@ class PredictionsController extends Controller
         return view('predict.create', compact('sonographer', 'paitients'));
     }
 
-    public function store(Request $request)
+    public static function store(Request $request)
     {
         $sonographer_id = $request->sonographer;
         $patient_id = $request->patient;
-        Predictions::create([
+        Prediction::create([
             'patient_id' => $patient_id,
             'sonographer_id' => $sonographer_id,
             'doctor_id' => Auth::id(),
@@ -47,7 +47,7 @@ class PredictionsController extends Controller
 
     public function edit($id)
     {
-        $predict = Predictions::find($id);
+        $predict = Prediction::find($id);
         $paitients = Patients::pluck('name', 'id');
         $sonographer = User::role('sonographer')->pluck('name', 'id');
         $input_image = "data:image/png;base64";
@@ -69,7 +69,7 @@ class PredictionsController extends Controller
     }
     public function show($id)
     {
-        $predict = Predictions::find($id);
+        $predict = Prediction::find($id);
         $paitients = Patients::pluck('name', 'id');
         $sonographer = User::role('sonographer')->pluck('name', 'id');
         $input_image = "data:image/png;base64";
@@ -83,7 +83,7 @@ class PredictionsController extends Controller
     }
     public function delete($id)
     {
-        $predict = Predictions::delete($id);
+        $predict = Prediction::delete($id);
         return view('predict.detail', compact('predict', 'sonographer', 'paitients', 'id', 'input_image'));
     }
     public
@@ -91,7 +91,7 @@ class PredictionsController extends Controller
     {
         $name = $request->name;
         $id = $request->id;
-        Predictions::find($id)->update([
+        Prediction::find($id)->update([
             'doctor_confirmation' => $name,
         ]);
         return redirect(route('predict.index'));
@@ -112,7 +112,7 @@ class PredictionsController extends Controller
             $accuracy = $response['score'];
             $output_image = "data:" . $image->getClientMimeType() . ";base64, " . $response['image'];
             Storage::disk('local')->put($imageName, file_get_contents($image));
-            Predictions::find($id)->update([
+            Prediction::find($id)->update([
                 'input_image_path' => $imageName,
                 'predict_result' => $predict_result,
                 'output_image' => $output_image,

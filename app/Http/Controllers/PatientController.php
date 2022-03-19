@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
-use App\Models\Patients;
+use App\Models\Patient;
 use App\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -19,7 +19,7 @@ class PatientController extends Controller
     public function index(Request $request)
     {
         $patient=$request->patient;
-        $patients = Patients::latest();
+        $patients = Patient::latest();
         if($patients){
             $patients = $patients->where('patients.name', 'LIKE', '%' . $patient . '%');
         }
