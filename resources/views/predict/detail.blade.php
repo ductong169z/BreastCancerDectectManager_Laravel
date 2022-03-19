@@ -2,9 +2,9 @@
 
 @section('main-content')
 <div class="bg-light p-4 rounded">
-    <h2>Add new predict request</h2>
+    <h2>Detail predict request</h2>
     <div class="lead">
-        Add new predict request.
+        Detail predict request.
     </div>
 
     <div class="container mt-4">

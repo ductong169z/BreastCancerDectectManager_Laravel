@@ -2,9 +2,9 @@
 
 @section('main-content')
 <div class="bg-light p-4 rounded">
-    <h2>Add new predict request</h2>
+    <h2>Edit predict request</h2>
     <div class="lead">
-        Add new predict request.
+       Edit predict request.
     </div>
 
     <div class="container mt-4">
@@ -14,7 +14,7 @@
             <input hidden name="id" value="{{ $id }}">
             <div class="mb-3">
                 <label for="patient" class="form-label">Patient</label>
-                {!! Form::select('patient', $paitients, $predict->patient_id, ['class' => 'form-control']) !!}
+                {!! Form::select('patient', $paitients, $predict->patient_id, ['class' => 'form-control','required']) !!}
 
                 @if($errors->has('patient'))
                     <span class="text-danger text-left">{{ $errors->first('patient') }}</span>
@@ -29,7 +29,7 @@
             </div>
             <div class="mb-3">
                 <label for="sonographer" class="form-label">Sonographer</label>
-                {!! Form::select('sonographer', $sonographer, $predict->sonographer_id, ['class' => 'form-control']) !!}
+                {!! Form::select('sonographer', $sonographer, $predict->sonographer_id, ['class' => 'form-control','required']) !!}
 
                 @if($errors->has('sonographer'))
                     <span class="text-danger text-left">{{ $errors->first('sonographer') }}</span>

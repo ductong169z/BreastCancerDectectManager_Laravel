@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ModelPredict;
-use App\Models\Patients;
+use App\Models\Patient;
 use App\Models\Prediction;
 use App\User;
 use Illuminate\Http\Request;
@@ -25,8 +25,8 @@ class PredictionsController extends Controller
     public function create(Request $request)
     {
         //        $doctor=User::role('doctor')->get();
-        $paitients = Patients::pluck('name', 'id');
-        $sonographer = User::role('sonographer')->pluck('name', 'id');
+        $paitients = Patient::pluck('name', 'id')->prepend('---Select patient---','');
+        $sonographer = User::role('sonographer')->pluck('name', 'id')->prepend('---Select sonographer---','');
 
         return view('predict.create', compact('sonographer', 'paitients'));
     }
@@ -48,8 +48,12 @@ class PredictionsController extends Controller
     public function edit($id)
     {
         $predict = Prediction::find($id);
-        $paitients = Patients::pluck('name', 'id');
-        $sonographer = User::role('sonographer')->pluck('name', 'id');
+        if(!$predict){
+            return redirect(route('predict.index'))->with('success','Prediction was not found !'); 
+        }
+           //        $doctor=User::role('doctor')->get();
+           $paitients = Patient::pluck('name', 'id')->prepend('---Select patient---','');
+           $sonographer = User::role('sonographer')->pluck('name', 'id')->prepend('---Select sonographer---','');
         $input_image = "data:image/png;base64";
         if (Storage::disk('local')->exists($predict->input_image_path)) {
             $image = Storage::disk('local')->get($predict->input_image_path);
@@ -70,7 +74,10 @@ class PredictionsController extends Controller
     public function show($id)
     {
         $predict = Prediction::find($id);
-        $paitients = Patients::pluck('name', 'id');
+        if(!$predict){
+            return redirect(route('predict.index'))->with('success','Prediction was not found !'); 
+        }
+        $paitients = Patient::pluck('name', 'id');
         $sonographer = User::role('sonographer')->pluck('name', 'id');
         $input_image = "data:image/png;base64";
         if (Storage::disk('local')->exists($predict->input_image_path)) {
@@ -83,8 +90,12 @@ class PredictionsController extends Controller
     }
     public function delete($id)
     {
-        $predict = Prediction::delete($id);
-        return view('predict.detail', compact('predict', 'sonographer', 'paitients', 'id', 'input_image'));
+        $predict = Prediction::find($id);
+        if(!$predict){
+            return redirect(route('predict.index'))->with('success','Prediction was not found !'); 
+        }
+        $predict->delete();
+        return redirect(route('predict.index'))->with('success','Delete successful');
     }
     public
     function doctorConfirm(Request $request)

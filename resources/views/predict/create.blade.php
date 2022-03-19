@@ -13,7 +13,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="patient" class="form-label">Patient</label>
-                    {!! Form::select('patient', $paitients, null, ['class' => 'form-control']) !!}
+                    {!! Form::select('patient', $paitients, null, ['class' => 'form-control','required']) !!}
 
                     @if ($errors->has('patient'))
                         <span class="text-danger text-left">{{ $errors->first('patient') }}</span>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="sonographer" class="form-label">Sonographer</label>
-                    {!! Form::select('sonographer', $sonographer, null, ['class' => 'form-control']) !!}
+                    {!! Form::select('sonographer', $sonographer, null, ['class' => 'form-control','required']) !!}
 
                     @if ($errors->has('sonographer'))
                         <span class="text-danger text-left">{{ $errors->first('sonographer') }}</span>
@@ -36,7 +36,7 @@
                         @endif
                     </div>
                 @endif
-                <button type="submit" class="btn btn-primary">Save permission</button>
+                <button type="submit" class="btn btn-primary">Save prediction</button>
                 <a href="{{ route('permissions.index') }}" class="btn btn-default">Back</a>
             </form>
         </div>
