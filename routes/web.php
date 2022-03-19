@@ -111,4 +111,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::patch('/{patient}/update', 'PatientController@update')->name('patients.update');
             Route::delete('/{patient}/delete', 'PatientController@destroy')->name('patients.destroy');
         });
+        Route::get('/send', 'NotiController@sennoti')->name('noti.sendnoti');
+        Route::group(['prefix' => 'noti'], function () {
+            Route::get('/', 'NotiController@index')->name('noti.index');
+            
+        });
     });

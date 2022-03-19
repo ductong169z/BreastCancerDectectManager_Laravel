@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Controllers\NotiController;
 
 class UsersController extends Controller
 {
@@ -179,12 +180,31 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
+        $noti = new NotiController();
         if ($user->status==1) {
             $user->status=0;
+            $msg = array
+            (
+              'body'  => "Đã deactive $user->name ",
+              'title' => "Thông Báo hệ thống",
+              'receiver' => 'erw',
+              'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
+              'sound' => 'mySound'/*Default sound*/
+            );
         } else {
             $user->status=1;
+            $msg = array
+            (
+              'body'  => "Da active $user->name",
+              'title' => "Thông Báo hệ thống",
+              'receiver' => 'erw',
+              'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
+              'sound' => 'mySound'/*Default sound*/
+            );
         }
         $user->save();
+       
+        $noti->sennoti($msg);
         return redirect()->route('users.index')
             ->withSuccess(__('User deleted successfully.'));
     }
