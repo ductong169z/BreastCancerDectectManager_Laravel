@@ -46,7 +46,7 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Patients $patient, StorePatientRequest $request)
+    public function store(Patient $patient, StorePatientRequest $request)
     {
         //For demo purposes only. When creating user or inviting a user
         // you should create a generated random password and email it to the user
@@ -65,7 +65,7 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Patients $patient)
+    public function show(Patient $patient)
     {
         return view('patients.show', [
             'patient' => $patient
@@ -96,7 +96,7 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Patients $patient, UpdatePatientRequest $request)
+    public function update(Patient $patient, UpdatePatientRequest $request)
     {
         $patient->update($request->validated());
 
