@@ -28,8 +28,8 @@ class UpdatePatientRequest extends FormRequest
 
         return [
             'name' => 'required',
-            'id_number' => 'required|max:12|min:12',
-            'phone' => 'required|max:10|min:10',
+            'id_number' => 'required|digits:9 or digits:12',
+            'phone' => 'required|digits:10|starts_with:0',
             'address' => 'required',
             'gender' => 'required',
         ];
