@@ -119,15 +119,14 @@ class PredictionsController extends Controller
         $response = json_decode($response, true);
 
         if ($response['status'] == "success") {
-            $predict_result = $response['name'];
-            $accuracy = $response['score'];
+            $predict_result = $response['data'];
+            
             $output_image = "data:" . $image->getClientMimeType() . ";base64, " . $response['image'];
             Storage::disk('local')->put($imageName, file_get_contents($image));
             Prediction::find($id)->update([
                 'input_image_path' => $imageName,
-                'predict_result' => $predict_result,
+                'predict_result' => json_encode($predict_result),
                 'output_image' => $output_image,
-                'accuracy' => $accuracy,
                 'status' => 2
             ]);
             return ['status' => 'success', 'message' => 'Upload thành công','data'=>json_encode($response)];
