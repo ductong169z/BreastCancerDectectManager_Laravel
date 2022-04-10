@@ -49,7 +49,7 @@
                 <th>Doctor name</th>
                 <th>Sonographer name</th>
                 <th>Patients name</th>
-                <th>Predict result</th>
+                <th>Doctor confirmation</th>
                 <th>Status</th>
                 <th>
                 </th>
@@ -126,8 +126,8 @@
                 name: 'patient_name'
             },
             {
-                data: 'predict_result',
-                name: 'predict_result'
+                data: 'doctor_confirmation',
+                name: 'doctor_confirmation'
             },
             {
                 data: 'status',
