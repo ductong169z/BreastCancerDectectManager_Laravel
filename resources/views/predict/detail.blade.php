@@ -63,14 +63,34 @@
 
                     <div class="row mb-3">
                         @foreach (json_decode($predict->predict_result) as $key => $value)
-                            
-                            <div class="col-xl-4 col-md-4 mb-4">
-                                <div class="card @if (max(array_values((array)json_decode($predict->predict_result)))==$value) border-left-success @else border-left-warning @endif shadow h-100 py-2">
+                            @if ($key == 'malignant')
+                                <div class="col-xl-4 col-md-4 mb-4">
+                                    <div class="card border-left-danger shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                        {{ $key }}</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                        {{ round($value, 2) }}%
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-percent fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($key=='benign')
+                                <div class="col-xl-4 col-md-4 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div
-                                                    class="text-xs font-weight-bold @if (max(array_values((array)json_decode($predict->predict_result)))==$value) text-success @else text-warning @endif text-uppercase mb-1">
+                                                    class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                     {{ $key }}</div>
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ round($value, 2) }}%
                                                 </div>
@@ -82,11 +102,32 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
+                            @if($key=='normal')
+                                <div class="col-xl-4 col-md-4 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div
+                                                    class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    {{ $key }}</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ round($value, 2) }}%
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-percent fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
                         @endforeach
 
 
                     </div>
-                    
+
 
                     @can('predict.doctor.confirm')
                         <div class="mb-3">
