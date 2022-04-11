@@ -54,7 +54,7 @@
                             <div class="">
                                 <a data-fancybox="responsive" data-src="{{ $predict->output_image }}"
                                     data-sizes="(max-width: 600px) 480px, 800px">
-                                    <img src="{{  }}" width="300" height="300">
+                                    <img src="{{ $predict->output_image }}" width="300" height="300">
                                 </a>
                             </div>
                         </div>
