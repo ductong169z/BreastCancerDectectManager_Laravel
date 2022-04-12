@@ -222,7 +222,7 @@
             <!-- percentage chart overview -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3 ">
-                    <h5 class="m-0 font-weight-bold text-primary">Percentage chart overview of breast cancer</h5>
+                    <h5 class="m-0 font-weight-bold text-primary">Pie Chart of Breast Cancer Ratio Overview </h5>
                 </div>
                 <div class="card-body">
                     <div id="piechart"></div>
@@ -300,7 +300,8 @@
         ]);
 
         var options = {
-            title: 'Rate of diseases'
+            //title: 'Rate of diseases',
+            chartArea:{left:50,top:25,width:'80%',height:'80%'}
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
