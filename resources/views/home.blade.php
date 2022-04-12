@@ -112,22 +112,22 @@
                     <h4 class="small font-weight-bold">The Numbers Of Correctly Predictions Today<span
                             class="float-right">{{ $widget['todayCorrect'] }}</span></h4>
                     <div class="progress mb-4">
-                        <div class="progress-bar bg-info" role="progressbar"
-                            style="width: {{ $widget['percentTodayCorrect'] }}%" aria-valuenow="40" aria-valuemin="0"
+                        <div class="progress-bar" role="progressbar"
+                            style="background-color:#76c355;width: {{ $widget['percentTodayCorrect'] }}%" aria-valuenow="40" aria-valuemin="0"
                             aria-valuemax="100"></div>
                     </div>
                     <h4 class="small font-weight-bold">The Numbers Of Confirmed Predictions Today<span
                             class="float-right">{{ $widget['todayConfirm'] }}</span></h4>
                     <div class="progress mb-4">
-                        <div class="progress-bar bg-warning" role="progressbar"
-                            style="width: {{ $widget['percentTodayConfirm'] }}%" aria-valuenow="60" aria-valuemin="0"
+                        <div class="progress-bar" role="progressbar"
+                            style="background-color:#fd8c81;width: {{ $widget['percentTodayConfirm'] }}%" aria-valuenow="60" aria-valuemin="0"
                             aria-valuemax="100"></div>
                     </div>
                     <h4 class="small font-weight-bold">The Numbers Of Predictions Today<span
                             class="float-right">{{ $widget['todayPredict'] }}</span></h4>
                     <div class="progress mb-4">
-                        <div class="progress-bar" role="progressbar"
-                            style="width: @if ($widget['todayPredict'] == 0) 0%
+                        <div class="progress-bar " role="progressbar"
+                            style="background-color:#ffcc00;width: @if ($widget['todayPredict'] == 0) 0%
                                                                                     @else 100% @endif"
                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
