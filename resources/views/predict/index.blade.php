@@ -32,7 +32,7 @@
         <form action="{{ route('predict.index') }}">
             <div class="row">
                 <div class="col-md-6">
-                    <input type="text" class="form-control" value="{{ $patient }}" name="patient" placeholder="Patient name">
+                    <input type="text" class="form-control" value="{{ $patient }}" id="patient" name="patient" placeholder="Patient name">
 
                 </div>
                 <div class="col-md-2">
@@ -89,6 +89,7 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 
 <script>
+    let patientName=$("#patient").val()??''
     let table = $('#predict-table').DataTable({
         searching: false,
         "lengthMenu": [
@@ -106,7 +107,8 @@
         "responsive": true,
         "deferRender": true,
         "ajax": {
-            "url": "{{ route('predict.api',['userId'=>Auth::user()->id]) }}",
+            "url": "{{ route('predict.api') }}",
+            'data':{userId:'{{Auth::user()->id}}',patient:patientName},
             "type": "get"
         },
         "columns": [{
