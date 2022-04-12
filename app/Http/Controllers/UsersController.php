@@ -16,10 +16,15 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::latest()->paginate(10);
-        return view('users.index', compact('users'),[
+        $user=$request->user;
+        $users = User::latest();
+        if($users){
+            $users = $users->where('users.name', 'LIKE', '%' . $user . '%');
+        }
+        $users = $users->paginate(10);
+        return view('users.index', compact('users','user'),[
             'roles' => Role::latest()->get()
         ]);
     }
@@ -46,13 +51,13 @@ class UsersController extends Controller
     {
         //For demo purposes only. When creating user or inviting a user
         // you should create a generated random password and email it to the user
-        $user->syncRoles($request->get('role'));
+       
         $user->create(array_merge($request->validated(), [
             'password' => 'test',
             'role' => $request->role,
         ])); 
 
-        
+        $user->syncRoles($request->role);
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));
     }
@@ -208,6 +213,8 @@ class UsersController extends Controller
         return redirect()->route('users.index')
             ->withSuccess(__('User deleted successfully.'));
     }
+
+
 
     // public function search(Request request)
     // {
