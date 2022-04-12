@@ -151,6 +151,17 @@ class PredictionsController extends Controller
                 'status' => 2,
                 'highest_prediction' =>array_key_first($predict_result)
             ]);
+            $prediction=Prediction::find($id);
+            //Notification data for create new predict request
+        $notiarray = array
+        (
+          'prediction_id'  => $prediction->id,
+          'user_id' => $prediction->doctor_id,
+          'condition' => "uploadimg",
+          'create_at' => Carbon::now()
+        );
+        $noti = new NotiController();
+        $noti->notiCondition($notiarray);
             return ['status' => 'success', 'message' => 'Upload thành công','data'=>json_encode($response)];
         } else {
             return ['status' => 'failed', 'message' => 'Upload thất bại','data'=>json_encode($response)];
