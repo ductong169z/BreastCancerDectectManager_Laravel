@@ -43,10 +43,10 @@
         
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" onclick="loadNoti()" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
+                <span id="number_noti" class="badge badge-danger badge-counter"></span>
             </a>
 
 
@@ -149,6 +149,7 @@
 </nav>
 
 <script>
+    
     var n_data = document.getElementById("noti_data");
     var req = new XMLHttpRequest();
     req.open("GET", "{{route('notification.load')}}", true);
@@ -157,7 +158,7 @@
     req.onreadystatechange = function() {
         if (req.readyState == 4 && req.status == 200) {
             var obj = JSON.parse(req.responseText);
-
+            $("#number_noti").text(obj.notifications.length)
             for (i = 0; i < obj.notifications.length; i++) {
                 console.log(obj.notifications[i]['prediction_id'])
                 console.log(obj.notifications[i]['title'])
