@@ -45,10 +45,11 @@ class NotiController extends Controller
     }
 
     function loadnoti(){
-        $user_id = Auth::id();
         // dd($user_id);
         $notications = Notifications::all();
-        $notications = $notications->where('user_id', $user_id);
+        // $notications = $notications->where('user_id', Auth::id());
+
+        // dd($notications);
         return response()->json(['notifications'=>$notications]);
     }
 
