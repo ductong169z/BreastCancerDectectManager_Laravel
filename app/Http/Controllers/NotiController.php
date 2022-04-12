@@ -46,7 +46,7 @@ class NotiController extends Controller
 
     function loadnoti(){
         // dd($user_id);
-        $notications = Notifications::all();
+        $notications = Notifications::where('user_id', Auth::id())->get();
         // $notications = $notications->where('user_id', Auth::id());
 
         // dd($notications);
@@ -56,22 +56,47 @@ class NotiController extends Controller
 
     function notiCondition(array $notiarray){
         $noti = new Notifications();
+
+        $msg = array();
         switch($notiarray["condition"]){
             case 'create':
                 $noti->title = 'A new request have been make';
                 $noti ->body = 'A new predict request for have been created by';
                 $noti -> created_at = $notiarray['create_at'];
+
+                $msg = array
+                (
+                'body'  => 'A new predict request for have been created by',
+                'title' => 'A new request have been make',
+                'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
+                'sound' => 'mySound'/*Default sound*/
+                );
+                break;
+
             case 'uploadimg':
-                $noti->title = 'Image upload to request ' + $notiarray['prediction_id'];
+                $noti->title = 'Image upload to request ' . $notiarray['prediction_id'];
                 $noti ->body = 'Image for predict have been upload by';
                 $noti -> created_at = $notiarray['create_at'];
-                
+
+                $msg = array
+                (
+                'body'  => 'Image for predict have been upload by',
+                'title' => 'Image upload to request ' . $notiarray['prediction_id'],
+                'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
+                'sound' => 'mySound'/*Default sound*/
+                );
+                break;
+            
         } 
+        
+        
         $noti ->user_id = $notiarray["user_id"];
         $noti ->prediction_id = $notiarray["prediction_id"];
         $noti ->status = 1;
 
         $this->createnoti($noti);
+
+        $this->sennoti($msg);
     }
 
     function createnoti(Notifications $noti){
@@ -80,7 +105,7 @@ class NotiController extends Controller
             'title'=>$noti->title,
             'body'=>$noti->body,
             'user_id'=>$noti->user_id,
-            'prediction_id'=>2,
+            'prediction_id'=>$noti->prediction_id,
             'status'=>$noti->status,
             'create_at'=>$noti->created_at
             ]
@@ -92,18 +117,5 @@ class NotiController extends Controller
         $noti->save();
     }
 
-
-    // //Notification data
-    // $user_id = Auth::id();
-    // $create_at = Carbon::now();
-    // $notiarray = array
-    //     (
-    //       'patient_id'  => "$patient_id",
-    //       'user_id' => "$user_id",
-    //       'condition' => "create",
-    //       'create_at' => "$create_at"
-    //     );
-    // $noti = new NotiController();
-    // $noti->notiCondition($notiarray);
 
 }

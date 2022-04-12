@@ -57,7 +57,7 @@ class UsersController extends Controller
             'role' => $request->role,
         ])); 
 
-        $user->syncRoles($request->role);
+        $user->syncRoles($request->get('role'));
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));
     }
@@ -153,8 +153,9 @@ class UsersController extends Controller
     public function update(User $user, UpdateUserRequest $request)
     {
         $user->status = $request->status;
-        $user->update($request->validated());
 
+        $user->update($request->validated());
+        
         $user->syncRoles($request->get('role'));
 
         return redirect()->route('users.index')
@@ -187,29 +188,14 @@ class UsersController extends Controller
     {
         $noti = new NotiController();
         if ($user->status==1) {
-            $user->status=0;
-            $msg = array
-            (
-              'body'  => "Đã deactive $user->name ",
-              'title' => "Thông Báo hệ thống",
-              'receiver' => 'erw',
-              'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
-              'sound' => 'mySound'/*Default sound*/
-            );
+            $user->status=0;         
         } else {
             $user->status=1;
-            $msg = array
-            (
-              'body'  => "Da active $user->name",
-              'title' => "Thông Báo hệ thống",
-              'receiver' => 'erw',
-              'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
-              'sound' => 'mySound'/*Default sound*/
-            );
         }
+        
         $user->save();
        
-        $noti->sennoti($msg);
+        
         return redirect()->route('users.index')
             ->withSuccess(__('User deleted successfully.'));
     }

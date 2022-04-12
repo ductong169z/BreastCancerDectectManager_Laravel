@@ -64,6 +64,23 @@
                             value = {{$user->status}} selected
                         @endif  value= 0 > Deactive</option>
                     </select> --}}
+                    
+                <!-- <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input
+                           type="password"
+                           class="form-control"
+                           name="password"
+                           placeholder="New password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input 
+                           type="password"
+                           class="form-control"
+                           name="ConfirmPassword"
+                           placeholder="Confirm password" required>
+                </div> -->
                         
                 </div>
 
