@@ -14,18 +14,22 @@
         @include('layouts.partials.messages')
     </div>
 
-    <div class="col-md-8 mb-2">
-        <form action="{{ route('users.search') }}" method="PUT">
-            <div class="row">
-                <div class="col-md-8">
-                    <input type="search" name="search" class="form-control">
+    
+    <div class="mt-2 mb-2">
+            <form action="{{ route('users.index') }}" id="form1">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" value="{{ $user }}" class="form-control" name="user"
+                               placeholder="User name">
 
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" form="form1" class="btn btn-primary">Search</button>
+
+                    </div>
                 </div>
-                <div class="col-md-4"> <button type="submit" class="btn btn-primary">Search</button>
-                </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -46,15 +50,8 @@
                     <td>{{ $user->username }}</td>
                     <td>
                         @foreach($user->roles as $userrole)
-                            <select class="badge bg-primary text-light" name="role" required>
-                                @foreach($roles as $role)
-                                    <option value="{{ $role->id }}" @if ($role->name == $userrole->name)
-                                        selected
-                                @endif
-                                >{{ $role->name }}</option>
+                        {{ $userrole->name }}
                         @endforeach
-                        </select>
-            @endforeach
             </td>
             <td><a href="{{ route('users.show', $user->id) }}"
                     class="btn btn-warning btn-sm">Show</a></td>
@@ -67,12 +64,12 @@
                 {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' =>
                 'display:inline']) !!}
                 @if($user->status == 1)
-                    {!! Form::submit('Active', ['class' => 'btn btn-success','onclick'=>'return confirm("Are you want
+                    {!! Form::submit('Active', ['class' => 'btn btn-success','onclick' => 'return confirm("Are you want
                     deactive user")']) !!}
                     {!! Form::close() !!}
 
                 @else
-                    {!! Form::submit('Deactive', ['class' => 'btn btn-secondary','onclick'=>'return confirm("Are you
+                    {!! Form::submit('Deactive', ['class' => 'btn btn-secondary','onclick' => 'return confirm("Are you
                     want active user")']) !!}
                     {!! Form::close() !!}
 
@@ -82,10 +79,10 @@
             @endforeach
         </tbody>
     </table>
-
     <div class="d-flex">
         {!! $users->links() !!}
     </div>
 
 </div>
+
 @endsection

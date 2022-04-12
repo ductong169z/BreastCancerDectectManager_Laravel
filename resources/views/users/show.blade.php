@@ -17,6 +17,11 @@
             <div>
                 Username: {{ $user->username }}
             </div>
+            <div>
+                Role: @foreach($user->roles as $userrole)
+                        {{ $userrole->name }}
+                        @endforeach
+            </div>
         </div>
 
     </div>
