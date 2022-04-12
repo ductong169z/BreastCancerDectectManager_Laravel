@@ -112,10 +112,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::patch('/{patient}/update', 'PatientController@update')->name('patients.update');
             Route::delete('/{patient}/delete', 'PatientController@destroy')->name('patients.destroy');
         });
-        Route::get('/send', 'NotiController@sennoti')->name('noti.sendnoti');
-        Route::get('/notiload', 'NotiController@loadnoti')->name('noti.loadnoti');
+        Route::get('/send', 'NotiController@sendNoti')->name('notification.send');
+        Route::get('/notification-load', 'NotiController@loadNoti')->name('notification.load');
         Route::group(['prefix' => 'noti'], function () {
-            Route::get('/', 'NotiController@index')->name('noti.index');
+            Route::get('/', 'NotiController@index')->name('notification.index');
             
         });
     });

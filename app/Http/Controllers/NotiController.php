@@ -15,7 +15,7 @@ class NotiController extends Controller
         return view('noti.index');
     }
 
-    function sennoti(array $msg){
+    function sendNoti(array $msg){
         $token = "c3IEC1jeI3Y:APA91bHWz66DOjPXpU6yq1sbVpFfmYFK5EIPNpBu1P3k9lzfdp6y3awWt4iZX3i8e9pb5gdyVKtesEcC5vDlt4_-jupLH89L2-nsdmLssnWVUfDO4EQHhdiY8mc8NFDFRtj9hEyhAeCO";  
         $from = "AAAAShANg-Q:APA91bFIHSNXWLUBJldYv4IMnGCYbqChEsr8Oc_Ebz9ZwXKn9ol0Cr606_tB_SfQ_QJoxLHBQbW37-GfoDIR_CcDMOS5ZoM5Lt1sjHygykS9mSwzQ8YZbFaYcE8-EXt1f_AQoRz-_bdZ";
         
@@ -44,7 +44,7 @@ class NotiController extends Controller
         curl_close( $ch );
     }
 
-    function loadnoti(){
+    function loadNoti(){
         // dd($user_id);
         $notications = Notifications::all();
         // $notications = $notications->where('user_id', Auth::id());
@@ -62,7 +62,7 @@ class NotiController extends Controller
                 $noti ->body = 'A new predict request for have been created by';
                 $noti -> created_at = $notiarray['create_at'];
             case 'uploadimg':
-                $noti->title = 'Image upload to request ' + $notiarray['prediction_id'];
+                $noti->title = 'Image upload to request ' . $notiarray['prediction_id'];
                 $noti ->body = 'Image for predict have been upload by';
                 $noti -> created_at = $notiarray['create_at'];
                 
@@ -71,23 +71,23 @@ class NotiController extends Controller
         $noti ->prediction_id = $notiarray["prediction_id"];
         $noti ->status = 1;
 
-        $this->createnoti($noti);
+        $this->createNoti($noti);
     }
 
-    function createnoti(Notifications $noti){
+    function createNoti(Notifications $noti){
         $noti::create(
             [
             'title'=>$noti->title,
             'body'=>$noti->body,
             'user_id'=>$noti->user_id,
-            'prediction_id'=>2,
+            'prediction_id'=>$noti->prediction_id,
             'status'=>$noti->status,
             'create_at'=>$noti->created_at
             ]
         );
     }
 
-    function updatenoti(Notifications $noti){
+    function updateNoti(Notifications $noti){
         $noti->updated_at=Carbon::now();
         $noti->save();
     }

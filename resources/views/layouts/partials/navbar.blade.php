@@ -151,7 +151,7 @@
 <script>
     var n_data = document.getElementById("noti_data");
     var req = new XMLHttpRequest();
-    req.open("GET", "/UngThuVu/public/notiload", true);
+    req.open("GET", "{{route('notification.load')}}", true);
     req.send();
 
     req.onreadystatechange = function() {
