@@ -57,14 +57,17 @@ class NotiController extends Controller
         $noti = new Notifications();
         switch($notiarray["condition"]){
             case 'create':
-                echo("vo switch bt");
                 $noti->title = 'A new request have been make';
-                $noti ->body = 'A new request for have been created by';
+                $noti ->body = 'A new predict request for have been created by';
+                $noti -> created_at = $notiarray['create_at'];
+            case 'uploadimg':
+                $noti->title = 'Image upload to request';
+                $noti ->body = 'Image for predict have been upload by';
                 $noti -> created_at = $notiarray['create_at'];
                 
         } 
         $noti ->user_id = $notiarray["user_id"];
-        $noti ->prediction_id = $notiarray["patient_id"];
+        $noti ->prediction_id = $notiarray["prediction_id"];
         $noti ->status = 1;
 
         $this->createnoti($noti);
