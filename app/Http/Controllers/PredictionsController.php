@@ -51,10 +51,10 @@ class PredictionsController extends Controller
             'model_id' => 1
         ]);
 
-        //Notification data
+        //Notification data for create new predict request
         $notiarray = array
             (
-              'patient_id'  => $prediction->id,
+              'prediction_id'  => $prediction->id,
               'user_id' => $sonographer_id,
               'condition' => "create",
               'create_at' => Carbon::now()
