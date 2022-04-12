@@ -9,7 +9,7 @@ class Prediction extends Model
 {
     protected  $table = 'predictions';
     use SoftDeletes;
-    protected $fillable = ['patient_id', 'sonographer_id', 'doctor_id', 'status', 'model_id','created_at'];
+    protected $fillable = ['patient_id', 'sonographer_id', 'doctor_id', 'status', 'model_id','input_image_path','output_image','predict_result','doctor_confirmation','created_at','highest_prediction'];
     protected $primaryKey = 'id';
     public function sonographer(){
 

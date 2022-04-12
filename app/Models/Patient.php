@@ -12,6 +12,11 @@ class Patient extends Model
 
     protected $table = 'patients';
     protected $fillable = [
+        'name',
+        'id_number',
+        'phone',
+        'address',
+        'gender',
     ];
     protected $primaryKey = 'id';
 }

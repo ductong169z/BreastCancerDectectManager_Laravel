@@ -35,6 +35,7 @@
             <span>{{ __('Profile') }}</span>
         </a>
     </li>
+        @can('permissions.index')
     <!-- Nav Item - Profile -->
     <li class="nav-item {{ Nav::isRoute('permissions.index') }}">
         <a class="nav-link" href="{{ route('permissions.index') }}">
@@ -42,6 +43,8 @@
             <span>{{ __('Permissions Management') }}</span>
         </a>
     </li>
+    @endif
+    @can('predict.index')
     <!-- Nav Item - Profile -->
     <li class="nav-item {{ Nav::isRoute('predict.index') }}">
         <a class="nav-link" href="{{ route('predict.index') }}">
@@ -49,6 +52,8 @@
             <span>{{ __('Predictions Management') }}</span>
         </a>
     </li>
+    @endif
+     @can('roles.index')
     <!-- Nav Item - Profile -->
     <li class="nav-item {{ Nav::isRoute('roles.index') }}">
         <a class="nav-link" href="{{ route('roles.index') }}">
@@ -56,6 +61,8 @@
             <span>{{ __('Roles Management') }}</span>
         </a>
     </li>
+    @endif
+    @can('users.index')
     <!-- Nav Item - Users Management -->
     <li class="nav-item {{ Nav::isRoute('users.index') }}">
         <a class="nav-link" href="{{ route('users.index') }}">
@@ -63,12 +70,16 @@
             <span>{{ __('Users Management') }}</span>
         </a>
     </li>
+    @endif
+    @can('models.index')
     <li class="nav-item {{ Nav::isRoute('models.index') }}">
         <a class="nav-link" href="{{ route('models.index') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>{{ __('Models Management') }}</span>
         </a>
     </li>
+    @endif
+    @can('patients.index')
     <!-- Nav Item - Patient Management -->
     <li class="nav-item {{ Nav::isRoute('patients.index') }}">
         <a class="nav-link" href="{{ route('patients.index') }}">
@@ -76,6 +87,7 @@
             <span>{{ __('Patient Management') }}</span>
         </a>
     </li>
+    @endif
     <!-- Nav Item - About -->
     <li class="nav-item {{ Nav::isRoute('about') }}">
         <a class="nav-link" href="{{ route('about') }}">
