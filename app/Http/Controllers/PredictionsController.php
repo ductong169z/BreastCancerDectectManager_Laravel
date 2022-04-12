@@ -39,22 +39,11 @@ class PredictionsController extends Controller
         $patient_id = $request->patient;
 
 
-        //Notification data
-        $user_id = Auth::id();
-        $create_at = Carbon::now();
-        $notiarray = array
-            (
-              'patient_id'  => "$patient_id",
-              'user_id' => "$user_id",
-              'condition' => "create",
-              'create_at' => "$create_at"
-            );
-        $noti = new NotiController();
-        $noti->notiCondition($notiarray);
+        
 
-
+        
         //create new prediction
-        Prediction::create([
+        $prediction=Prediction::create([
             'patient_id' => $patient_id,
             'sonographer_id' => $sonographer_id,
             'doctor_id' => Auth::id(),
@@ -62,6 +51,16 @@ class PredictionsController extends Controller
             'model_id' => 1
         ]);
 
+        //Notification data
+        $notiarray = array
+            (
+              'patient_id'  => $prediction->id,
+              'user_id' => $sonographer_id,
+              'condition' => "create",
+              'create_at' => Carbon::now()
+            );
+        $noti = new NotiController();
+        $noti->notiCondition($notiarray);
        
 
         return redirect(route('predict.index'));
