@@ -10,8 +10,8 @@
             <form action="{{ route('patients.index') }}" id="form1">
                 <div class="row">
                     <div class="col-md-6">
-                        <input type="text" value="{{ $patient }}" class="form-control" name="patient"
-                               placeholder="Patient name">
+                        <input type="text" value="{{ $patient }}" class="form-control" name="user name"
+                               placeholder="User name">
 
                     </div>
                     <div class="col-md-2">

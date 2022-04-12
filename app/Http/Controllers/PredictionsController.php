@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Storage;
 use Ixudra\Curl\Facades\Curl;
 use Spatie\Permission\Traits\HasRoles;
 use GuzzleHttp\Client;
+use App\Http\Controllers\NotiController;
+use Carbon\Carbon;
 
 class PredictionsController extends Controller
 {
@@ -35,13 +37,32 @@ class PredictionsController extends Controller
     {
         $sonographer_id = $request->sonographer;
         $patient_id = $request->patient;
-        Prediction::create([
+
+
+        
+
+        
+        //create new prediction
+        $prediction=Prediction::create([
             'patient_id' => $patient_id,
             'sonographer_id' => $sonographer_id,
             'doctor_id' => Auth::id(),
             'status'=>0,
             'model_id' => 1
         ]);
+
+        //Notification data for create new predict request
+        $notiarray = array
+            (
+              'prediction_id'  => $prediction->id,
+              'user_id' => $sonographer_id,
+              'condition' => "create",
+              'create_at' => Carbon::now()
+            );
+        $noti = new NotiController();
+        $noti->notiCondition($notiarray);
+       
+
         return redirect(route('predict.index'));
     }
 

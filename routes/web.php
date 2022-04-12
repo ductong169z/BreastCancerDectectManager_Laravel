@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -112,6 +113,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::delete('/{patient}/delete', 'PatientController@destroy')->name('patients.destroy');
         });
         Route::get('/send', 'NotiController@sennoti')->name('noti.sendnoti');
+        Route::get('/notiload', 'NotiController@loadnoti')->name('noti.loadnoti');
         Route::group(['prefix' => 'noti'], function () {
             Route::get('/', 'NotiController@index')->name('noti.index');
             
