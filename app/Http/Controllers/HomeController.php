@@ -31,6 +31,8 @@ class HomeController extends Controller
         //count patient, use user as var
         $patient = Patient::count();
         //current time
+                Carbon::setLocale(config('app.locale'));
+
         $mytime = Carbon::today();//->format('Y-m-d')
         $aWeekAgo = Carbon::today()->subDays(6);
         //user
@@ -38,11 +40,11 @@ class HomeController extends Controller
         //total prediction
         $predict = Prediction::count();
         //correctly prediction
-        $correct = Prediction::whereColumn('predictions.predict_result','predictions.doctor_confirmation')->count();
+        $correct = Prediction::whereColumn('predictions.highest_prediction','predictions.doctor_confirmation')->count();
         //today predict
         $todayPredict = Prediction::whereDate('predictions.updated_at',date('Y-m-d'))->count();
         //today correct
-        $todayCorrect = Prediction::whereColumn('predictions.predict_result','predictions.doctor_confirmation')->whereDate('predictions.updated_at',date('Y-m-d'))->count();
+        $todayCorrect = Prediction::whereColumn('predictions.highest_prediction','predictions.doctor_confirmation')->whereDate('predictions.updated_at',date('Y-m-d'))->count();
         //percentTodayCorrect
         if($todayPredict != 0){
             $percentTodayCorrect = floor($todayCorrect*100 / $todayPredict);
@@ -59,20 +61,19 @@ class HomeController extends Controller
             $percentTodayConfirm = 0;
         }
 
-
         //chart
         $result = CarbonPeriod::create($aWeekAgo, $mytime)->toArray();
         $data = "";
         foreach ($result as $val){
-            $data.="['".$val->format("Y-m-d")."',".self::correctPredict($val).",".self::totalPredict($val)."],";
+            $data.="['".$val->translatedFormat('F jS')."',".self::correctPredict($val).",".self::totalPredict($val)."],";
         }
         $data = substr($data,0, strlen($data)-1);
 //        dd($data);
 
         //percent cancers
-        $normal = Prediction::where('predictions.predict_result', '=', 'normal')->count();
-        $benign = Prediction::where('predictions.predict_result', '=', 'benign')->count();
-        $malignant = Prediction::where('predictions.predict_result', '=', 'malignant')->count();
+        $normal = Prediction::where('predictions.doctor_confirmation', '=', 'normal')->count();
+        $benign = Prediction::where('predictions.doctor_confirmation', '=', 'benign')->count();
+        $malignant = Prediction::where('predictions.doctor_confirmation', '=', 'malignant')->count();
         $percent = "";
         $percent.="['Normal',".$normal."],['Malignant',".$malignant."],['Benign',".$benign."]";
 //        dd($percent);
@@ -99,6 +100,6 @@ class HomeController extends Controller
     }
 
     public static function correctPredict($date){
-        return Prediction::whereColumn('predictions.predict_result','predictions.doctor_confirmation')->whereDate('predictions.updated_at',$date)->count();;
+        return Prediction::whereColumn('predictions.highest_prediction','predictions.doctor_confirmation')->whereDate('predictions.updated_at',$date)->count();;
     }
 }

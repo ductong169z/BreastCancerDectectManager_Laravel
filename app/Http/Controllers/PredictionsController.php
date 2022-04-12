@@ -117,7 +117,7 @@ class PredictionsController extends Controller
             ->withFile('image', $image, $image->getClientMimeType(), $imageName)
             ->post();
         $response = json_decode($response, true);
-
+        
         if ($response['status'] == "success") {
             $predict_result = $response['data'];
             
@@ -127,7 +127,8 @@ class PredictionsController extends Controller
                 'input_image_path' => $imageName,
                 'predict_result' => json_encode($predict_result),
                 'output_image' => $output_image,
-                'status' => 2
+                'status' => 2,
+                'highest_prediction' =>array_key_first($predict_result)
             ]);
             return ['status' => 'success', 'message' => 'Upload thành công','data'=>json_encode($response)];
         } else {
