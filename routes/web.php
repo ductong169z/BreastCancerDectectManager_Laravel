@@ -25,6 +25,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
 
+Route::group(['prefix' => 'profile'], function () {
+    Route::get('/{user}/reset_password', 'ProfileController@resetPassword')->name('profile.reset_password');
+    Route::patch('/{user}/update_password', 'ProfileController@updatePassword')->name('profile.update_password');
+});
+
+
 Route::get('/about', function () {
     return view('about');
 })->name('about');
@@ -72,6 +78,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
             Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
             Route::patch('/savechange', 'UsersController@savechange')->name('users.savechange');
             Route::get('/{user}/admin_reset_password', 'UsersController@adminResetpassword')->name('users.admin_reset_password');
+            Route::patch('/{user}/admin_update_password', 'UsersController@adminUpdatePassword')->name('users.admin_update_password');
         });
         Route::group(['prefix' => 'models'], function () {
             Route::get('/', 'ModelsController@index')->name('models.index');
@@ -114,6 +121,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
         });
         Route::get('/send', 'NotiController@sendNoti')->name('notification.send');
         Route::get('/notification-load', 'NotiController@loadNoti')->name('notification.load');
+        Route::get('/notification-update/{id}', 'NotiController@updateNoti')->name('notification.update');
         Route::group(['prefix' => 'noti'], function () {
             Route::get('/', 'NotiController@index')->name('notification.index');
             
