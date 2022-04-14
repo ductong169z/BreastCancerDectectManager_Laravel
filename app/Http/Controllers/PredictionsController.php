@@ -52,12 +52,17 @@ class PredictionsController extends Controller
         ]);
 
         //Notification data for create new predict request
+        $patient=Patient::find($patient_id);
+        $doctor=User::find(Auth::id());
+        // dd($patient->name);
         $notiarray = array
             (
               'prediction_id'  => $prediction->id,
               'user_id' => $sonographer_id,
               'condition' => "create",
-              'create_at' => Carbon::now()
+              'create_at' => Carbon::now(),
+              'patient_name' => $patient->name,
+              'doctor_name' => $doctor->name
             );
         $noti = new NotiController();
         $noti->notiCondition($notiarray);

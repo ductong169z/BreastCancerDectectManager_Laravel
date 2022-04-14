@@ -5,14 +5,15 @@
 
 <div class="bg-light p-4 rounded">
     <h1>Users</h1>
+    <div class="mt-2">
+        @include('layouts.partials.messages')
+    </div>
     <div class="lead">
         <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right">Add new
             user</a>
     </div>
 
-    <div class="mt-2">
-        @include('layouts.partials.messages')
-    </div>
+    
 
     
     <div class="mt-2 mb-2">
@@ -64,12 +65,12 @@
                 {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' =>
                 'display:inline']) !!}
                 @if($user->status == 1)
-                    {!! Form::submit('Active', ['class' => 'btn btn-success','onclick' => 'return confirm("Are you want
+                    {!! Form::submit('Active', ['class' => 'btn btn-success btn-sm','onclick' => 'return confirm("Are you want
                     deactive user")']) !!}
                     {!! Form::close() !!}
 
                 @else
-                    {!! Form::submit('Deactive', ['class' => 'btn btn-secondary','onclick' => 'return confirm("Are you
+                    {!! Form::submit('Deactive', ['class' => 'btn btn-secondary btn-sm','onclick' => 'return confirm("Are you
                     want active user")']) !!}
                     {!! Form::close() !!}
 

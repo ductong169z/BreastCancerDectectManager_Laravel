@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\AdminResetPasswordRequest;
 use App\Http\Controllers\NotiController;
 
 class UsersController extends Controller
@@ -53,11 +54,9 @@ class UsersController extends Controller
         // you should create a generated random password and email it to the user
        
         $user->create(array_merge($request->validated(), [
-            'password' => 'test',
-            'role' => $request->role,
-        ])); 
+            'password' => $request->get('password')
+        ]))->syncRoles($request->get('role'));
 
-        $user->syncRoles($request->role);
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));
     }
@@ -94,52 +93,14 @@ class UsersController extends Controller
     public function adminResetpassword(User $user)
     {
         return view('users.admin_reset_password', [
-            'user' => $user,
-            'userRole' => $user->roles->pluck('name')->toArray(),
-            'roles' => Role::latest()->get()
+            'user' => $user
         ]);
     }
-
-    public function passwordReset(User $user, UpdateUserRequest $request)
-    {
-        //  //Validate form
-        //  $validator = \Validator::make($request->all(),[
-        //     'oldpassword'=>[
-        //         'required', function($attribute, $value, $fail){
-        //             if( !\Hash::check($value, Auth::user()->password) ){
-        //                 return $fail(__('The current password is incorrect'));
-        //             }
-        //         },
-        //         'min:8',
-        //         'max:30'
-        //      ],
-        //      'newpassword'=>'required|min:8|max:30',
-        //      'cnewpassword'=>'required|same:newpassword'
-        //  ],[
-        //      'oldpassword.required'=>'Enter your current password',
-        //      'oldpassword.min'=>'Old password must have atleast 8 characters',
-        //      'oldpassword.max'=>'Old password must not be greater than 30 characters',
-        //      'newpassword.required'=>'Enter new password',
-        //      'newpassword.min'=>'New password must have atleast 8 characters',
-        //      'newpassword.max'=>'New password must not be greater than 30 characters',
-        //      'cnewpassword.required'=>'ReEnter your new password',
-        //      'cnewpassword.same'=>'New password and Confirm new password must match'
-        //  ]);
-
-        // if( !$validator->passes() ){
-        //     return response()->json(['status'=>0,'error'=>$validator->errors()->toArray()]);
-        // }else{
-             
-        //  $update = User::find(Auth::user()->id)->update(['password'=>\Hash::make($request->newpassword)]);
-
-        //  if( !$update ){
-        //      return response()->json(['status'=>0,'msg'=>'Something went wrong, Failed to update password in db']);
-        //  }else{
-        //      return response()->json(['status'=>1,'msg'=>'Your password has been changed successfully']);
-        //  }
-        // }
-        return redirect()->route('users.index')
-            ->withSuccess(__('User updated successfully.'));
+    public function adminUpdatePassword(User $user, AdminResetPasswordRequest $request)
+    {   
+        $user->update($request->validated());
+        return redirect()->route('users.edit', $user->id)
+            ->withSuccess(__('Rest password successfully.'));
     }
 
     /**
@@ -188,39 +149,32 @@ class UsersController extends Controller
         $noti = new NotiController();
         if ($user->status==1) {
             $user->status=0;
-            $msg = array
-            (
-              'body'  => "Đã deactive $user->name ",
-              'title' => "Thông Báo hệ thống",
-              'receiver' => 'erw',
-              'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
-              'sound' => 'mySound'/*Default sound*/
-            );
+            // $msg = array
+            // (
+            //   'body'  => "Đã deactive $user->name ",
+            //   'title' => "Thông Báo hệ thống",
+            //   'receiver' => 'erw',
+            //   'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
+            //   'sound' => 'mySound'/*Default sound*/
+            // );
         } else {
             $user->status=1;
-            $msg = array
-            (
-              'body'  => "Da active $user->name",
-              'title' => "Thông Báo hệ thống",
-              'receiver' => 'erw',
-              'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
-              'sound' => 'mySound'/*Default sound*/
-            );
+            // $msg = array
+            // (
+            //   'body'  => "Da active $user->name",
+            //   'title' => "Thông Báo hệ thống",
+            //   'receiver' => 'erw',
+            //   'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
+            //   'sound' => 'mySound'/*Default sound*/
+            // );
         }
         $user->save();
        
-        $noti->sennoti($msg);
+        // $noti->sennoti($msg);
         return redirect()->route('users.index')
             ->withSuccess(__('User deleted successfully.'));
     }
 
 
-
-    // public function search(Request request)
-    // {
-    //     $search = $require->get('search');
-    //     $users = Users::where('name','LIKE','%'.$search.'%')->get();
-    //     return view('users.index', compact('users'));
-    // }
 
 }

@@ -46,7 +46,7 @@ class NotiController extends Controller
 
     function loadNoti(){
         // dd($user_id);
-        $notications = Notifications::where('user_id', Auth::id())->get();
+        $notications = Notifications::where('user_id', Auth::id())->orderBy('status','desc')->get();
         // $notications = $notications->where('user_id', Auth::id());
 
         // dd($notications);
@@ -58,13 +58,15 @@ class NotiController extends Controller
         $noti = new Notifications();
         switch($notiarray["condition"]){
             case 'create':
-                $noti->title = 'A new request have been make';
-                $noti ->body = 'A new predict request for have been created by';
+                $noti->title = 'From '. $notiarray['doctor_name'];
+                $noti ->body = "New predict request created for " . $notiarray['patient_name'];
                 $noti -> created_at = $notiarray['create_at'];
+                break;
             case 'uploadimg':
-                $noti->title = 'Image upload to request ' . $notiarray['prediction_id'];
-                $noti ->body = 'Image for predict have been upload by';
+                $noti->title = 'From ' . $notiarray['prediction_id'];
+                $noti ->body = 'Image for predict have been upload';
                 $noti -> created_at = $notiarray['create_at'];
+                break;
                 
         } 
         $noti ->user_id = $notiarray["user_id"];
@@ -87,23 +89,15 @@ class NotiController extends Controller
         );
     }
 
-    function updateNoti(Notifications $noti){
+    function updateNoti($noti_id){
+        $noti=Notifications::find($noti_id);
         $noti->updated_at=Carbon::now();
+        $noti->status = 0;
+        // dd($noti->prediction_id);
+
         $noti->save();
+        return redirect()->route('predict.show', $noti->prediction_id);
     }
 
-
-    // //Notification data
-    // $user_id = Auth::id();
-    // $create_at = Carbon::now();
-    // $notiarray = array
-    //     (
-    //       'patient_id'  => "$patient_id",
-    //       'user_id' => "$user_id",
-    //       'condition' => "create",
-    //       'create_at' => "$create_at"
-    //     );
-    // $noti = new NotiController();
-    // $noti->notiCondition($notiarray);
 
 }

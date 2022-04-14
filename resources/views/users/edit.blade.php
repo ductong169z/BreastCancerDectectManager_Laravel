@@ -4,7 +4,9 @@
     <div class="bg-light p-4 rounded">
         <h1>Update user</h1>
         <div class="lead">
-
+            <div class="mt-2">
+                @include('layouts.partials.messages')
+            </div>
         </div>
 
         <div class="container mt-4">
@@ -25,18 +27,18 @@
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input value="{{ $user->email }}"
-                           type="email"
-                           class="form-control"
-                           name="email"
-                           placeholder="Email address" required>
-                    @if ($errors->has('email'))
-                        <span class="text-danger text-left">{{ $errors->first('email') }}</span>
-                    @endif
+                    <label class="form-control" readonly>{{ $user->email }}</label>
                 </div>
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <label class="form-control" readonly>{{ $user->username }}</label>
+                    <input value="{{ $user->username }}"
+                           type="username"
+                           class="form-control"
+                           name="username"
+                           placeholder="Username" required>
+                           @if ($errors->has('username'))
+                        <span class="text-danger text-left">{{ $errors->first('username') }}</span>
+                    @endif
                 </div>
                 <div class="mb-3">
                     <label for="role" class="form-label">Role</label>
@@ -75,3 +77,5 @@
 
     </div>
 @endsection
+
+

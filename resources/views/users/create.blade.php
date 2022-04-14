@@ -52,15 +52,21 @@
                            class="form-control"
                            name="password"
                            placeholder="password" required>
+                            @if ($errors->has('password'))
+                                <span class="text-danger text-left">{{ $errors->first('password') }}</span>
+                            @endif
                    
                 </div>
                 <div class="mb-3">
-                    <label for="confirm_password" class="form-label">Confirm password</label>
+                    <label for="password_confirmation" class="form-label">Confirm password</label>
                     <input value="{{ old('password') }}"
                            type="password"
                            class="form-control"
-                           name="confirm_password"
+                           name="password_confirmation"
                            placeholder="Confirm password" required>
+                            @if ($errors->has('password'))
+                                <span class="text-danger text-left">{{ $errors->first('password') }}</span>
+                            @endif
                   
                 </div>
                 <div class="mb-3">

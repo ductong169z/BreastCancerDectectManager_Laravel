@@ -4,6 +4,7 @@
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
+        
     </button>
 
     {{-- <!-- Topbar Search -->
@@ -159,28 +160,51 @@
     req.onreadystatechange = function() {
         if (req.readyState == 4 && req.status == 200) {
             var obj = JSON.parse(req.responseText);
-            $("#number_noti").text(obj.notifications.length)
-            for (i = 0; i < obj.notifications.length; i++) {
-                console.log(obj.notifications[i]['prediction_id'])
-                console.log(obj.notifications[i]['title'])
-                console.log(obj.notifications[i]['body'])
+            if(obj.notifications.length==0){
+                n_data.innerHTML += "<div class='text-gray-500 dropdown-item d-flex align-items-center text-align-center'>You do not have any new request</div>"
+            }
+            else{
+                $("#number_noti").text(obj.notifications.length)
+                for (i = 0; i < obj.notifications.length; i++) {
+                    console.log(obj.notifications[i]['prediction_id'])
+                    console.log(obj.notifications[i]['title'])
+                    console.log(obj.notifications[i]['body'])
+                    if(obj.notifications[i]['status']){
+                        n_data.innerHTML +=
 
-                n_data.innerHTML +=
+                                                "<a class='dropdown-item d-flex align-items-center' href='{{ route('notification.update','') }}/" + obj.notifications[i]['id'] + "'" +
+                                                    "<div class='mr-3'>" +
+                                                        "<div class='icon-circle bg-primary'>" +
+                                                            "<i class='fas fa-file-alt text-white'></i>" +
+                                                        "</div>" +
+                                                    "</div>" +
+                                                    "<div>" +
+                                                        "<div class='small text-gray-500'>" + obj.notifications[i]['title'] + "</div>" +
+                                                        "<span class='font-weight-bold'>" + obj.notifications[i]['body'] + "</span>" +
+                                                    "</div>" +
+                                                "</a>"
+                    }
+                    else{
+                        n_data.innerHTML +=
 
-                    "<a class='dropdown-item d-flex align-items-center' href='{{ route('predict.show','') }}/" + obj.notifications[i]['prediction_id'] + "'" +
-                        "<div class=' mr-3 '>" +
-                            "<div class='icon-circle bg-primary'>" +
-                                "<i class='fas fa-file-alt text-white'></i>" +
-                            "</div>" +
-                        "</div>" +
-                        "<div class='ml-3'>" +
-                            "<div class='small text-gray-500'>" + obj.notifications[i]['title'] + "</div>" +
-                            "<span class='font-weight-bold'>" + obj.notifications[i]['body'] + "</span>" +
-                        "</div>" +
-                    "</a>"
+                                                "<a class='dropdown-item d-flex align-items-center ' style='background-color: lightgray' href='{{ route('notification.update','') }}/" + obj.notifications[i]['id'] + "'" +
+                                                    "<div class=' mr-3 '>" +
+                                                        "<div class='icon-circle bg-primary'>" +
+                                                            "<i class='fas fa-file-alt text-white'></i>" +
+                                                        "</div>" +
+                                                    "</div>" +
+                                                    "<div>" +
+                                                        "<div class='small text-gray-500'>" + obj.notifications[i]['title'] + "</div>" +
+                                                        "<span class='font-weight-bold'>" + obj.notifications[i]['body'] + "</span>" +
+                                                    "</div>" +
+                                                "</a>"
+                    }
+                    
 
             }
-            n_data.innerHTML += "<a class='dropdown-item text-center small text-gray-500' href='#'>Show All Alerts</a>"
+            n_data.innerHTML += "<a class='dropdown-item text-center small text-gray-500' style='background-color: lightgray' href='#'>Show All Alerts</a>"
+            }
+            
         }
 
     }
