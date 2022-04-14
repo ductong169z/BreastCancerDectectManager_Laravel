@@ -134,11 +134,12 @@ class PredictionsController extends Controller
         $image = $request->image;
         $imageName = "P_" . $id . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
         $response = Curl::to('http://127.0.0.1:8000/predict/')
-            ->withData(array('modelName' => 'model.h5'))
+            ->withData(array('modelName' => 'gradcam.h5'))
             ->withFile('image', $image, $image->getClientMimeType(), $imageName)
             ->post();
+            dd($response);
+
         $response = json_decode($response, true);
-        
         if ($response['status'] == "success") {
             $predict_result = $response['data'];
             
