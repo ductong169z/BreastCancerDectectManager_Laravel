@@ -27,7 +27,7 @@ class AdminResetPasswordRequest extends FormRequest
         $user = request()->route('user');
 
         return [
-            'password' => 'required|confirmed|min:8'
+            'password' => 'required|min:8|confirmed'
         ];
     }
 }
