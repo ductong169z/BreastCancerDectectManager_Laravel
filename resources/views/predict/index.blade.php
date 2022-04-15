@@ -15,12 +15,12 @@
     }
 </style>
 <div class="bg-light p-4 rounded">
-    <h2>Prediction</h2>
+    <h2>Predictions</h2>
     <div class="lead">
-        Manage your prediction here.
+        Manage your predictions here.
         @can("predict.create")
-        <a href="{{ route('predict.create') }}" class="btn btn-primary float-right">Add
-            predict
+        <a href="{{ route('predict.create') }}" class="btn btn-primary float-right">Add new
+            prediction
             request</a>
         @endcan
     </div>

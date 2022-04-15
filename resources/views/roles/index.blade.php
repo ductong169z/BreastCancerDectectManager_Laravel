@@ -7,7 +7,7 @@
         <h1>Roles</h1>
         <div class="lead">
             Manage your roles here.
-            <a href="{{ route('roles.create') }}" class="btn btn-primary btn-sm float-right">Add role</a>
+            <a href="{{ route('roles.create') }}" class="btn btn-primary btn-sm float-right">Add new role</a>
         </div>
 
         <div class="mt-2">
@@ -25,7 +25,7 @@
                     <td>{{ $role->id }}</td>
                     <td>{{ $role->name }}</td>
                     <td>
-                        <a class="btn btn-info btn-sm" href="{{ route('roles.show', $role->id) }}">Show</a>
+                        <a class="btn btn-info btn-sm" href="{{ route('roles.show', $role->id) }}">View</a>
                     </td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="{{ route('roles.edit', $role->id) }}">Edit</a>

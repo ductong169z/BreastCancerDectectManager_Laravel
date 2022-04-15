@@ -37,10 +37,6 @@ class PredictionsController extends Controller
         $sonographer_id = $request->sonographer;
         $patient_id = $request->patient;
 
-
-        
-
-        
         //create new prediction
         $prediction=Prediction::create([
             'patient_id' => $patient_id,
@@ -50,7 +46,7 @@ class PredictionsController extends Controller
             'model_id' => 1
         ]);
 
-        //Notification data for create new predict request
+        //Notification data for create new prediction request
         $patient=Patient::find($patient_id);
         $doctor=User::find(Auth::id());
         // dd($patient->name);
@@ -159,7 +155,7 @@ class PredictionsController extends Controller
                 'highest_prediction' =>array_key_first($predict_result)
             ]);
             $prediction=Prediction::find($id);
-            //Notification data for create new predict request
+            //Notification data for create new prediction request
         $notiarray = array
         (
           'prediction_id'  => $prediction->id,

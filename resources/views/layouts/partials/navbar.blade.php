@@ -130,7 +130,7 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     {{ __('Profile') }}
                 </a>
-                <a class="dropdown-item" href="javascript:void(0)">
+                <a class="dropdown-item" href="{{ route('profile.reset_password', Auth::user()->id) }}">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     {{ __('Change Password') }}
                 </a>
