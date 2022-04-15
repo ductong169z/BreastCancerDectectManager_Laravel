@@ -164,7 +164,7 @@
                 $("#number_noti").text(obj.notifications.length)
                 for (i = 0; i < obj.notifications.length; i++) {
                         n_data.innerHTML +=
-                                                "<a class='dropdown-item d-flex align-items-center ' style='background-color: lightgray' href='{{ route('notification.update','') }}/" + obj.notifications[i]['id'] + "'" +
+                                                "<a class='dropdown-item d-flex align-items-center '  href='{{ route('notification.update','') }}/" + obj.notifications[i]['id'] + "'" +
                                                     "<div class='col mr-3'>" +
                                                         "<div class='icon-circle bg-primary'>" +
                                                             "<i class='fas fa-file-alt text-white'></i>" +
