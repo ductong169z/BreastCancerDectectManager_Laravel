@@ -147,6 +147,7 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $noti = new NotiController();
+        $msg="";
         if ($user->status==1) {
             $user->status=0;
             // $msg = array
@@ -157,6 +158,7 @@ class UsersController extends Controller
             //   'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
             //   'sound' => 'mySound'/*Default sound*/
             // );
+            $msg='User deactivate successfully.';
         } else {
             $user->status=1;
             // $msg = array
@@ -167,12 +169,14 @@ class UsersController extends Controller
             //   'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
             //   'sound' => 'mySound'/*Default sound*/
             // );
+
+            $msg='User activate successfully.';
         }
         $user->save();
        
         // $noti->sennoti($msg);
         return redirect()->route('users.index')
-            ->withSuccess(__('User deleted successfully.'));
+            ->withSuccess(__($msg));
     }
 
 

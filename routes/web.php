@@ -121,9 +121,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
         });
         Route::get('/send', 'NotiController@sendNoti')->name('notification.send');
         Route::get('/notification-load', 'NotiController@loadNoti')->name('notification.load');
+        Route::get('/notification/index', 'NotiController@index')->name('notification.index');
         Route::get('/notification-update/{id}', 'NotiController@updateNoti')->name('notification.update');
         Route::group(['prefix' => 'noti'], function () {
-            Route::get('/', 'NotiController@index')->name('notification.index');
-            
+            Route::get('/', 'NotiController@send')->name('notification.send'); 
         });
     });
