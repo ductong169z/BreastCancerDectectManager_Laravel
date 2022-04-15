@@ -42,7 +42,7 @@
             </div>
         </form>
     </div>
-    <table class="table table-striped table-bordered" id="predict-table">
+    <table class="table table-striped table-bordered" style="width:100%!important" id="predict-table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -50,7 +50,7 @@
                 <th>Sonographer name</th>
                 <th>Patients name</th>
                 <th>Doctor confirmation</th>
-                <th>Status</th>
+                <th>Upload status</th>
                 <th>
                 </th>
             </tr>

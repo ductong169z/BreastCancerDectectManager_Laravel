@@ -26,7 +26,7 @@ Route::post('image-to-base64', function (Request $request) {
     return ['status' => true, 'predict' => "somthing else", 'image' => $base64];
 });
  Route::get('predict/list',function(Request $request){
-    $predict = Prediction::select('doctor.name as doctor_name', 'sonographer.name as sonographer_name', 'predictions.doctor_confirmation', 'predictions.id', 'patients.name as patient_name','predictions.status')
+    $predict = Prediction::select('doctor.name as doctor_name', 'sonographer.name as sonographer_name', 'predictions.doctor_confirmation', 'predictions.id', DB::raw("CONCAT(patients.name,' ',patients.id_number) as patient_name"),'predictions.status')
     ->join('users as doctor', 'doctor.id', '=', 'doctor_id')
     ->join('patients', 'patients.id', '=', 'patient_id')
     ->join('users as sonographer', 'sonographer.id', '=', 'sonographer_id');
