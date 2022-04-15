@@ -22,6 +22,16 @@
                     @endif
                 </div>
                 <div class="mb-3">
+                    <label for="patient" class="form-label">Patient Gender</label>
+                    <label class="form-control">{{ $currentPatient->gender ==1 ? 'Male' : 'Female' }}</label>
+
+                </div>
+                <div class="mb-3">
+                    <label for="patient" class="form-label">Patient ID Number</label>
+                    <label class="form-control">{{ $currentPatient->id_number }}</label>
+
+                </div>
+                <div class="mb-3">
                     <label for="patient" class="form-label">Doctor</label>
                     <label class="form-control">{{ \App\User::find($predict->doctor_id)->name }}</label>
                     @if ($errors->has('patient'))

@@ -14,12 +14,11 @@ use Spatie\Permission\Traits\HasRoles;
 use GuzzleHttp\Client;
 use App\Http\Controllers\NotiController;
 use Carbon\Carbon;
-
+use DB;
 class PredictionsController extends Controller
 {
     public function index(Request $request)
     {
-
         $patient = $request->patient;
         return view('predict.index', compact('patient'));
     }
@@ -27,7 +26,7 @@ class PredictionsController extends Controller
     public function create(Request $request)
     {
         //        $doctor=User::role('doctor')->get();
-        $paitients = Patient::pluck('name', 'id')->prepend('---Select patient---','');
+        $paitients = Patient::select("*", DB::raw("CONCAT(name,' ',id_number) as full_name"))->pluck('full_name', 'id')->prepend('---Select patient---','');
         $sonographer = User::role('sonographer')->pluck('name', 'id')->prepend('---Select sonographer---','');
 
         return view('predict.create', compact('sonographer', 'paitients'));
@@ -99,6 +98,7 @@ class PredictionsController extends Controller
             return redirect(route('predict.index'))->with('success','Prediction was not found !'); 
         }
         $paitients = Patient::pluck('name', 'id');
+        $currentPatient=Patient::find($predict->patient_id);
         $sonographer = User::role('sonographer')->pluck('name', 'id');
         $input_image = "data:image/png;base64";
         if (Storage::disk('local')->exists($predict->input_image_path)) {
@@ -107,7 +107,7 @@ class PredictionsController extends Controller
             $extension = end($extension);
             $input_image = "data:image/" . $extension . ";base64," . base64_encode($image);
         }
-        return view('predict.detail', compact('predict', 'sonographer', 'paitients', 'id', 'input_image'));
+        return view('predict.detail', compact('predict', 'sonographer', 'paitients', 'id', 'input_image','currentPatient'));
     }
     public function delete($id)
     {
@@ -131,13 +131,14 @@ class PredictionsController extends Controller
     public function uploadImage(Request $request)
     {
         $id = $request->id;
+        $modelName=ModelPredict::getSelectedModelName();
+
         $image = $request->image;
         $imageName = "P_" . $id . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
         $response = Curl::to('http://127.0.0.1:8000/predict/')
-            ->withData(array('modelName' => 'gradcam.h5'))
+            ->withData(array('modelName' => $modelName))
             ->withFile('image', $image, $image->getClientMimeType(), $imageName)
             ->post();
-            dd($response);
 
         $response = json_decode($response, true);
         if ($response['status'] == "success") {
