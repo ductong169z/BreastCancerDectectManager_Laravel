@@ -70,7 +70,7 @@ class ProfileController extends Controller
 
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
-            'password' => 'required|confirmed|min:8'
+            'password' => 'required|min:8|confirmed'
         ]);
 
         $user->password = $request->input('password');
