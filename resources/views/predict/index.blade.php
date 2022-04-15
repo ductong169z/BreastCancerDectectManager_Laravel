@@ -50,7 +50,7 @@
                 <th>Sonographer name</th>
                 <th>Patients name</th>
                 <th>Doctor confirmation</th>
-                <th>Status</th>
+                <th>Upload status</th>
                 <th>
                 </th>
             </tr>

@@ -98,6 +98,7 @@ class PredictionsController extends Controller
             return redirect(route('predict.index'))->with('success','Prediction was not found !'); 
         }
         $paitients = Patient::pluck('name', 'id');
+        $currentPatient=Patient::find($predict->patient_id);
         $sonographer = User::role('sonographer')->pluck('name', 'id');
         $input_image = "data:image/png;base64";
         if (Storage::disk('local')->exists($predict->input_image_path)) {
@@ -106,7 +107,7 @@ class PredictionsController extends Controller
             $extension = end($extension);
             $input_image = "data:image/" . $extension . ";base64," . base64_encode($image);
         }
-        return view('predict.detail', compact('predict', 'sonographer', 'paitients', 'id', 'input_image'));
+        return view('predict.detail', compact('predict', 'sonographer', 'paitients', 'id', 'input_image','currentPatient'));
     }
     public function delete($id)
     {
