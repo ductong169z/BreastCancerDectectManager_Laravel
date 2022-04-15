@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Rules\MatchOldPassword;
 
 class ProfileController extends Controller
 {
@@ -48,4 +49,36 @@ class ProfileController extends Controller
 
         return redirect()->route('profile')->withSuccess('Profile updated successfully.');
     }
+
+    public function resetPassword(Request $request){
+        $user = User::findOrFail(Auth::user()->id);
+
+
+        return view('users.user_reset_password', [
+            'user' => $user
+        ]);
+        
+    }
+
+    public function updatePassword(User $user,Request $request)
+    {   
+        $user = User::findOrFail(Auth::user()->id);
+        // // dd($user->password);
+        // $pass = Hash::check($request->input('current_password'), $user->password);
+        // dd($pass);
+        // dd($request->get('password'));
+
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'password' => 'required|min:8|confirmed'
+        ]);
+
+        $user->password = $request->input('password');
+        $user->update();
+
+
+        return redirect()->route('profile')
+            ->withSuccess(__('Rest password successfully.'));
+    }
+
 }
