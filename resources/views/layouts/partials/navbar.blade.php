@@ -158,7 +158,7 @@
         if (req.readyState == 4 && req.status == 200) {
             var obj = JSON.parse(req.responseText);
             if(obj.notifications.length==0){
-                n_data.innerHTML += "<div class='text-gray-500 dropdown-item d-flex align-items-center text-align-center'>You do not have any new request</div>"
+                n_data.innerHTML += "<div class='dropdown-item text-center text-gray-500'>You do not have any new notify yet</div>"
             }
             else{
                 $("#number_noti").text(obj.notifications.length)
@@ -180,7 +180,7 @@
             }
            
             }
-            n_data.innerHTML += "<a class='dropdown-item text-center small text-gray-500' href='#'>Show All Alerts</a>"
+            n_data.innerHTML += "<a class='dropdown-item text-center small text-gray-500' href='{{ route('notification.index') }}'>Show All Notifications</a>"
             
         }
 

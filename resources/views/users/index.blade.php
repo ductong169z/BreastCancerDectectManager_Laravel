@@ -12,10 +12,6 @@
         <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right">Add new
             user</a>
     </div>
-
-    
-
-    
     <div class="mt-2 mb-2">
             <form action="{{ route('users.index') }}" id="form1">
                 <div class="row">
@@ -65,13 +61,11 @@
                 {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' =>
                 'display:inline']) !!}
                 @if($user->status == 1)
-                    {!! Form::submit('Active', ['class' => 'btn btn-success btn-sm','onclick' => 'return confirm("Are you want
-                    deactive user")']) !!}
+                    {!! Form::submit('Active', ['class' => 'btn btn-success btn-sm','onclick' => 'return confirm("Are you want active user")']) !!}
                     {!! Form::close() !!}
 
                 @else
-                    {!! Form::submit('Deactive', ['class' => 'btn btn-secondary btn-sm','onclick' => 'return confirm("Are you
-                    want active user")']) !!}
+                    {!! Form::submit('Deactive', ['class' => 'btn btn-secondary btn-sm','onclick' => 'return confirm("Are you want active user")']) !!}
                     {!! Form::close() !!}
 
                 @endif
