@@ -96,7 +96,7 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
+    @yield('add-script')
     <!-- firebase integration started -->
 
     <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
