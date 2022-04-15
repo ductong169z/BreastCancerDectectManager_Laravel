@@ -115,7 +115,7 @@
                             <div class="row">
                                 <div class="col text-center">
                                     <button type="submit" class="btn btn-primary">Save Changes</button>
-                                    <a href="{{ route('profile.reset_password', Auth::user()->id) }}" class="btn btn-default">Reset password</button>
+                                    {{-- <a href="{{ route('profile.reset_password', Auth::user()->id) }}" class="btn btn-default">Reset password</button> --}}
                                 </div>
                             </div>
                         </div>

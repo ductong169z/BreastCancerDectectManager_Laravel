@@ -5,7 +5,7 @@
         <h2>Permissions</h2>
         <div class="lead">
             Manage your permissions here.
-            <a href="{{ route('permissions.create') }}" class="btn btn-primary btn-sm float-right">Add permissions</a>
+            <a href="{{ route('permissions.create') }}" class="btn btn-primary btn-sm float-right">Add new permissions</a>
         </div>
 
         <div class="mt-2">

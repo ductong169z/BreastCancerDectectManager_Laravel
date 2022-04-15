@@ -24,7 +24,7 @@
 
         <div class="lead">
             Manage your patients here.
-            <a href="{{ route('patients.create') }}" class="btn btn-primary btn-sm float-right">Add new user</a>
+            <a href="{{ route('patients.create') }}" class="btn btn-primary btn-sm float-right">Add new patient</a>
         </div>
 
         <div class="mt-2">

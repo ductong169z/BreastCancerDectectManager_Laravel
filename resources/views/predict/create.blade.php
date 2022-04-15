@@ -3,9 +3,9 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <div class="bg-light p-4 rounded">
-        <h2>Add new predict request</h2>
+        <h2>Add new prediction request</h2>
         <div class="lead">
-            Add new predict request.
+            Add new prediction request.
         </div>
 
         <div class="container mt-4">

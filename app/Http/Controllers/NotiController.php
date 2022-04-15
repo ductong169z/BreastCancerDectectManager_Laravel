@@ -45,7 +45,7 @@ class NotiController extends Controller
         switch($notiarray["condition"]){
             case 'create':
                 $noti->title = 'From '. $notiarray['doctor_name'];
-                $noti ->body = "New predict request created for " . $notiarray['patient_name'];
+                $noti ->body = "New prediction request created for " . $notiarray['patient_name'];
                 $noti -> created_at = $notiarray['create_at'];
                 break;
             case 'uploadimg':

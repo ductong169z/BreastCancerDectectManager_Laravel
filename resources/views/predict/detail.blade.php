@@ -3,9 +3,9 @@
 @section('main-content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
     <div class="bg-light p-4 rounded">
-        <h2>Detail predict request</h2>
+        <h2>Detail prediction request</h2>
         <div class="lead">
-            Detail predict request.
+            Detail prediction request.
         </div>
 
         <div class="container mt-4">
