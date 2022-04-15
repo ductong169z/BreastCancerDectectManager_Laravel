@@ -20,4 +20,7 @@ class ModelPredict extends Model
         'status'
     ];
     protected $primaryKey = 'id';
+    function getSelectedModelName(){
+        return self::where('isSelected',1)->first()->file_name;
+    }
 }
