@@ -166,29 +166,9 @@
             else{
                 $("#number_noti").text(obj.notifications.length)
                 for (i = 0; i < obj.notifications.length; i++) {
-                    console.log(obj.notifications[i]['prediction_id'])
-                    console.log(obj.notifications[i]['title'])
-                    console.log(obj.notifications[i]['body'])
-                    if(obj.notifications[i]['status']){
                         n_data.innerHTML +=
-
-                                                "<a class='dropdown-item d-flex align-items-center' href='{{ route('notification.update','') }}/" + obj.notifications[i]['id'] + "'" +
-                                                    "<div class='mr-3'>" +
-                                                        "<div class='icon-circle bg-primary'>" +
-                                                            "<i class='fas fa-file-alt text-white'></i>" +
-                                                        "</div>" +
-                                                    "</div>" +
-                                                    "<div>" +
-                                                        "<div class='small text-gray-500'>" + obj.notifications[i]['title'] + "</div>" +
-                                                        "<span class='font-weight-bold'>" + obj.notifications[i]['body'] + "</span>" +
-                                                    "</div>" +
-                                                "</a>"
-                    }
-                    else{
-                        n_data.innerHTML +=
-
                                                 "<a class='dropdown-item d-flex align-items-center ' style='background-color: lightgray' href='{{ route('notification.update','') }}/" + obj.notifications[i]['id'] + "'" +
-                                                    "<div class=' mr-3 '>" +
+                                                    "<div class='col mr-3'>" +
                                                         "<div class='icon-circle bg-primary'>" +
                                                             "<i class='fas fa-file-alt text-white'></i>" +
                                                         "</div>" +
@@ -198,12 +178,12 @@
                                                         "<span class='font-weight-bold'>" + obj.notifications[i]['body'] + "</span>" +
                                                     "</div>" +
                                                 "</a>"
-                    }
                     
 
             }
-            n_data.innerHTML += "<a class='dropdown-item text-center small text-gray-500' style='background-color: lightgray' href='#'>Show All Alerts</a>"
+           
             }
+            n_data.innerHTML += "<a class='dropdown-item text-center small text-gray-500' href='#'>Show All Alerts</a>"
             
         }
 
