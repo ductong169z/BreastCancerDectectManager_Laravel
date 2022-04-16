@@ -102,4 +102,6 @@ class HomeController extends Controller
     public static function correctPredict($date){
         return Prediction::whereColumn('predictions.highest_prediction','predictions.doctor_confirmation')->whereDate('predictions.updated_at',$date)->count();;
     }
+
+    
 }

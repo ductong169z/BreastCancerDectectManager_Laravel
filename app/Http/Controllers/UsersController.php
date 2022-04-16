@@ -147,36 +147,28 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $noti = new NotiController();
-        $msg="";
+        $masg="";
         if ($user->status==1) {
             $user->status=0;
-            // $msg = array
-            // (
-            //   'body'  => "Đã deactive $user->name ",
-            //   'title' => "Thông Báo hệ thống",
-            //   'receiver' => 'erw',
-            //   'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
-            //   'sound' => 'mySound'/*Default sound*/
-            // );
-            $msg='User deactivate successfully.';
+            
+            $masg='User deactivate successfully.';
         } else {
             $user->status=1;
-            // $msg = array
-            // (
-            //   'body'  => "Da active $user->name",
-            //   'title' => "Thông Báo hệ thống",
-            //   'receiver' => 'erw',
-            //   'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
-            //   'sound' => 'mySound'/*Default sound*/
-            // );
+            $msg = array
+            (
+              'body'  => "Da active $user->name",
+              'title' => "Thông Báo hệ thống",
+              'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
+              'sound' => 'mySound'/*Default sound*/
+            );
 
-            $msg='User activate successfully.';
+            $masg='User activate successfully.';
         }
         $user->save();
        
-        // $noti->sennoti($msg);
+        $noti->sendnoti();
         return redirect()->route('users.index')
-            ->withSuccess(__($msg));
+            ->withSuccess(__($masg));
     }
 
 

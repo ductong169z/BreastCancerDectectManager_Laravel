@@ -99,27 +99,9 @@
     @yield('add-script')
     <!-- firebase integration started -->
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
-    <!-- Firebase App is always required and must be first -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
-
-    <!-- Add additional services that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-functions.js"></script>
-
-    <!-- firebase integration end -->
-
-    <!-- Comment out (or don't include) services that you don't want to use -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-storage.js"></script> -->
-
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
-
-    <script type="text/javascript">
-        // Your web app's Firebase configuration
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script>
         var firebaseConfig = {
             apiKey: "AIzaSyA4w5Q9sjRwWKF4Is_xnPscnVPMgZYRBak",
             authDomain: "laravel-c5e14.firebaseapp.com",
@@ -130,69 +112,50 @@
             measurementId: "G-B6D7SCKZCY"
         };
 
-        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        //firebase.analytics();
         const messaging = firebase.messaging();
+
         messaging
             .requestPermission()
             .then(function() {
-                //MsgElem.innerHTML = "Notification permission granted." 
-                console.log("Notification permission granted.");
-
-                // get the token in the form of promise
                 return messaging.getToken()
             })
             .then(function(token) {
-                // print the token on the HTML page     
                 console.log(token);
 
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
 
+                $.ajax({
+                    url: '{{ route("notification.test") }}',
+                    type: 'POST',
+                    data: {
+                        token: token
+                    },
+                    dataType: 'JSON',
+                    success: function(response) {
+                        // alert('Token saved successfully.');
+                    },
+                    error: function(err) {
+                        // console.log('User Chat Token Error' + err);
+                    },
+                });
 
-            })
-            .catch(function(err) {
-                console.log("Unable to get permission to notify.", err);
+            }).catch(function(err) {
+                console.log('User Chat Token Error' + err);
             });
+
 
         messaging.onMessage(function(payload) {
-            console.log(payload);
-            var notify;
-            notify = new Notification(payload.notification.title, {
+            const noteTitle = payload.notification.title;
+            const noteOptions = {
                 body: payload.notification.body,
                 icon: payload.notification.icon,
-                tag: "Dummy"
-            });
-            console.log(payload.notification);
-        });
-
-        //firebase.initializeApp(config);
-        var database = firebase.database().ref().child("/users/");
-
-        database.on('value', function(snapshot) {
-            renderUI(snapshot.val());
-        });
-
-        // On child added to db
-        database.on('child_added', function(data) {
-            console.log("Comming");
-            if (Notification.permission !== 'default') {
-                var notify;
-
-                notify = new Notification('CodeWife - ' + data.val().username, {
-                    'body': data.val().message,
-                    'icon': 'bell.png',
-                    'tag': data.getKey()
-                });
-                notify.onclick = function() {
-                    alert(this.tag);
-                }
-            } else {
-                alert('Please allow the notification first');
-            }
-        });
-
-        self.addEventListener('notificationclick', function(event) {
-            event.notification.close();
+            };
+            new Notification(noteTitle, noteOptions);
         });
     </script>
 
