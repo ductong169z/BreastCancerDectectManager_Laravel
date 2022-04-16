@@ -2,8 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center"
-        href="{{ route('home.index') }}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home.index') }}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laptop-code"></i>
         </div>
@@ -35,74 +34,76 @@
             <span>{{ __('Profile') }}</span>
         </a>
     </li>
-        @can('permissions.index')
-    <!-- Nav Item - Profile -->
-    <li class="nav-item {{ Nav::isRoute('permissions.index') }}">
-        <a class="nav-link" href="{{ route('permissions.index') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>{{ __('Permissions Management') }}</span>
-        </a>
-    </li>
-    @endif
-    @can('predict.index')
-    <!-- Nav Item - Profile -->
-    <li class="nav-item {{ Nav::isRoute('predict.index') }}">
-        <a class="nav-link" href="{{ route('predict.index') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>{{ __('Predictions Management') }}</span>
-        </a>
-    </li>
-    @endif
-     @can('roles.index')
-    <!-- Nav Item - Profile -->
-    <li class="nav-item {{ Nav::isRoute('roles.index') }}">
-        <a class="nav-link" href="{{ route('roles.index') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>{{ __('Roles Management') }}</span>
-        </a>
-    </li>
-    @endif
-    @can('users.index')
-    <!-- Nav Item - Users Management -->
-    <li class="nav-item {{ Nav::isRoute('users.index') }}">
-        <a class="nav-link" href="{{ route('users.index') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>{{ __('Users Management') }}</span>
-        </a>
-    </li>
-    @endif
-    @can('models.index')
-    <li class="nav-item {{ Nav::isRoute('models.index') }}">
-        <a class="nav-link" href="{{ route('models.index') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>{{ __('Models Management') }}</span>
-        </a>
-    </li>
-    @endif
-    @can('patients.index')
-    <!-- Nav Item - Patient Management -->
-    <li class="nav-item {{ Nav::isRoute('patients.index') }}">
-        <a class="nav-link" href="{{ route('patients.index') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>{{ __('Patient Management') }}</span>
-        </a>
-    </li>
-    @endif
-    <!-- Nav Item - About -->
-    <li class="nav-item {{ Nav::isRoute('about') }}">
-        <a class="nav-link" href="{{ route('about') }}">
-            <i class="fas fa-fw fa-hands-helping"></i>
-            <span>{{ __('About') }}</span>
-        </a>
-    </li>
+    @can('permissions.index')
+        <!-- Nav Item - Profile -->
+        <li class="nav-item {{ Nav::isRoute('permissions.*') }}">
+            <a class="nav-link" href="{{ route('permissions.index') }}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>{{ __('Permissions Management') }}</span>
+            </a>
+        </li>
+        @endif
+        @can('roles.index')
+            <!-- Nav Item - Profile -->
+            <li class="nav-item {{ Nav::isRoute('roles.*') }}">
+                <a class="nav-link" href="{{ route('roles.index') }}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>{{ __('Roles Management') }}</span>
+                </a>
+            </li>
+            @endif
 
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
 
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
+            @can('users.index')
+                <!-- Nav Item - Users Management -->
+                <li class="nav-item {{ Nav::isRoute('users.*') }}">
+                    <a class="nav-link" href="{{ route('users.index') }}">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>{{ __('Users Management') }}</span>
+                    </a>
+                </li>
+                @endif
+                @can('predict.index')
+                    <!-- Nav Item - Profile -->
+                    <li class="nav-item {{ Nav::isRoute('predict.*') }}">
+                        <a class="nav-link" href="{{ route('predict.index') }}">
+                            <i class="fas fa-fw fa-user"></i>
+                            <span>{{ __('Predictions Management') }}</span>
+                        </a>
+                    </li>
+                    @endif
+                    @can('models.index')
+                        <li class="nav-item {{ Nav::isRoute('models.*') }}">
+                            <a class="nav-link" href="{{ route('models.index') }}">
+                                <i class="fas fa-fw fa-user"></i>
+                                <span>{{ __('Models Management') }}</span>
+                            </a>
+                        </li>
+                        @endif
+                        @can('patients.index')
+                            <!-- Nav Item - Patient Management -->
+                            <li class="nav-item {{ Nav::isRoute('patients.*') }}">
+                                <a class="nav-link" href="{{ route('patients.index') }}">
+                                    <i class="fas fa-fw fa-user"></i>
+                                    <span>{{ __('Patient Management') }}</span>
+                                </a>
+                            </li>
+                            @endif
+                            <!-- Nav Item - About -->
+                            <li class="nav-item {{ Nav::isRoute('about') }}">
+                                <a class="nav-link" href="{{ route('about') }}">
+                                    <i class="fas fa-fw fa-hands-helping"></i>
+                                    <span>{{ __('About') }}</span>
+                                </a>
+                            </li>
 
-</ul>
-<!-- End of Sidebar -->
+                            <!-- Divider -->
+                            <hr class="sidebar-divider d-none d-md-block">
+
+                            <!-- Sidebar Toggler (Sidebar) -->
+                            <div class="text-center d-none d-md-inline">
+                                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                            </div>
+
+                        </ul>
+                        <!-- End of Sidebar -->

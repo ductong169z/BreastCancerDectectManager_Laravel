@@ -19,7 +19,7 @@ class PatientController extends Controller
     public function index(Request $request)
     {
         $patient=$request->patient;
-        $patients = Patient::latest();
+        $patients = Patient::orderByDesc('id');
         if($patients){
             $patients = $patients->where('patients.name', 'LIKE', '%' . $patient . '%');
         }

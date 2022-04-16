@@ -16,7 +16,7 @@
 </style>
 <div class="bg-light p-4 rounded">
     <h2>Predictions</h2>
-    <div class="lead">
+    <div class="lead mb-3">
         Manage your predictions here.
         @can("predict.create")
         <a href="{{ route('predict.create') }}" class="btn btn-primary float-right">Add new
@@ -28,20 +28,7 @@
     <div class="mt-2">
         @include('layouts.partials.messages')
     </div>
-    <div class="mt-2 mb-2">
-        <form action="{{ route('predict.index') }}">
-            <div class="row">
-                <div class="col-md-6">
-                    <input type="text" class="form-control" value="{{ $patient }}" id="patient" name="patient" placeholder="Patient name">
-
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-success">Search</button>
-
-                </div>
-            </div>
-        </form>
-    </div>
+   
     <table class="table table-striped table-bordered" style="width:100%!important" id="predict-table">
         <thead>
             <tr>
@@ -91,7 +78,7 @@
 <script>
     let patientName=$("#patient").val()??''
     let table = $('#predict-table').DataTable({
-        searching: false,
+        searching: true,
         "lengthMenu": [
             [10, 25, 50, -1],
             [10, 25, 50, "All"]
@@ -106,6 +93,7 @@
         "serverSide": true,
         "responsive": true,
         "deferRender": true,
+        "order": [[ 0, "desc" ]],
         "ajax": {
             "url": "{{ route('predict.api') }}",
             'data':{userId:'{{Auth::user()->id}}',patient:patientName},
