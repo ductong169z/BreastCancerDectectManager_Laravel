@@ -154,19 +154,13 @@ class UsersController extends Controller
             $masg='User deactivate successfully.';
         } else {
             $user->status=1;
-            $msg = array
-            (
-              'body'  => "Da active $user->name",
-              'title' => "Thông Báo hệ thống",
-              'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
-              'sound' => 'mySound'/*Default sound*/
-            );
+            
 
             $masg='User activate successfully.';
         }
         $user->save();
        
-        $noti->sendnoti();
+        // $noti->sendnoti();
         return redirect()->route('users.index')
             ->withSuccess(__($masg));
     }

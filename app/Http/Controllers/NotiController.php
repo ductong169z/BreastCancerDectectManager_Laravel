@@ -30,7 +30,7 @@ class NotiController extends Controller
      */
     function loadNoti(){
         // dd($user_id);
-        $notications = Notifications::where('user_id', Auth::id())->where('status',1)->orderBy('status','desc')->orderBy('id','desc')->get();
+        $notications = Notifications::where('user_id', Auth::id())->where('status',1)->orderBy('status','desc')->orderBy('id','desc')->take(10)->get();
         // $notications = $notications->where('user_id', Auth::id());
 
         // dd($notications);
@@ -47,20 +47,18 @@ class NotiController extends Controller
                 $noti->title = 'From '. $notiarray['doctor_name'];
                 $noti ->body = "New prediction request created for " . $notiarray['patient_name'];
                 $noti -> created_at = $notiarray['create_at'];
-                $this->sendNoti();
                 break;
             case 'uploadimg':
                 $noti->title = 'From ' . $notiarray['prediction_id'];
                 $noti ->body = 'Image for predict have been upload';
                 $noti -> created_at = $notiarray['create_at'];
-                $this->sendNoti();
                 break;
                 
         } 
         $noti ->user_id = $notiarray["user_id"];
         $noti ->prediction_id = $notiarray["prediction_id"];
         $noti ->status = 1;
-
+        $this->sendNoti($noti);
         $this->createNoti($noti);
     }
 
@@ -107,15 +105,16 @@ class NotiController extends Controller
     /**
      * 
      */
-    function sendNoti(){
-        $user=User::find(Auth::id());
-        $token =$user->remember_token;  
+    function sendNoti(Notifications $noti){
+        
+        $user=User::find($noti->user_id);  
+        $token = $user->remember_token;  
         $from = "AAAAShANg-Q:APA91bFIHSNXWLUBJldYv4IMnGCYbqChEsr8Oc_Ebz9ZwXKn9ol0Cr606_tB_SfQ_QJoxLHBQbW37-GfoDIR_CcDMOS5ZoM5Lt1sjHygykS9mSwzQ8YZbFaYcE8-EXt1f_AQoRz-_bdZ";
         
         $msg = array
         (
-          'body'  => "Da active",
-          'title' => "Thông Báo hệ thống",
+          'body'  => $noti->body,
+          'title' => $noti->title,
           'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
           'sound' => 'mySound'/*Default sound*/
         );
@@ -173,8 +172,8 @@ class NotiController extends Controller
         curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
         curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
         $result = curl_exec($ch );
-        dd($result);
         curl_close( $ch );
+        // dd($result);
     }
 
 

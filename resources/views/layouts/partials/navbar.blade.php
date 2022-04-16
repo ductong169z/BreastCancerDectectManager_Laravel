@@ -4,7 +4,7 @@
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
-        
+
     </button>
 
     {{-- <!-- Topbar Search -->
@@ -41,16 +41,16 @@
                 </form>
             </div>
         </li>
-        
+
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
-        @can('notification.index')
+            @can('notification.index')
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
                 <span id="number_noti" class="badge badge-danger badge-counter"></span>
             </a>
-        @endcan
+            @endcan
 
             <!-- Dropdown - Alerts -->
             <div id="noti_data" class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
@@ -134,7 +134,7 @@
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     {{ __('Change Password') }}
                 </a>
-            
+
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -148,7 +148,6 @@
 </nav>
 
 <script>
-    
     var n_data = document.getElementById("noti_data");
     var req = new XMLHttpRequest();
     req.open("GET", "{{route('notification.load')}}", true);
@@ -157,33 +156,94 @@
     req.onreadystatechange = function() {
         if (req.readyState == 4 && req.status == 200) {
             var obj = JSON.parse(req.responseText);
-            if(obj.notifications.length==0){
+            if (obj.notifications.length == 0) {
                 n_data.innerHTML += "<div class='dropdown-item text-center text-gray-500'>You do not have any new notify yet</div>"
-            }
-            else{
+            } else {
                 $("#number_noti").text(obj.notifications.length)
                 for (i = 0; i < obj.notifications.length; i++) {
-                        n_data.innerHTML +=
-                                                "<a class='dropdown-item d-flex align-items-center '  href='{{ route('notification.update','') }}/" + obj.notifications[i]['id'] + "'" +
-                                                    "<div class='col mr-3'>" +
-                                                        "<div class='icon-circle bg-primary'>" +
-                                                            "<i class='fas fa-file-alt text-white'></i>" +
-                                                        "</div>" +
-                                                    "</div>" +
-                                                    "<div>" +
-                                                        "<div class='small text-gray-500'>" + obj.notifications[i]['title'] + "</div>" +
-                                                        "<span class='font-weight-bold'>" + obj.notifications[i]['body'] + "</span>" +
-                                                    "</div>" +
-                                                "</a>"
-                    
+                    n_data.innerHTML +=
+                        "<a class='dropdown-item d-flex align-items-center '  href='{{ route('notification.update','') }}/" + obj.notifications[i]['id'] + "'" +
+                        "<div class='col mr-3'>" +
+                        "<div class='icon-circle bg-primary'>" +
+                        "<i class='fas fa-file-alt text-white'></i>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div>" +
+                        "<div class='small text-gray-500'>" + obj.notifications[i]['title'] + "</div>" +
+                        "<span class='font-weight-bold'>" + obj.notifications[i]['body'] + "</span>" +
+                        "</div>" +
+                        "</a>"
+
+
+                }
 
             }
-           
-            }
             n_data.innerHTML += "<a class='dropdown-item text-center small text-gray-500' href='{{ route('notification.index') }}'>Show All Notifications</a>"
-            
+
         }
 
     }
 </script>
+
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyA4w5Q9sjRwWKF4Is_xnPscnVPMgZYRBak",
+        authDomain: "laravel-c5e14.firebaseapp.com",
+        projectId: "laravel-c5e14",
+        storageBucket: "laravel-c5e14.appspot.com",
+        messagingSenderId: "318096901092",
+        appId: "1:318096901092:web:26e860a7ffaf17a509fdf1",
+        measurementId: "G-B6D7SCKZCY"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
+
+    messaging
+        .requestPermission()
+        .then(function() {
+            return messaging.getToken()
+        })
+        .then(function(token) {
+            console.log(token);
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: '{{ route("notification.test") }}',
+                type: 'POST',
+                data: {
+                    token: token
+                },
+                dataType: 'JSON',
+                success: function(response) {
+                    // alert('Token saved successfully.');
+                },
+                error: function(err) {
+                    // console.log('User Chat Token Error' + err);
+                },
+            });
+
+        }).catch(function(err) {
+            console.log('User Chat Token Error' + err);
+        });
+
+
+    messaging.onMessage(function(payload) {
+        const noteTitle = payload.notification.title;
+        const noteOptions = {
+            body: payload.notification.body,
+            icon: payload.notification.icon,
+        };
+        new Notification(noteTitle, noteOptions);
+    });
+</script>
+
+
 <!-- End of Topbar -->
