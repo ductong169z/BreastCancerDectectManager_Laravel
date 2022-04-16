@@ -24,7 +24,7 @@ class UsersController extends Controller
         if($users){
             $users = $users->where('users.name', 'LIKE', '%' . $user . '%');
         }
-        $users = $users->paginate(10);
+        $users = $users->orderBy('id')->paginate(10);
         return view('users.index', compact('users','user'),[
             'roles' => Role::latest()->get()
         ]);

@@ -75,7 +75,7 @@
         </tbody>
     </table>
     <div class="d-flex">
-        {!! $users->links() !!}
+      {{ $users->appends(request()->query())->links() }}
     </div>
 
 </div>

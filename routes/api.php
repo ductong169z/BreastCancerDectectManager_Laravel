@@ -29,7 +29,7 @@ Route::post('image-to-base64', function (Request $request) {
     $predict = Prediction::select('doctor.name as doctor_name', 'sonographer.name as sonographer_name', 'predictions.doctor_confirmation', 'predictions.id', DB::raw("CONCAT(patients.name,' ',patients.id_number) as patient_name"),'predictions.status')
     ->join('users as doctor', 'doctor.id', '=', 'doctor_id')
     ->join('patients', 'patients.id', '=', 'patient_id')
-    ->join('users as sonographer', 'sonographer.id', '=', 'sonographer_id');
+    ->join('users as sonographer', 'sonographer.id', '=', 'sonographer_id')->orderBy('id');
     $userId=$request->userId;
     $role=User::find($userId)->roles->first()->name;
 

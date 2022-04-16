@@ -13,12 +13,14 @@ class PermissionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $permissions = Permission::paginate(10);
+        $name=$request->permissions;
+        $permissions = Permission::where('name','LIKE','%'.$name.'%')->orderByDesc('id')->paginate(10);
 
         return view('permissions.index', [
-            'permissions' => $permissions
+            'permissions' => $permissions,
+            'name'=>$name,
         ]);
     }
 

@@ -28,8 +28,13 @@ class RolesController extends Controller
      */
     public function index(Request $request)
     {
-        $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('roles.index',compact('roles'))
+        $name=$request->name;
+        $roles = Role::orderBy('id','DESC');
+        if($name){
+            $roles=$roles->where('name','LIKE','%'.$name.'%');
+        }
+        $roles=$roles->paginate(5);
+        return view('roles.index',compact('roles','name'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
