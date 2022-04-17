@@ -3,10 +3,8 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home.index') }}">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laptop-code"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">BreastCancer Detection</div>
+       <img class="sidebar-brand-icon" width="50" height="50" src="{{url('img/logo_menu.png')}}" />
+        <div class="sidebar-brand-text mx-2">BreastCancer Detection</div>
     </a>
 
     <!-- Divider -->
