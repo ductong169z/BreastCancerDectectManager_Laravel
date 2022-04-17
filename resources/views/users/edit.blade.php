@@ -57,7 +57,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="status" class="form-label">Status</label>
-                    {{ Form::select('status', [1 => 'Active', 0 => 'Deactive'], $user->status, array('class'=>'form-control')) }} 
+                    {{ Form::select('status', [1 => 'Active', 0 => 'Deactive'], $user->status, array('class'=>'form-control')) }}
                     {{-- <select name="status" required >
                         <option @if ($user->status == 1)
                             value = {{$user->status}} selected
@@ -66,12 +66,14 @@
                             value = {{$user->status}} selected
                         @endif  value= 0 > Deactive</option>
                     </select> --}}
-                        
+
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update user</button>
-                <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</button>
-                <a href="{{ route('users.admin_reset_password', $user->id) }}" class="btn btn-default">Reset password</button>
+                <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
+                <a class="btn btn-dark float-right" href="{{ route('users.admin_reset_password', $user->id) }}" >Reset password</a>
+
+
             </form>
         </div>
 

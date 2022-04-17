@@ -37,7 +37,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Reset password</button>
-            <a href="{{ route('profile') }}" class="btn btn-default">Cancel</button>
+            <a href="{{ route('profile') }}" class="btn btn-default">Back</a>
         </form>
     </div>
 

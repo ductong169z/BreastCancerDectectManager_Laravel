@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 return [
 
@@ -163,7 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         //firebase
-        Kreait\Laravel\Firebase\ServiceProvider::class,
+//        Kreait\Laravel\Firebase\ServiceProvider::class,
 
         /*
          * Package Service Providers...

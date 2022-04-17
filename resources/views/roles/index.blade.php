@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <input type="text" class="form-control form-control-sm" value="{{ $name }}" id="name"
-                            name="name" placeholder="Roles name">
+                            name="name" placeholder="Role name">
 
                     </div>
                     <div class="col-md-2">
