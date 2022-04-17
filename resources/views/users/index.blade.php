@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <input type="text" value="{{ $user }}" class="form-control" name="user"
-                               placeholder="User name">
+                               placeholder="Username">
 
                     </div>
                     <div class="col-md-2">
@@ -51,7 +51,7 @@
                         @endforeach
             </td>
             <td><a href="{{ route('users.show', $user->id) }}"
-                    class="btn btn-warning btn-sm">Show</a></td>
+                    class="btn btn-warning btn-sm">View</a></td>
             <td><a href="{{ route('users.edit', $user->id) }}"
                     class="btn btn-info btn-sm">Edit</a></td>
             {{-- <td>
@@ -61,11 +61,11 @@
                 {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' =>
                 'display:inline']) !!}
                 @if($user->status == 1)
-                    {!! Form::submit('Active', ['class' => 'btn btn-success btn-sm','onclick' => 'return confirm("Do you want to deactivate this user?r")']) !!}
+                    {!! Form::submit('Active', ['class' => 'btn btn-success btn-sm','onclick' => 'return confirm("Do you want to deactivate this user?")']) !!}
                     {!! Form::close() !!}
 
                 @else
-                    {!! Form::submit('Deactive', ['class' => 'btn btn-secondary btn-sm','onclick' => 'return confirm("Do you want to activate this user?")']) !!}
+                    {!! Form::submit('Inactive', ['class' => 'btn btn-secondary btn-sm','onclick' => 'return confirm("Do you want to activate this user?")']) !!}
                     {!! Form::close() !!}
 
                 @endif
