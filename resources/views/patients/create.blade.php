@@ -2,7 +2,7 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h1>Add new patient</h1>
+        <h1>Add New Patient</h1>
         <div class="lead">
             Add new patient information.
         </div>

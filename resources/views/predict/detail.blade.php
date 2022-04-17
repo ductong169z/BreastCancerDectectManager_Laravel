@@ -3,9 +3,9 @@
 @section('main-content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
     <div class="bg-light p-4 rounded">
-        <h2>Detail prediction request</h2>
+        <h2>Prediction Request Detail </h2>
         <div class="lead">
-            Detail prediction request.
+            Prediction request detail.
         </div>
 
         <div class="container mt-4">
@@ -156,11 +156,13 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Save</button>
+                        <a href="{{ route('predict.index') }}" class="btn btn-default">Back</a>
                     @endcan
                 @else
                     @can('predict.upload')
                         <a class="btn btn-primary btn-sm" href="javascript:void(0)" data-type="upload" data-id="' +
                                                     data.data_id + '" onclick="show_upload_modal(this)">Upload Image</a>
+                        <a href="{{ route('predict.index') }}" class="btn btn-default">Back</a>
                     @endcan
                 @endif
             </form>

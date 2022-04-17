@@ -15,9 +15,9 @@
     }
 </style>
 <div class="bg-light p-4 rounded">
-    <h2>Predictions</h2>
+    <h2>Prediction</h2>
     <div class="lead mb-3">
-        Manage your predictions here.
+        Manage your prediction here.
         @can("predict.create")
         <a href="{{ route('predict.create') }}" class="btn btn-primary float-right">Add new
             prediction
@@ -164,11 +164,11 @@
                     } else {
                         return '<ul class="list-inline d-flex justify-content-center">' +
                             '@can("predict.show")' +
-                            '<li class="list-inline-item"><a class="btn btn-info btn-sm" href="{{ route('predict.show','') }}/' +
+                            '<li class="list-inline-item"><a class="btn btn-warning btn-sm" href="{{ route('predict.show','') }}/' +
                         data.data_id + '" data-type="view">View</a></li>' +
                             '@endcan' +
                             '@can("predict.edit")' +
-                            '<li class="list-inline-item"><a class="btn btn-warning btn-sm" href="{{ route('predict.edit','') }}/' +
+                            '<li class="list-inline-item"><a class="btn btn-info btn-sm" href="{{ route('predict.edit','') }}/' +
                         data.data_id + '" data-type="edit" data-id="' +
                             data.data_id + '" onclick="change_status(this)">Edit</a></li>' +
                             '@endcan' +

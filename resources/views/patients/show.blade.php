@@ -3,7 +3,10 @@
 @section('main-content')
 
 <div class="bg-light p-4 rounded">
-    <h1 class="text-bold">Show patient</h1>
+    <h1 class="text-bold">Patient Detail</h1>
+    <div class="lead">
+        Patients detail.
+    </div>
     <div class="container mt-4">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>

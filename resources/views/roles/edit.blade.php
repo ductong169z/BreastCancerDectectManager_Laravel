@@ -2,7 +2,7 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h1>Update role</h1>
+        <h1>Update Role</h1>
         <div class="lead">
             Edit role and manage permissions.
         </div>
@@ -64,6 +64,18 @@
         </div>
 
     </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+            $('[name="all_permission"]').on('click', function() {
+                if (this.checked) {
+                    $(':checkbox').prop('checked', true);
+                } else {
+                    $(':checkbox').prop('checked', false);
+                }
+
+            });
+        });
+    </script>
 @endsection
 
 @section('scripts')
@@ -83,5 +95,8 @@
 
             });
         });
+
+
     </script>
+
 @endsection

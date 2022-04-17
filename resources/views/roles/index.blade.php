@@ -20,7 +20,7 @@
 
                     </div>
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-success">Search</button>
+                        <button type="submit" class="btn btn-primary">Search</button>
 
                     </div>
                 </div>
@@ -37,10 +37,10 @@
                     <td>{{ $role->id }}</td>
                     <td>{{ $role->name }}</td>
                     <td>
-                        <a class="btn btn-info btn-sm" href="{{ route('roles.show', $role->id) }}">View</a>
+                        <a class="btn btn-warning btn-sm" href="{{ route('roles.show', $role->id) }}">View</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary btn-sm" href="{{ route('roles.edit', $role->id) }}">Edit</a>
+                        <a class="btn btn-info btn-sm" href="{{ route('roles.edit', $role->id) }}">Edit</a>
                     </td>
                     <td>
                         {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id], 'style' => 'display:inline']) !!}

@@ -2,7 +2,7 @@
 
 @section('main-content')
 <div class="bg-light p-4 rounded">
-    <h2>Edit prediction request</h2>
+    <h2>Edit Prediction Request</h2>
     <div class="lead">
        Edit prediction request.
     </div>
@@ -35,7 +35,7 @@
                     <span class="text-danger text-left">{{ $errors->first('sonographer') }}</span>
                 @endif
             </div>
-     
+
 
             @if($predict->accuracy)
                 <div class="mb-3">
@@ -80,6 +80,6 @@
 
 </div>
 <script>
-    
+
 </script>
 @endsection

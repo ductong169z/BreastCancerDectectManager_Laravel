@@ -5,6 +5,9 @@
 
 <div class="bg-light p-4 rounded">
     <h1>Users</h1>
+    <div class="lead">
+        Manage users here.
+    </div>
     <div class="mt-2">
         @include('layouts.partials.messages')
     </div>

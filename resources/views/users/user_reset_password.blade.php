@@ -2,9 +2,9 @@
 
 @section('main-content')
 <div class="bg-light p-4 rounded">
-    <h1>Reset password</h1>
+    <h1>Reset Password</h1>
     <div class="lead">
-
+Reset user's password here.
     </div>
 
     <div class="container mt-4">

@@ -50,7 +50,7 @@
                         @endif
                         <td>{{ $user->address }}</td>
                         <td>{{ $user->phone }}</td>
-                        <td><a href="{{ route('patients.show', $user->id) }}" class="btn btn-warning btn-sm">Show</a></td>
+                        <td><a href="{{ route('patients.show', $user->id) }}" class="btn btn-warning btn-sm">View</a></td>
                         <td><a href="{{ route('patients.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a></td>
                         <td>
                             {!! Form::open(['method' => 'DELETE', 'route' => ['patients.destroy', $user->id], 'style' => 'display:inline']) !!}
