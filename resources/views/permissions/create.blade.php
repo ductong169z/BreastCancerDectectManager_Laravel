@@ -2,9 +2,9 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h2>Add new permission</h2>
+        <h2>Add New Permission</h2>
         <div class="lead">
-            Add new permission.
+            Add the new permission here.
         </div>
 
         <div class="container mt-4">
@@ -17,7 +17,7 @@
                            type="text"
                            class="form-control"
                            name="name"
-                           placeholder="Name" required>
+                           placeholder="Permission name" required>
 
                     @if ($errors->has('name'))
                         <span class="text-danger text-left">{{ $errors->first('name') }}</span>

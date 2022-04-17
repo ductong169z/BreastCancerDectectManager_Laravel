@@ -28,14 +28,14 @@
     <div class="mt-2">
         @include('layouts.partials.messages')
     </div>
-   
+
     <table class="table table-striped table-bordered" style="width:100%!important" id="predict-table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Doctor name</th>
                 <th>Sonographer name</th>
-                <th>Patients name</th>
+                <th>Patient name</th>
                 <th>Doctor confirmation</th>
                 <th>Upload status</th>
                 <th>
@@ -44,7 +44,7 @@
         </thead>
         <tbody>
         </tbody>
-        
+
     </table>
     <!-- Modal upload image-->
     <div class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-labelledby="uploadImageTitle" aria-hidden="true">
@@ -193,7 +193,7 @@
 
     }
 
- 
+
 
      function fetchUploadImage() {
 
@@ -213,6 +213,6 @@
         })
 
     }
-    
+
 </script>
 @endsection

@@ -2,7 +2,7 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h1>Add new role</h1>
+        <h1>Add New Role</h1>
         <div class="lead">
             Add new role and assign permissions.
         </div>
@@ -28,7 +28,7 @@
                            type="text"
                            class="form-control"
                            name="name"
-                           placeholder="Name" required>
+                           placeholder="Role name" required>
                 </div>
 
                 <label for="permissions" class="form-label">Assign Permissions</label>
@@ -55,7 +55,7 @@
                 </table>
 
                 <button type="submit" class="btn btn-primary">Save user</button>
-                <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
+                <a href="{{ route('roles.index') }}" class="btn btn-default">Back</a>
             </form>
         </div>
 
