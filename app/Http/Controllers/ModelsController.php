@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Ixudra\Curl\Facades\Curl;
 use App\Models\ModelPredict;
 use Illuminate\Http\Request;
+use function Illuminate\Events\queueable;
 
 class ModelsController extends Controller
 {
@@ -44,21 +45,27 @@ class ModelsController extends Controller
     {
         $model = new ModelPredict();
         $model->name = $request->name;
-        if ($request->hasFile('file_name')) {
-            $file = $request->file('file_name');;
-            $model->status = 1;
-            $model->isSelected=0;
-            $model->description = $request->description;
-            $response = Curl::to('http://127.0.0.1:8000/uploadModel/')
-                ->withFile('file', $file, 'h5', $file->getClientOriginalName())
-                ->post();
-            $data = json_decode($response);
-            if (strcmp($data->status, "success") === 0) {
-                $model->file_name = $data->file_name;
-                $model->save();
+        if ($request->hasFile('file_name'))
+        {
+            $file = $request->file('file_name');
+            if (strcmp($file->extension(),"hdf")===0)
+            {
+                $model->status = 1;
+                $model->isSelected=0;
+                $model->description = $request->description;
+                $response = Curl::to('http://127.0.0.1:8000/uploadModel/')
+                    ->withFile('file', $file, 'h5', $file->getClientOriginalName())
+                    ->post();
+                $data = json_decode($response);
+                if (strcmp($data->status, "success") === 0) {
+                    $model->file_name = $data->file_name;
+                    $model->save();
+                }
+                return redirect(route('models.index'));
             }
+            $message="Please select h5 file!!!";
+            return redirect()->back()->with('alertMessageFail', $message);
         }
-        return redirect(route('models.index'));
     }
 
     /**
@@ -83,14 +90,23 @@ class ModelsController extends Controller
     {
         $model = ModelPredict::find($id);
         $model->name = $request->name;
-        if ($request->hasFile('new_file_name')) {
+        if ($request->hasFile('new_file_name'))
+        {
             $file = $request->file('new_file_name');
-            $response = Curl::to('http://127.0.0.1:8000/uploadModel/')
-                ->withFile('file', $file, 'h5', $file->getClientOriginalName())
-                ->post();
-            $data = json_decode($response);
-            if (strcmp($data->status, "success") === 0) {
-                $model->file_name = $data->file_name;
+            if (strcmp($file->extension(),"hdf")===0)
+            {
+                $response = Curl::to('http://127.0.0.1:8000/uploadModel/')
+                    ->withFile('file', $file, 'h5', $file->getClientOriginalName())
+                    ->post();
+                $data = json_decode($response);
+                if (strcmp($data->status, "success") === 0) {
+                    $model->file_name = $data->file_name;
+                }
+            }
+            else
+            {
+                $message="Please select h5 file!!!";
+                return redirect()->back()->with('alertMessageFail', $message);
             }
         }
         $model->description = $request->description;
