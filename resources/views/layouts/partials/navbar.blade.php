@@ -216,7 +216,7 @@
             });
 
             $.ajax({
-                url: '{{ route("notification.test") }}',
+                url: '{{ route("notification.send_token") }}',
                 type: 'POST',
                 data: {
                     token: token
