@@ -27,6 +27,11 @@
                     @if ($errors->has('file_name'))
                         <span class="text-danger text-left">{{ $errors->first('file_name') }}</span>
                     @endif
+                    @if (session('alertMessageFail'))
+                        <div class="alert alert-danger">
+                            {{ session('alertMessageFail') }}
+                        </div>
+                    @endif
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
@@ -46,4 +51,7 @@
         </div>
 
     </div>
+
+
 @endsection
+

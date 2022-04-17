@@ -35,9 +35,8 @@
                     @if ($errors->has('old_file_name'))
                         <span class="text-danger text-left">{{ $errors->first('old_file_name') }}</span>
                     @endif
+
                 </div>
-
-
                 <div class="mb-3">
                     <label for="file" class="form-label">New Model File:</label><br>
                     <input type="file"
@@ -45,6 +44,11 @@
                            placeholder="Change other file" >
                     @if ($errors->has('new_file_name'))
                         <span class="text-danger text-left">{{ $errors->first('new_file_name') }}</span>
+                    @endif
+                    @if (session('alertMessageFail'))
+                        <div class="alert alert-danger">
+                            {{ session('alertMessageFail') }}
+                        </div>
                     @endif
                 </div>
                 <div class="mb-3">
