@@ -33,9 +33,9 @@
                 <th scope="col" width="1%">#</th>
                 <th scope="col" width="15%">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col" width="10%">Username</th>
+{{--                <th scope="col" width="10%">Username</th>--}}
                 <th scope="col" width="10%">Roles</th>
-                <th scope="col" width="1%" colspan="3"></th>
+                <th scope="col" width="10%" colspan="4"></th>
             </tr>
         </thead>
         <tbody>
@@ -44,7 +44,7 @@
                     <th scope="row">{{ $user->id }}</th>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->username }}</td>
+{{--                    <td>{{ $user->username }}</td>--}}
                     <td>
                         @foreach($user->roles as $userrole)
                         {{ $userrole->name }}
@@ -54,6 +54,8 @@
                     class="btn btn-warning btn-sm">View</a></td>
             <td><a href="{{ route('users.edit', $user->id) }}"
                     class="btn btn-info btn-sm">Edit</a></td>
+
+                    <td><a class="btn btn-dark btn-sm" href="{{ route('users.admin_reset_password', $user->id) }}" >Reset password</a></td>
             {{-- <td>
                     {{ Form::select('status', [1 => 'Active', 0 => 'Deactive'], $user->status) }}
             </td> --}}

@@ -60,7 +60,7 @@
 
                 <button type="submit" class="btn btn-primary">Update user</button>
                 <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
-                <a class="btn btn-dark float-right" href="{{ route('users.admin_reset_password', $user->id) }}" >Reset password</a>
+
 
 
             </form>

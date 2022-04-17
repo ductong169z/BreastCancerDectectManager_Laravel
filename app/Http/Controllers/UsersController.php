@@ -95,10 +95,10 @@ class UsersController extends Controller
         ]);
     }
     public function adminUpdatePassword(User $user, AdminResetPasswordRequest $request)
-    {   
+    {
         $user->update($request->validated());
         return redirect()->route('users.edit', $user->id)
-            ->withSuccess(__('Rest password successfully.'));
+            ->withSuccess(__('Reset password successfully.'));
     }
 
     /**
@@ -148,16 +148,16 @@ class UsersController extends Controller
         $masg="";
         if ($user->status==1) {
             $user->status=0;
-            
+
             $masg='User deactivate successfully.';
         } else {
             $user->status=1;
-            
+
 
             $masg='User activate successfully.';
         }
         $user->save();
-       
+
         // $noti->sendnoti();
         return redirect()->route('users.index')
             ->withSuccess(__($masg));

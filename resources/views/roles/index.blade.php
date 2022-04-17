@@ -44,7 +44,7 @@
                     </td>
                     <td>
                         {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id], 'style' => 'display:inline']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm','onclick' => 'return confirm("Do you want to delete this user?")'        ]) !!}
+                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm','onclick' => 'return confirm("Do you want to delete this role?")'        ]) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>

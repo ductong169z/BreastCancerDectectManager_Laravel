@@ -44,7 +44,7 @@
                         </td>
                         <td>
                             {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $permission->id], 'style' => 'display:inline']) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm', 'onclick' => 'return confirm("Do you want to delete this permission?")' ]) !!}
                             {!! Form::close() !!}
                         </td>
                     </tr>
