@@ -27,8 +27,8 @@ class ProfileController extends Controller
 //            'last_name' => 'nullable|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . Auth::user()->id,
             'current_password' => 'nullable|required_with:new_password',
-            'new_password' => 'nullable|min:8|max:12|required_with:current_password',
-            'password_confirmation' => 'nullable|min:8|max:12|required_with:new_password|same:new_password'
+            'new_password' => 'nullable|min:8|max:32|required_with:current_password',
+            'password_confirmation' => 'nullable|min:8|max:32|required_with:new_password|same:new_password'
         ]);
 
 
@@ -57,11 +57,11 @@ class ProfileController extends Controller
         return view('users.user_reset_password', [
             'user' => $user
         ]);
-        
+
     }
 
     public function updatePassword(User $user,Request $request)
-    {   
+    {
         $user = User::findOrFail(Auth::user()->id);
         // // dd($user->password);
         // $pass = Hash::check($request->input('current_password'), $user->password);
@@ -78,7 +78,7 @@ class ProfileController extends Controller
 
 
         return redirect()->route('profile')
-            ->withSuccess(__('Rest password successfully.'));
+            ->withSuccess(__('Reset password successfully.'));
     }
 
 }

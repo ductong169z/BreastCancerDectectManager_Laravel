@@ -2,9 +2,9 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h2>Edit permission</h2>
+        <h2>Edit Permission</h2>
         <div class="lead">
-            Editing permission.
+            Edit permission here.
         </div>
 
         <div class="container mt-4">

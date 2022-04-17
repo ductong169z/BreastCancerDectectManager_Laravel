@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <input type="text" class="form-control form-control-sm" value="{{ $name }}" id="permissions"
-                            name="permissions" placeholder="Permissions name">
+                            name="permissions" placeholder="Permission name">
 
                     </div>
                     <div class="col-md-2">
