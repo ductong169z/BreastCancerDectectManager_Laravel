@@ -60,6 +60,18 @@
         </div>
 
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('[name="all_permission"]').on('click', function() {
+                if (this.checked) {
+                    $(':checkbox').prop('checked', true);
+                } else {
+                    $(':checkbox').prop('checked', false);
+                }
+
+            });
+        });
+    </script>
 @endsection
 
 @section('scripts')

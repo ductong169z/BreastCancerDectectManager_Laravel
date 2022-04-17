@@ -2,8 +2,10 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h1>Add new model</h1>
-
+        <h1>Add New Model</h1>
+        <div class="lead">
+            Add new model here.
+        </div>
         <div class="container mt-4">
             <form method="POST" action="{{route('models.store')}}"  enctype="multipart/form-data">
                 @csrf

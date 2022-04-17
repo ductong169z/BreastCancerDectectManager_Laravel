@@ -3,7 +3,10 @@
 
 @section('main-content')
 <div class="bg-light p-4 rounded">
-    <h1 class="text-bold">Show model</h1>
+    <h1 class="text-bold">Model Detail</h1>
+    <div class="lead">
+        Model detail.
+    </div>
     <div class="container mt-4">
         <div class="mb-3">
             <label for="model name" class="form-label">Name</label>
@@ -12,7 +15,7 @@
         <div class="mb-3">
             <label for="file name" class="form-label">File Name:</label>
             <label class="form-control">{{ $model->file_name }}</label>
-            
+
         </div>
         <div class="mb-3">
             <label for="Description" class="form-label">Description</label>
@@ -24,5 +27,5 @@
     </div>
     </div>
 </div>
-    
+
 @endsection

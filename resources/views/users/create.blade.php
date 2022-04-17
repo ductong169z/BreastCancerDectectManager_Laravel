@@ -2,7 +2,7 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h1>Add new user</h1>
+        <h1>Add New User</h1>
         <div class="lead">
             Add new user and assign role.
         </div>
@@ -43,7 +43,7 @@
                             @if ($errors->has('password'))
                                 <span class="text-danger text-left">{{ $errors->first('password') }}</span>
                             @endif
-                   
+
                 </div>
                 <div class="mb-3">
                     <label for="password_confirmation" class="form-label">Confirm password</label>
@@ -55,7 +55,7 @@
                             @if ($errors->has('password'))
                                 <span class="text-danger text-left">{{ $errors->first('password') }}</span>
                             @endif
-                  
+
                 </div>
                 <div class="mb-3">
                     <label for="role" class="form-label">Role</label>
@@ -63,7 +63,7 @@
                         @foreach ($roles as $role)
                             <option value="{{ $role->id }}">{{ $role->name }}</option>
                         @endforeach
-                    </select>        
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Save user</button>
                 <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>

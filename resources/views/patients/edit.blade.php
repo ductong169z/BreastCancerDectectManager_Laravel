@@ -2,9 +2,9 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h1>Update patient</h1>
+        <h1>Edit Patient</h1>
         <div class="lead">
-
+Edit patient here.
         </div>
 
         <div class="container mt-4">
@@ -74,7 +74,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update patient</button>
-                <a href="{{ route('patients.index') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ route('patients.index') }}" class="btn btn-default">Back</a>
             </form>
         </div>
 

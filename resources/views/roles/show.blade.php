@@ -2,9 +2,9 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h1>{{ ucfirst($role->name) }} Role</h1>
+        <h1>{{ ucfirst($role->name) }} Role Detail</h1>
         <div class="lead">
-
+Role detail
         </div>
 
         <div class="container mt-4">
