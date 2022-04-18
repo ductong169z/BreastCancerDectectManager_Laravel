@@ -156,12 +156,18 @@ class PredictionsController extends Controller
             ]);
             $prediction=Prediction::find($id);
             //Notification data for create new prediction request
+
+        $patient=Patient::find($prediction->patient_id);
+        $sonograper=User::find(Auth::id());
         $notiarray = array
         (
           'prediction_id'  => $prediction->id,
           'user_id' => $prediction->doctor_id,
           'condition' => "uploadimg",
-          'create_at' => Carbon::now()
+          'create_at' => Carbon::now(),
+          'sonograper_name'=> $sonograper->name,
+          'patient_name' => $patient->name
+
         );
         $noti = new NotiController();
         $noti->notiCondition($notiarray);
