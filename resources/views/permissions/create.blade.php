@@ -4,7 +4,7 @@
     <div class="bg-light p-4 rounded">
         <h2>Add New Permission</h2>
         <div class="lead">
-            Add the new permission here.
+            Add new permission here.
         </div>
 
         <div class="container mt-4">

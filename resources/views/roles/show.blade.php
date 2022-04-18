@@ -4,7 +4,7 @@
     <div class="bg-light p-4 rounded">
         <h1>{{ ucfirst($role->name) }} Role Detail</h1>
         <div class="lead">
-Role detail
+Role detail.
         </div>
 
         <div class="container mt-4">

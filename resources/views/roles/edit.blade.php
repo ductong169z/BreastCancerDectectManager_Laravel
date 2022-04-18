@@ -2,7 +2,7 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h1>Update Role</h1>
+        <h1>Edit Role</h1>
         <div class="lead">
             Edit role and manage permissions.
         </div>
