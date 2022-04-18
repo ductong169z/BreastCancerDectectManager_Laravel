@@ -64,7 +64,7 @@ Edit model here.
                 </div>
 
 
-                <button type="submit" class="btn btn-primary">Update model</button>
+                <button type="submit" class="btn btn-primary">Save model</button>
                 <a href="{{ route('models.index') }}" class="btn btn-default">Back</a>
                 {{--                <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</button>--}}
             </form>
