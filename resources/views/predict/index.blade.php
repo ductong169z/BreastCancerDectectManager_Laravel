@@ -2,9 +2,9 @@
 
 @section('main-content')
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css" />
+<link rel="stylesheet" type="text/css" href="{{url('css/jquery.dataTables.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('css/jquery.dataTables.min.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{url('css/buttons.dataTables.min.css')}}" />
 <style type="text/css">
     .btn-group-sm>.btn,
     .btn-sm {
@@ -72,8 +72,8 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<script src="{{url('js/jquery-3.6.0.min.js')}}" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="{{url('js/jquery.dataTables.js')}}"></script>
 
 <script>
     let patientName=$("#patient").val()??''

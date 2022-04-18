@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('main-content')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+    <link rel="stylesheet" href="{{url('css/fancybox.css')}}" />
     <div class="bg-light p-4 rounded">
         <h2>Prediction Request Detail </h2>
         <div class="lead">
@@ -194,7 +194,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script src="{{url('js/fancybox.umd.js')}}"></script>
     <script>
         Fancybox.bind("[data-fancybox]", {
             Image: {

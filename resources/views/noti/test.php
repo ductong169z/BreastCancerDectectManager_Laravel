@@ -8,14 +8,14 @@
     <div id="token"></div>
 
 </div>
-<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js"></script>
+<script src="{{url('js/firebase-app.js')}}"></script>
+    <script src="{{url('js/firebase-messaging.js')}}"></script>
 
     <script type="module">
         // Give the service worker access to Firebase Messaging.
         // Note that you can only use Firebase Messaging here. Other Firebase libraries
         // are not available in the service worker.
-       
+
 
         // Initialize the Firebase app in the service worker by passing in
         // your app's Firebase config object.
@@ -59,7 +59,7 @@
         });
 
         messaging.onMessage(function(payload)) {
-            
+
         }
 
     </script>

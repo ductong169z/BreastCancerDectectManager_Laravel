@@ -4,9 +4,9 @@
 <head>
     <title>NOTI</title>
     <!-- firebase integration started -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="{{url('js/firebase-app.js')}}"></script>
     <!-- Firebase App is always required and must be first -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js"></script>
+    <script src="{{url('js/firebase-messaging.js')}}"></script>
 
 </head>
 
@@ -36,14 +36,14 @@
         messaging
             .requestPermission()
             .then(function() {
-                //MsgElem.innerHTML = "Notification permission granted." 
+                //MsgElem.innerHTML = "Notification permission granted."
                 console.log("Notification permission granted.");
 
                 // get the token in the form of promise
                 return messaging.getToken()
             })
             .then(function(token) {
-                // print the token on the HTML page     
+                // print the token on the HTML page
                 console.log(token);
 
 
