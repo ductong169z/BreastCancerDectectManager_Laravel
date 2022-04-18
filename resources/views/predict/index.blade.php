@@ -2,9 +2,9 @@
 
 @section('main-content')
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css" />
+<link rel="stylesheet" type="text/css" href="{{url('css/jquery.dataTables.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('css/jquery.dataTables.min.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{url('css/buttons.dataTables.min.css')}}" />
 <style type="text/css">
     .btn-group-sm>.btn,
     .btn-sm {
@@ -15,9 +15,9 @@
     }
 </style>
 <div class="bg-light p-4 rounded">
-    <h2>Predictions</h2>
+    <h2>Prediction</h2>
     <div class="lead mb-3">
-        Manage your predictions here.
+        Manage your prediction here.
         @can("predict.create")
         <a href="{{ route('predict.create') }}" class="btn btn-primary float-right">Add new
             prediction
@@ -72,8 +72,8 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<script src="{{url('js/jquery-3.6.0.min.js')}}" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="{{url('js/jquery.dataTables.js')}}"></script>
 
 <script>
     let patientName=$("#patient").val()??''
@@ -164,11 +164,11 @@
                     } else {
                         return '<ul class="list-inline d-flex justify-content-center">' +
                             '@can("predict.show")' +
-                            '<li class="list-inline-item"><a class="btn btn-info btn-sm" href="{{ route('predict.show','') }}/' +
+                            '<li class="list-inline-item"><a class="btn btn-warning btn-sm" href="{{ route('predict.show','') }}/' +
                         data.data_id + '" data-type="view">View</a></li>' +
                             '@endcan' +
                             '@can("predict.edit")' +
-                            '<li class="list-inline-item"><a class="btn btn-warning btn-sm" href="{{ route('predict.edit','') }}/' +
+                            '<li class="list-inline-item"><a class="btn btn-info btn-sm" href="{{ route('predict.edit','') }}/' +
                         data.data_id + '" data-type="edit" data-id="' +
                             data.data_id + '" onclick="change_status(this)">Edit</a></li>' +
                             '@endcan' +

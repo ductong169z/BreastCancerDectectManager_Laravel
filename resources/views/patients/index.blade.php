@@ -4,7 +4,7 @@
     <div class="bg-light p-4 rounded">
         <h1>Patients</h1>
 
-        
+
 
         <div class="lead">
             Manage your patients here.
@@ -50,11 +50,11 @@
                         @endif
                         <td>{{ $user->address }}</td>
                         <td>{{ $user->phone }}</td>
-                        <td><a href="{{ route('patients.show', $user->id) }}" class="btn btn-warning btn-sm">Show</a></td>
+                        <td><a href="{{ route('patients.show', $user->id) }}" class="btn btn-warning btn-sm">View</a></td>
                         <td><a href="{{ route('patients.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a></td>
                         <td>
                             {!! Form::open(['method' => 'DELETE', 'route' => ['patients.destroy', $user->id], 'style' => 'display:inline']) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm', 'onclick' => 'return confirm("Do you want to delete this patient?")' ]) !!}
                             {!! Form::close() !!}
                         </td>
                     </tr>

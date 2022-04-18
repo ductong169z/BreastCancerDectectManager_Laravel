@@ -5,6 +5,9 @@
 
 <div class="bg-light p-4 rounded">
     <h1>Users</h1>
+    <div class="lead">
+        Manage users here.
+    </div>
     <div class="mt-2">
         @include('layouts.partials.messages')
     </div>
@@ -34,7 +37,7 @@
                 <th scope="col" width="15%">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col" width="10%">Roles</th>
-                <th scope="col" width="1%" colspan="3"></th>
+                <th scope="col" width="10%" colspan="4"></th>
             </tr>
         </thead>
         <tbody>
@@ -52,6 +55,8 @@
                     class="btn btn-warning btn-sm">View</a></td>
             <td><a href="{{ route('users.edit', $user->id) }}"
                     class="btn btn-info btn-sm">Edit</a></td>
+
+                    <td><a class="btn btn-dark btn-sm" href="{{ route('users.admin_reset_password', $user->id) }}" >Reset password</a></td>
             {{-- <td>
                     {{ Form::select('status', [1 => 'Active', 0 => 'Deactive'], $user->status) }}
             </td> --}}

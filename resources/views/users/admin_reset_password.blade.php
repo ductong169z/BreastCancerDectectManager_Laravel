@@ -2,7 +2,10 @@
 
 @section('main-content')
 <div class="bg-light p-4 rounded">
-    <h1>Update user</h1>
+    <h1>Reset <Password></Password></h1>
+    <div class="lead">
+        Reset user's password here.
+    </div>
     <div class="lead">
         <div class="mt-2">
             @include('layouts.partials.messages')
@@ -15,7 +18,7 @@
             @csrf
             <div class="mb-3">
                 <label for="password" class="form-label">New Password</label>
-                <input value="{{ old('password') }}" type="password" class="form-control" name="password" placeholder="password" required>
+                <input value="{{ old('password') }}" type="password" class="form-control" name="password" placeholder="Password" required>
                 @if ($errors->has('password'))
                 <span class="text-danger text-left">{{ $errors->first('password') }}</span>
                 @endif

@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 @section('main-content')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{url('css/select2.min.css')}}" rel="stylesheet" />
 
     <div class="bg-light p-4 rounded">
-        <h2>Add new prediction request</h2>
+        <h2>Add New Prediction Request</h2>
         <div class="lead">
             Add new prediction request.
         </div>
@@ -46,7 +46,7 @@
 
 @endsection
 @section('add-script')
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{url('js/select2.min.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('.js-example-basic-single').select2();

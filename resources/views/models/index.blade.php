@@ -6,7 +6,7 @@
     <div class="bg-light p-4 rounded">
         <h1>Models</h1>
         <div class="lead">
-            Manage your Models here.
+            Manage your models here.
             <a href="{{ route('models.create') }}" class="btn btn-primary btn-sm float-right">Add new model</a>
         </div>
 
@@ -35,7 +35,7 @@
                     <td>{{ $model->file_name }}</td>
                     <td>{{ $model->description }}</td>
 
-                    <td><a href="{{ route('models.show', $model->id) }}" class="btn btn-warning btn-sm">Show</a></td>
+                    <td><a href="{{ route('models.show', $model->id) }}" class="btn btn-warning btn-sm">View</a></td>
                     <td><a href="{{ route('models.edit', $model->id) }}" class="btn btn-info btn-sm">Edit</a></td>
                     <td><a href="{{ route('models.delete', $model->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
 
@@ -49,7 +49,7 @@
         </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{url('js/jquery-3.6.0.min.js')}}" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
 
             $('input[type="radio"]').click(function(){

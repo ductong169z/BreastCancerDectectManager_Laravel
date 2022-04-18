@@ -54,7 +54,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //         * Login Routes
 //         */
 //        Route::get('/login', 'LoginController@show')->name('login.show');
-       Route::post('/login', 'Auth\LoginController@login')->name('login.perform');
+
+Route::post('/login', 'Auth\LoginController@login')->name('login.perform');
 //
 //    });
 
@@ -124,7 +125,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
         Route::get('/notification/index', 'NotiController@index')->name('notification.index');
         Route::get('/notification-update/{id}', 'NotiController@updateNoti')->name('notification.update');
         Route::group(['prefix' => 'notification'], function () {
-            // Route::get('/test', 'NotiController@send')->name('notification.test222'); 
+            // Route::get('/test', 'NotiController@send')->name('notification.test222');
             Route::post('/send_token', 'NotiController@updateToken')->name('notification.send_token');
         });
     });

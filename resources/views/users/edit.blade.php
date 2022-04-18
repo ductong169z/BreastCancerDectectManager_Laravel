@@ -2,7 +2,10 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h1>Update user</h1>
+        <h1>Edit User</h1>
+        <div class="lead">
+            Edit user here.
+        </div>
         <div class="lead">
             <div class="mt-2">
                 @include('layouts.partials.messages')
@@ -60,7 +63,7 @@
 
                 <button type="submit" class="btn btn-primary">Update user</button>
                 <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
-                <a class="btn btn-dark float-right" href="{{ route('users.admin_reset_password', $user->id) }}" >Reset password</a>
+
 
 
             </form>

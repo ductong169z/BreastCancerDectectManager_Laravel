@@ -2,9 +2,9 @@
 
 @section('main-content')
     <div class="bg-light p-4 rounded">
-        <h1>Update model</h1>
+        <h1>Edit Model</h1>
         <div class="lead">
-
+Edit model here.
         </div>
         {{--        {{ route('model', $model->id) }}--}}
         <div class="container mt-4">
@@ -65,6 +65,7 @@
 
 
                 <button type="submit" class="btn btn-primary">Update model</button>
+                <a href="{{ route('models.index') }}" class="btn btn-default">Back</a>
                 {{--                <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</button>--}}
             </form>
         </div>

@@ -256,9 +256,9 @@
 
 
 
-   
+
 @endsection
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="{{url('js/loader.js')}}"></script>
 <script type="text/javascript">
     google.charts.load('current', {
         'packages': ['corechart']
@@ -285,7 +285,7 @@
     }
 </script>
 {{-- percent cancers pie chart --}}
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="{{url('js/loader.js')}}"></script>
 <script type="text/javascript">
     google.charts.load('current', {
         'packages': ['corechart']

@@ -2,7 +2,11 @@
 
 @section('main-content')
 <div class="bg-light p-4 rounded">
-    <h1 class="text-bold">Show user</h1>
+    <h1 class="text-bold">User Detail</h1>
+
+    <div class="lead">
+        User detail .
+    </div>
     <div class="container mt-4">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
@@ -11,7 +15,7 @@
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <label class="form-control">{{ $user->email }}</label>
-            
+
         </div>
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
