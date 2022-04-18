@@ -49,7 +49,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="status" class="form-label">Status</label>
-                    {{ Form::select('status', [1 => 'Active', 0 => 'Deactive'], $user->status, array('class'=>'form-control')) }}
+                    {{ Form::select('status', [1 => 'Active', 0 => 'Inactive'], $user->status, array('class'=>'form-control')) }}
                     {{-- <select name="status" required >
                         <option @if ($user->status == 1)
                             value = {{$user->status}} selected
