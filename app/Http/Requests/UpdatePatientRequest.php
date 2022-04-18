@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\CheckDigit;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePatientRequest extends FormRequest
@@ -28,7 +29,7 @@ class UpdatePatientRequest extends FormRequest
 
         return [
             'name' => 'required',
-            'id_number' => 'required|digits:9 or digits:12',
+            'id_number' => ['required', new CheckDigit],
             'phone' => 'required|digits:10|starts_with:0',
             'address' => 'required',
             'gender' => 'required',

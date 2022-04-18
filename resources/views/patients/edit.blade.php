@@ -73,7 +73,7 @@ Edit patient here.
                     @endif
                 </div>
 
-                <button type="submit" class="btn btn-primary">Update patient</button>
+                <button type="submit" class="btn btn-primary">Save patient</button>
                 <a href="{{ route('patients.index') }}" class="btn btn-default">Back</a>
             </form>
         </div>

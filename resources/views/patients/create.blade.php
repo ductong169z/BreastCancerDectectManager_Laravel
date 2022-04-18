@@ -67,7 +67,7 @@
                     @endif
                 </div>
 
-                <button type="submit" class="btn btn-primary">Save Patient</button>
+                <button type="submit" class="btn btn-primary">Save patient</button>
                 <a href="{{ route('patients.index') }}" class="btn btn-default">Back</a>
             </form>
         </div>
