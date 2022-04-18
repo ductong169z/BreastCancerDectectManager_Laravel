@@ -109,21 +109,21 @@
                 </div>
                 <div class="card-body mb-2">
 
-                    <h4 class="small font-weight-bold">The Numbers Of Correctly Predictions Today<span
+                    <h4 class="small font-weight-bold">The Numbers of Correctly Predictions Today<span
                             class="float-right">{{ $widget['todayCorrect'] }}</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar" role="progressbar"
                             style="background-color:#76c355;width: {{ $widget['percentTodayCorrect'] }}%" aria-valuenow="40" aria-valuemin="0"
                             aria-valuemax="100"></div>
                     </div>
-                    <h4 class="small font-weight-bold">The Numbers Of Confirmed Predictions Today<span
+                    <h4 class="small font-weight-bold">The Numbers of Confirmed Predictions Today<span
                             class="float-right">{{ $widget['todayConfirm'] }}</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar" role="progressbar"
                             style="background-color:#fd8c81;width: {{ $widget['percentTodayConfirm'] }}%" aria-valuenow="60" aria-valuemin="0"
                             aria-valuemax="100"></div>
                     </div>
-                    <h4 class="small font-weight-bold">The Numbers Of Predictions Today<span
+                    <h4 class="small font-weight-bold">The Numbers of Predictions Today<span
                             class="float-right">{{ $widget['todayPredict'] }}</span></h4>
                     <div class="progress mb-4">
                         <div class="progress-bar " role="progressbar"
@@ -222,7 +222,7 @@
             <!-- percentage chart overview -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3 ">
-                    <h5 class="m-0 font-weight-bold text-primary">Pie Chart of Breast Cancer Ratio Overview </h5>
+                    <h5 class="m-0 font-weight-bold text-primary">Confirmed Breast Cancer Ratio Overview </h5>
                 </div>
                 <div class="card-body">
                     <div id="piechart"></div>
@@ -272,7 +272,7 @@
         ]);
 
         var options = {
-            title: 'Number of predictions of the last 7 days',
+            title: 'Number of predictions over the last 7 days',
             curveType: 'none',
             legend: {
                 position: 'bottom'

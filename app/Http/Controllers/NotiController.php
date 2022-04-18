@@ -49,8 +49,8 @@ class NotiController extends Controller
                 $noti -> created_at = $notiarray['create_at'];
                 break;
             case 'uploadimg':
-                $noti->title = 'From ' . $notiarray['prediction_id'];
-                $noti ->body = 'Image for predict have been upload';
+                $noti->title = 'From ' . $notiarray['sonograper_name'];
+                $noti ->body = 'Image for predict number '.$notiarray['prediction_id'].' of '.$notiarray['patient_name'].' have been upload';
                 $noti -> created_at = $notiarray['create_at'];
                 break;
                 
@@ -116,7 +116,8 @@ class NotiController extends Controller
           'body'  => $noti->body,
           'title' => $noti->title,
           'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
-          'sound' => 'mySound'/*Default sound*/
+          'sound' => 'mySound'/*Default sound*/,
+          'click_action'=>route('predict.show', $noti->prediction_id)
         );
 
 
