@@ -61,7 +61,7 @@
 
                 </div>
 
-                <button type="submit" class="btn btn-primary">Update user</button>
+                <button type="submit" class="btn btn-primary">Save user</button>
                 <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
 
 
