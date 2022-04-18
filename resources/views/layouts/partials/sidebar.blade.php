@@ -3,8 +3,8 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home.index') }}">
-       <img class="sidebar-brand-icon" width="50" height="50" src="{{url('img/logo_menu.png')}}" />
-        <div class="sidebar-brand-text mx-2">BreastCancer Detection</div>
+       <img class="sidebar-brand-icon" width="60" height="60" src="{{url('img/logo_menu.png')}}" />
+        <div class="sidebar-brand-text ">BCDS</div>
     </a>
 
     <!-- Divider -->
@@ -83,7 +83,7 @@
                             <li class="nav-item {{ Nav::isRoute('patients.*') }}">
                                 <a class="nav-link" href="{{ route('patients.index') }}">
                                     <i class="fas fa-fw fa-user"></i>
-                                    <span>{{ __('Patient Management') }}</span>
+                                    <span>{{ __('Patients Management') }}</span>
                                 </a>
                             </li>
                             @endif

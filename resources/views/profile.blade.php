@@ -86,18 +86,18 @@
 
                         <div class="pl-lg-4">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="name">Name<span class="small text-danger">*</span></label>
                                         <input type="text" id="name" class="form-control" name="name" placeholder="Name" value="{{ old('name', Auth::user()->name) }}">
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                {{-- <div class="col-lg-6">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="last_name">Username</label>
                                         <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Last name" value="{{ old('last_name', Auth::user()->username) }}">
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
 
                             <div class="row">
