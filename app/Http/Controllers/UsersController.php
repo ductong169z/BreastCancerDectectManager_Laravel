@@ -53,7 +53,7 @@ class UsersController extends Controller
         //For demo purposes only. When creating user or inviting a user
         // you should create a generated random password and email it to the user
         $user->create(array_merge($request->validated(), [
-            'password' => $request->get('password'),'username' => ''
+            'password' => $request->get('password')
         ]))->syncRoles($request->get('role'));
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));
