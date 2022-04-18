@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Patient;
+use App\Rules\CheckDigit;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePatientRequest extends FormRequest
@@ -26,7 +27,7 @@ class StorePatientRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'id_number' => 'required|unique:patients|digits:12',
+            'id_number' => ['required','unique:patients', new CheckDigit],
             'phone' => 'required|digits:10|starts_with:0',
             'address' => 'required',
             'gender' => 'required',
