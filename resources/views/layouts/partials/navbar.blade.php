@@ -186,8 +186,8 @@
     }
 </script>
 
-<script src="{{url('firebase.js')}}"></script>
-<script src="{{url('jquery.min.js')}}" type="text/javascript"></script>
+<script src="{{url('js/firebase.js')}}"></script>
+<script src="{{url('js/jquery.min.js')}}" type="text/javascript"></script>
 <script>
     var firebaseConfig = {
         apiKey: "AIzaSyA4w5Q9sjRwWKF4Is_xnPscnVPMgZYRBak",
