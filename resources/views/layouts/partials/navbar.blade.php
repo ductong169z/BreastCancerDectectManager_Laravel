@@ -43,7 +43,7 @@
         </li>
 
         <!-- Nav Item - Alerts -->
-       
+
         <li class="nav-item dropdown no-arrow mx-1">
             @can('notification.index')
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -186,8 +186,8 @@
     }
 </script>
 
-<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="{{url('js/firebase.js')}}"></script>
+<script src="{{url('js/jquery.min.js')}}" type="text/javascript"></script>
 <script>
     var firebaseConfig = {
         apiKey: "AIzaSyA4w5Q9sjRwWKF4Is_xnPscnVPMgZYRBak",
