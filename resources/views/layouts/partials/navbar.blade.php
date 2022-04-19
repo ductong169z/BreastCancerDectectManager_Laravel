@@ -54,7 +54,7 @@
             @endcan
 
             <!-- Dropdown - Alerts -->
-            <div  id="noti_data" class="dropdown-list dropdown-menu dropdown-scrollbar dropdown-menu-right shadow animated--grow-in"  style='height: 500px;overflow: scroll;' aria-labelledby="alertsDropdown">
+            <div  id="noti_data" class="dropdown-list dropdown-menu dropdown-scrollbar dropdown-menu-right shadow animated--grow-in"  style='min-height:190px;max-height:500px;overflow: scroll;' aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                     Notification Center
                 </h6>
