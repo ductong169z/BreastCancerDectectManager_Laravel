@@ -147,11 +147,11 @@
                             data.data_id + '" onclick="show_upload_modal(this)">Upload Image</a></li>' +
                             '@endcan' +
                             '@can("predict.show")' +
-                            '<li class="list-inline-item"><a class="btn btn-info btn-sm" href="{{ route('predict.show','') }}/' +
+                            '<li class="list-inline-item"><a class="btn btn-warning btn-sm" href="{{ route('predict.show','') }}/' +
                         data.data_id + '" data-type="view">View</a></li>' +
                             '@endcan' +
                             '@can("predict.edit")' +
-                            '<li class="list-inline-item"><a class="btn btn-warning btn-sm" href="{{ route('predict.edit','') }}/' +
+                            '<li class="list-inline-item"><a class="btn btn-info btn-sm" href="{{ route('predict.edit','') }}/' +
                         data.data_id + '" data-type="edit" data-id="' +
                             data.data_id + '" onclick="change_status(this)">Edit</a></li>' +
                             '@endcan' +
