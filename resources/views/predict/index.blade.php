@@ -173,7 +173,7 @@
                             data.data_id + '" onclick="change_status(this)">Edit</a></li>' +
                             '@endcan' +
                             '@can("predict.delete")' +
-                            '<li class="list-inline-item"><a class="btn btn-danger btn-sm" onclick="return confirm(\'Are you want delete it !\')" href="{{ route('predict.delete','') }}/' +
+                            '<li class="list-inline-item"><a class="btn btn-danger btn-sm" onclick="return confirm(\'Do you want to delete this patient?\')" href="{{ route('predict.delete','') }}/' +
                         data.data_id + '" data-type="delete" data-id="' +
                             data.data_id + '" onclick="change_status(this)">Delete</a></li>' +
                             '@endcan' +

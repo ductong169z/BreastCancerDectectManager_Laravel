@@ -97,7 +97,7 @@ class UsersController extends Controller
     public function adminUpdatePassword(User $user, AdminResetPasswordRequest $request)
     {
         $user->update($request->validated());
-        return redirect()->route('users.edit', $user->id)
+        return redirect()->route('users.index', $user->id)
             ->withSuccess(__('Reset password successfully.'));
     }
 

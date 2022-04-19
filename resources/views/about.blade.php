@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-lg-12 mb-1">
                             <div class="text-center">
-                                <h5 class="font-weight-bold">Breast Cancer Detection</h5>
+                                <h5 class="font-weight-bold">Breast Cancer Detection System</h5>
                             </div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h5 class="font-weight-bold">About Breast Cancer Detection System</h5>
-                            <span>The Breast Cancer Detection System (BCDS) supports doctors diagnosing with an ultrasound breast image input. The system can diagnose and classify whether it is normal, or having a malignant or benign tumor. The system allows the doctors to create a request for patients to take an ultrasound scan to the sonographer. After finishing the scanning process, the sonographer uploads the ultrasound breast image into the system, then the machine learning model in BCDS diagnoses the result based on the given ultrasound image. Moreover, the BCDS identifies the cancer area on the inputted ultrasound image when returning the result to the doctor.</span>
+                            <p class="text-justify">The Breast Cancer Detection System (BCDS) supports doctors diagnosing with an ultrasound breast image input. The system can diagnose and classify whether it is normal, or having a malignant or benign tumor. The system allows the doctors to create a request for patients to take an ultrasound scan to the sonographer. After finishing the scanning process, the sonographer uploads the ultrasound breast image into the system, then the machine learning model in BCDS diagnoses the result based on the given ultrasound image. Moreover, the BCDS identifies the cancer area on the inputted ultrasound image when returning the result to the doctor.</p>
 
                         </div>
                     </div>

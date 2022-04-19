@@ -56,7 +56,7 @@
                 <!-- Nav Item - Users Management -->
                 <li class="nav-item {{ Nav::isRoute('users.*') }}">
                     <a class="nav-link" href="{{ route('users.index') }}">
-                        <i class="fas fa-fw fa-user"></i>
+                        <i class="fas fa-users fa-2x"></i>
                         <span>{{ __('Users Management') }}</span>
                     </a>
                 </li>
@@ -65,7 +65,7 @@
                     <!-- Nav Item - Profile -->
                     <li class="nav-item {{ Nav::isRoute('predict.*') }}">
                         <a class="nav-link" href="{{ route('predict.index') }}">
-                            <i class="fas fa-fw fa-user"></i>
+                            <i class="fas fa-stethoscope fa-2x"></i>
                             <span>{{ __('Predictions Management') }}</span>
                         </a>
                     </li>

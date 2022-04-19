@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <input type="text" value="{{ $user }}" class="form-control" name="user"
-                               placeholder="Username">
+                               placeholder="Name">
 
                     </div>
                     <div class="col-md-2">
@@ -35,9 +35,9 @@
             <tr>
                 <th scope="col" width="1%">#</th>
                 <th scope="col" width="15%">Name</th>
-                <th scope="col">Email</th>
+                <th scope="col" width="15%">Email</th>
                 <th scope="col" width="10%">Roles</th>
-                <th scope="col" width="10%" colspan="4"></th>
+                <th scope="col" width="15%" colspan="4"></th>
             </tr>
         </thead>
         <tbody>
@@ -56,7 +56,7 @@
             <td><a href="{{ route('users.edit', $user->id) }}"
                     class="btn btn-info btn-sm">Edit</a></td>
 
-                    <td><a class="btn btn-dark btn-sm" href="{{ route('users.admin_reset_password', $user->id) }}" >Reset password</a></td>
+                    <td><a class="btn btn-danger btn-sm" href="{{ route('users.admin_reset_password', $user->id) }}" >Reset password</a></td>
             {{-- <td>
                     {{ Form::select('status', [1 => 'Active', 0 => 'Deactive'], $user->status) }}
             </td> --}}

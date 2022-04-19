@@ -18,7 +18,7 @@
             <form action="{{ route('patients.index') }}" id="form1">
                 <div class="row">
                     <div class="col-md-6">
-                        <input type="text" name="patient" value="{{ $patient }}" class="form-control" placeholder="User name">
+                        <input type="text" name="patient" value="{{ $patient }}" class="form-control" placeholder="Name">
                     </div>
                     <div class="col-md-2">
                         <button type="submit" form="form1" class="btn btn-success">Search</button>

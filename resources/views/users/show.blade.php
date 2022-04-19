@@ -18,10 +18,6 @@
 
         </div>
         <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <label class="form-control">{{ $user->username }}</label>
-        </div>
-        <div class="mb-3">
             <label for="role" class="form-label">Role</label>
             <label class="form-control">
             @foreach($user->roles as $userrole)
