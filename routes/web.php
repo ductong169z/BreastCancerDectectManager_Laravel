@@ -31,9 +31,7 @@ Route::group(['prefix' => 'profile'], function () {
 });
 
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/about',[App\Http\Controllers\HomeController::class, 'about'])->name('about');
 
 //Auth::routes();
 
