@@ -28,7 +28,7 @@
     <!-- Nav Item - Profile -->
     <li class="nav-item {{ Nav::isRoute('profile') }}">
         <a class="nav-link" href="{{ route('profile') }}">
-            <i class="fas fa-fw fa-user"></i>
+            <i class="fas fa-fw fa-address-card"></i>
             <span>{{ __('Profile') }}</span>
         </a>
     </li>
@@ -36,7 +36,7 @@
         <!-- Nav Item - Profile -->
         <li class="nav-item {{ Nav::isRoute('permissions.*') }}">
             <a class="nav-link" href="{{ route('permissions.index') }}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-user-check"></i>
                 <span>{{ __('Permissions Management') }}</span>
             </a>
         </li>
@@ -45,7 +45,7 @@
             <!-- Nav Item - Profile -->
             <li class="nav-item {{ Nav::isRoute('roles.*') }}">
                 <a class="nav-link" href="{{ route('roles.index') }}">
-                    <i class="fas fa-fw fa-user"></i>
+                    <i class="fas fa-fw fa-user-cog"></i>
                     <span>{{ __('Roles Management') }}</span>
                 </a>
             </li>
@@ -73,7 +73,7 @@
                     @can('models.index')
                         <li class="nav-item {{ Nav::isRoute('models.*') }}">
                             <a class="nav-link" href="{{ route('models.index') }}">
-                                <i class="fas fa-fw fa-user"></i>
+                                <i class="fas fa-fw fa-cogs"></i>
                                 <span>{{ __('Models Management') }}</span>
                             </a>
                         </li>
@@ -82,7 +82,7 @@
                             <!-- Nav Item - Patient Management -->
                             <li class="nav-item {{ Nav::isRoute('patients.*') }}">
                                 <a class="nav-link" href="{{ route('patients.index') }}">
-                                    <i class="fas fa-fw fa-user"></i>
+                                    <i class="fas fa-fw fa-child"></i>
                                     <span>{{ __('Patients Management') }}</span>
                                 </a>
                             </li>

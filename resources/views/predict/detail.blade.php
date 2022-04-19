@@ -28,7 +28,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="patient" class="form-label">Patient ID Number</label>
-                    <label class="form-control">{{ $currentPatient->id_number }}</label>
+                    <label  class="form-control disabled">{{ $currentPatient->id_number }}</label>
 
                 </div>
                 <div class="mb-3">
