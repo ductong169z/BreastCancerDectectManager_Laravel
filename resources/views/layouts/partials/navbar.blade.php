@@ -1,5 +1,5 @@
 <!-- Topbar -->
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow ">
 
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -46,7 +46,7 @@
 
         <li class="nav-item dropdown no-arrow mx-1">
             @can('notification.index')
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="window.onload()">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
                 <span id="number_noti" class="badge badge-danger badge-counter"></span>
@@ -54,10 +54,8 @@
             @endcan
 
             <!-- Dropdown - Alerts -->
-            <div  id="noti_data" class="dropdown-list dropdown-menu dropdown-scrollbar dropdown-menu-right shadow animated--grow-in"  style='min-height:190px;max-height:500px;overflow: scroll;' aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                    Notification Center
-                </h6>
+            <div  id="noti_data" class="dropdown-list dropdown-menu dropdown-scrollbar dropdown-menu-right shadow animated--grow-in"  style='min-height:190px;max-height:500px;overflow: scroll;' aria-labelledby="alertsDropdown" >
+                
 
             </div>
         </li>
@@ -149,19 +147,25 @@
 
 </nav>
 
+
+<!--  load and render notification  -->
 <script>
+    window.onload = function loadNotifications() {
     var n_data = document.getElementById("noti_data");
+    
     var req = new XMLHttpRequest();
     req.open("GET", "{{route('notification.load')}}", true);
     req.send();
+    n_data.innerHTML ="<h6 class='dropdown-header'>Notification Center</h6>";
 
+    //render notifications
     req.onreadystatechange = function() {
         if (req.readyState == 4 && req.status == 200) {
             var obj = JSON.parse(req.responseText);
             if (obj.notifications.length == 0) {
                 n_data.innerHTML += "<div class='dropdown-item text-center text-gray-500'>You do not have any new notify yet</div>";
             } else {
-                $("#number_noti").text(obj.notifications.length)
+                $("#number_noti").text(obj.noticationsBell.length);
                 n_data.innerHTML += "<div class='dropdown-list dropdown-menu dropdown-scrollbar dropdown-menu-right shadow animated--grow-in' style='height: 500px;overflow: scroll;' aria-labelledby='alertsDropdown'>";
                 for (i = 0; i < obj.notifications.length; i++) {
                     n_data.innerHTML +=
@@ -189,10 +193,17 @@
         }
 
     }
+}
 </script>
 
-<script src="{{url('js/firebase.js')}}"></script>
+
+<!--inplement firebase-->
+<script src="{{url('js/firebase-app.js')}}"></script>
+<script src="{{url('js/firebase-messaging.js')}}"></script>
+<!--inplement jquery-->
 <script src="{{url('js/jquery.min.js')}}" type="text/javascript"></script>
+
+<!--Receive message on client end-->
 <script>
     var firebaseConfig = {
         apiKey: "AIzaSyA4w5Q9sjRwWKF4Is_xnPscnVPMgZYRBak",
@@ -232,7 +243,7 @@
                     // alert('Token saved successfully.');
                 },
                 error: function(err) {
-                    // console.log('User Chat Token Error' + err);
+                    console.log('User Chat Token Error' + err);
                 },
             });
 
@@ -249,6 +260,8 @@
 
         };
         new Notification(noteTitle, noteOptions);
+        console.log("noti co truyen qua");
+        loadNotifications();
     });
 </script>
 
