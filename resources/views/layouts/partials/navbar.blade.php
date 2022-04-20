@@ -150,20 +150,7 @@
 
 <!--  reload bell number every 1 second  -->
 <script>
-    setInterval(function() {
-        var req = new XMLHttpRequest();
-        req.open("GET", "{{route('notification.load')}}", true);
-        req.send();
-        req.onreadystatechange = function() {
-            if (req.readyState == 4 && req.status == 200) {
-                var obj = JSON.parse(req.responseText);
-                if (obj.notifications.length == 0) {} else {
-                    $("#number_noti").text(obj.noticationsBell.length);
-                }
-
-            }
-        }
-    }, 1000);
+    
 
     //load and render unread notification
     function loadNotifications() {
@@ -210,7 +197,7 @@
 
         }
     }
-    loadNotifications();
+    //loadNotifications();
 </script>
 
 
