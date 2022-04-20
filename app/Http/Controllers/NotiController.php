@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Auth;
 class NotiController extends Controller
 {
     /**
+     * Display all notification
      * 
+     *@return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
@@ -26,19 +28,24 @@ class NotiController extends Controller
     }
 
     /**
+     * Load unread notify
      * 
+     * @return \Illuminate\Http\Response
      */
     function loadNoti(){
         // dd($user_id);
         $notications = Notifications::where('user_id', Auth::id())->where('status',1)->orderBy('status','desc')->orderBy('id','desc')->take(10)->get();
+        $noticationsBell = Notifications::where('user_id', Auth::id())->where('status',1)->orderBy('status','desc')->orderBy('id','desc')->get();
         // $notications = $notications->where('user_id', Auth::id());
 
         // dd($notications);
-        return response()->json(['notifications'=>$notications]);
+        return response()->json(['notifications'=>$notications,'noticationsBell'=>$noticationsBell]);
     }
 
     /**
+     * Split notify by send in condition
      * 
+     * @param $notiarray for all notification information
      */
     function notiCondition(array $notiarray){
         $noti = new Notifications();
@@ -58,16 +65,18 @@ class NotiController extends Controller
         $noti ->user_id = $notiarray["user_id"];
         $noti ->prediction_id = $notiarray["prediction_id"];
         $noti ->status = 1;
-        $this->sendNoti($noti);
-        $this->createNoti($noti);
+        $noti=$this->createNoti($noti);
+        $this->sendNoti($noti);  
     }
 
 
     /**
+     * Create new notify by condition
      * 
+     * @param Notifications $noti
      */
     function createNoti(Notifications $noti){
-        $noti::create(
+        $newNoti=$noti::create(
             [
             'title'=>$noti->title,
             'body'=>$noti->body,
@@ -77,11 +86,16 @@ class NotiController extends Controller
             'create_at'=>$noti->created_at
             ]
         );
+
+        return  $newNoti;
     }
 
 
     /**
+     * Update notify status to unread
      * 
+     * @param $noti_id id of notication
+     * @return \Illuminate\Http\Response
      */
     function updateNoti($noti_id){
         $noti=Notifications::find($noti_id);
@@ -94,6 +108,7 @@ class NotiController extends Controller
     }
 
     /**
+     * sent notify
      * 
      */
     public function send(){
@@ -103,7 +118,9 @@ class NotiController extends Controller
 
 
     /**
+     * Push notify to firebase
      * 
+     * @param Notifications $noti
      */
     function sendNoti(Notifications $noti){
         
@@ -117,7 +134,7 @@ class NotiController extends Controller
           'title' => $noti->title,
           'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
           'sound' => 'mySound'/*Default sound*/,
-          'click_action'=>route('predict.show', $noti->prediction_id)
+          'click_action'=>route('notification.update',$noti->id),
         );
 
 
@@ -178,6 +195,12 @@ class NotiController extends Controller
     }
 
 
+    /**
+     * Update new token when user allow notification
+     * 
+     * @return \Illuminate\Http\Response
+     */
+
     public function updateToken(Request $request){
         
 
@@ -187,17 +210,6 @@ class NotiController extends Controller
         // auth()->user()->update(['device_token'=>$request->token]);
         // dd($request->token);
         return response()->json(['token saved successfully.']);
-    }
-    public function test(Request $request)
-    {
-        // dd($request->get('noti'));
-        // $search=$request->get('search');
-        // $notications = Notifications::where('user_id', Auth::id())->orderBy('status','desc')->orderBy('id','desc');
-        // if($search){
-        //     $notications = $notications->where('notifications.title', 'LIKE', '%'.$search.'%');
-        // }
-        // $notications = $notications->paginate(10);
-        return view('noti.test');
     }
 
 
