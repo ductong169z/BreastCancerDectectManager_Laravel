@@ -5,7 +5,6 @@
         <h1>Patients</h1>
 
 
-
         <div class="lead">
             Manage your patients here.
             <a href="{{ route('patients.create') }}" class="btn btn-primary btn-sm float-right">Add new patient</a>
