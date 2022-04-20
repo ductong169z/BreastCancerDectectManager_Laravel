@@ -133,7 +133,7 @@ class PredictionsController extends Controller
     {
         $id = $request->id;
         $modelName=ModelPredict::getSelectedModelName();
-
+     
         $image = $request->image;
         $imageName = "P_" . $id . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
         $response = Curl::to('http://127.0.0.1:8000/predict/')
@@ -173,7 +173,19 @@ class PredictionsController extends Controller
         $noti->notiCondition($notiarray);
             return ['status' => 'success', 'message' => 'Upload thành công','data'=>json_encode($response)];
         } else {
+            Prediction::find($id)->update([
+                'status' => 0,
+            ]);
             return ['status' => 'failed', 'message' => 'Upload thất bại','data'=>json_encode($response)];
         }
+    }
+
+    public function updateProgress(Request $request)
+    {
+            $id = $request->id;
+            Prediction::find($id)->update([
+                'status' => 1,
+            ]);
+            return ['status' => 'success'];
     }
 }

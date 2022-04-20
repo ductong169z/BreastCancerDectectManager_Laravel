@@ -87,7 +87,7 @@ Route::post('/login', 'Auth\LoginController@login')->name('login.perform');
             Route::get('/{model}/edit', 'ModelsController@edit')->name('models.edit');
             Route::post('/{model}/update', 'ModelsController@update')->name('models.update');
             Route::get('/{model}/delete', 'ModelsController@delete')->name('models.delete');
-            Route::post('/updateSelected', 'ModelsController@updateSelected')->name('models.updateSelected');
+            Route::post('/updateSelected', 'ModelsController@updateSelected')->name('models.update_selected');
         });
         Route::group(['prefix' => 'predict'], function () {
             Route::get('/', 'PredictionsController@index')->name('predict.index');
@@ -98,6 +98,7 @@ Route::post('/login', 'Auth\LoginController@login')->name('login.perform');
             Route::get('/show/{id}', 'PredictionsController@show')->name('predict.show');
             Route::get('/delete/{id}', 'PredictionsController@delete')->name('predict.delete');
             Route::post('/upload-image', 'PredictionsController@uploadImage')->name('predict.upload');
+            Route::post('/update-in-progress', 'PredictionsController@updateProgress')->name('predict.update_in_progress');
 
             Route::post('/doctor/confirm', 'PredictionsController@doctorConfirm')->name('predict.doctor.confirm');
 

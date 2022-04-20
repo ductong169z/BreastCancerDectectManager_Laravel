@@ -196,7 +196,7 @@
 
 
      function fetchUploadImage() {
-
+        updateProgress($("#id").val())
         let myForm = document.getElementById('upload-image');
         let formData = new FormData(myForm);
         $("#upload-modal").modal('hide');
@@ -208,11 +208,28 @@
             contentType: false,
             // async: false,
             success: function (response) {
+                if(response.status=='success'){
+                    alert('Thành công')
+                }else{
+                    alert('Thất bại')
+                }
                 table.ajax.reload(null, false);
             }
         })
 
     }
+    function updateProgress(id) {
+       
+    $.ajax({
+    url: "{{ route('predict.update_in_progress') }}",
+    type: "POST",
+    data: {id:id},
+    success: function (response) {
+        
+        table.ajax.reload(null, false);
+    }
+})
 
+}
 </script>
 @endsection
