@@ -260,8 +260,6 @@
 
         };
         new Notification(noteTitle, noteOptions);
-        console.log("noti co truyen qua");
-        loadNotifications();
     });
 </script>
 
