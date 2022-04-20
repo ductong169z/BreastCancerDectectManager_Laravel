@@ -46,7 +46,7 @@
 
         <li class="nav-item dropdown no-arrow mx-1">
             @can('notification.index')
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="window.onload()">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="loadNotifications()">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
                 <span id="number_noti" class="badge badge-danger badge-counter"></span>
@@ -54,8 +54,8 @@
             @endcan
 
             <!-- Dropdown - Alerts -->
-            <div  id="noti_data" class="dropdown-list dropdown-menu dropdown-scrollbar dropdown-menu-right shadow animated--grow-in"  style='min-height:190px;max-height:500px;overflow: scroll;' aria-labelledby="alertsDropdown" >
-                
+            <div id="noti_data" class="dropdown-list dropdown-menu dropdown-scrollbar dropdown-menu-right shadow animated--grow-in" style='min-height:190px;max-height:500px;overflow: scroll;' aria-labelledby="alertsDropdown">
+
 
             </div>
         </li>
@@ -150,50 +150,69 @@
 
 <!--  load and render notification  -->
 <script>
-    window.onload = function loadNotifications() {
-    var n_data = document.getElementById("noti_data");
-    
-    var req = new XMLHttpRequest();
-    req.open("GET", "{{route('notification.load')}}", true);
-    req.send();
-    n_data.innerHTML ="<h6 class='dropdown-header'>Notification Center</h6>";
-
-    //render notifications
-    req.onreadystatechange = function() {
-        if (req.readyState == 4 && req.status == 200) {
-            var obj = JSON.parse(req.responseText);
-            if (obj.notifications.length == 0) {
-                n_data.innerHTML += "<div class='dropdown-item text-center text-gray-500'>You do not have any new notify yet</div>";
-            } else {
-                $("#number_noti").text(obj.noticationsBell.length);
-                n_data.innerHTML += "<div class='dropdown-list dropdown-menu dropdown-scrollbar dropdown-menu-right shadow animated--grow-in' style='height: 500px;overflow: scroll;' aria-labelledby='alertsDropdown'>";
-                for (i = 0; i < obj.notifications.length; i++) {
-                    n_data.innerHTML +=
-                        "<a class='dropdown-item d-flex align-items-center '  href='{{ route('notification.update','') }}/" + obj.notifications[i]['id'] + "'" +
-                        "<div class='col mr-3'>" +
-                        "<div class='col mr-3'>" +
-                        "<div class='icon-circle bg-primary'>" +
-                        "<i class='fas fa-file-alt text-white'></i>" +
-                        "</div>" +
-                        "</div>" +
-                        "</div>" +
-                        "<div>" +
-                        "<div class='small text-gray-500'>" + obj.notifications[i]['title'] + "</div>" +
-                        "<span class='font-weight-bold'>" + obj.notifications[i]['body'] + "</span>" +
-                        "</div>" +
-                        "</a>";
-
-
+    setInterval(function() {
+        var req = new XMLHttpRequest();
+        req.open("GET", "{{route('notification.load')}}", true);
+        req.send();
+        req.onreadystatechange = function() {
+            if (req.readyState == 4 && req.status == 200) {
+                var obj = JSON.parse(req.responseText);
+                if (obj.notifications.length == 0) {} else {
+                    $("#number_noti").text(obj.noticationsBell.length);
                 }
-                n_data.innerHTML +="</div>";
 
             }
-            n_data.innerHTML += "<a class='dropdown-item text-center small text-gray-500' href='{{ route('notification.index') }}'>Show All Notifications</a>";
 
         }
+    }, 1000);
 
+
+    function loadNotifications() {
+        var n_data = document.getElementById("noti_data");
+
+        var req = new XMLHttpRequest();
+        req.open("GET", "{{route('notification.load')}}", true);
+        req.send();
+        n_data.innerHTML = "<h6 class='dropdown-header'>Notification Center</h6>";
+
+        //render notifications
+        req.onreadystatechange = function() {
+            if (req.readyState == 4 && req.status == 200) {
+                var obj = JSON.parse(req.responseText);
+                if (obj.notifications.length == 0) {
+                    n_data.innerHTML += "<div class='dropdown-item text-center text-gray-500'>You do not have any new notify yet</div>";
+                } else {
+                    $("#number_noti").text(obj.noticationsBell.length);
+                    n_data.innerHTML += "<div class='dropdown-list dropdown-menu dropdown-scrollbar dropdown-menu-right shadow animated--grow-in' style='height: 500px;overflow: scroll;' aria-labelledby='alertsDropdown'>";
+                    for (i = 0; i < obj.notifications.length; i++) {
+                        n_data.innerHTML +=
+                            "<a class='dropdown-item d-flex align-items-center '  href='{{ route('notification.update','') }}/" + obj.notifications[i]['id'] + "'" +
+                            "<div class='col mr-3'>" +
+                            "<div class='col mr-3'>" +
+                            "<div class='icon-circle bg-primary'>" +
+                            "<i class='fas fa-file-alt text-white'></i>" +
+                            "</div>" +
+                            "</div>" +
+                            "</div>" +
+                            "<div>" +
+                            "<div class='small text-gray-500'>" + obj.notifications[i]['title'] + "</div>" +
+                            "<span class='font-weight-bold'>" + obj.notifications[i]['body'] + "</span>" +
+                            "</div>" +
+                            "</a>";
+
+
+                    }
+                    n_data.innerHTML += "</div>";
+
+                }
+                n_data.innerHTML += "<a class='dropdown-item text-center small text-gray-500' href='{{ route('notification.index') }}'>Show All Notifications</a>";
+
+            }
+
+        }
     }
-}
+
+    loadNotifications();
 </script>
 
 
