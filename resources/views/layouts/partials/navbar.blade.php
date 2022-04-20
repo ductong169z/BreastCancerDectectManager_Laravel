@@ -148,7 +148,7 @@
 </nav>
 
 
-<!--  load and render notification  -->
+<!--  reload bell number every 1 second  -->
 <script>
     setInterval(function() {
         var req = new XMLHttpRequest();
@@ -162,11 +162,10 @@
                 }
 
             }
-
         }
     }, 1000);
 
-
+    //load and render unread notification
     function loadNotifications() {
         var n_data = document.getElementById("noti_data");
 
@@ -211,7 +210,6 @@
 
         }
     }
-
     loadNotifications();
 </script>
 
