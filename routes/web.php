@@ -127,3 +127,4 @@ Route::post('/login', 'Auth\LoginController@login')->name('login.perform');
             Route::post('/send_token', 'NotiController@updateToken')->name('notification.send_token');
         });
     });
+

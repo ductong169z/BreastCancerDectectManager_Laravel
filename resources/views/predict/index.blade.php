@@ -223,7 +223,7 @@
     $.ajax({
     url: "{{ route('predict.update_in_progress') }}",
     type: "POST",
-    data: {id:id},
+    data: {_token: "{{ csrf_token() }}",id:id},
     success: function (response) {
         
         table.ajax.reload(null, false);

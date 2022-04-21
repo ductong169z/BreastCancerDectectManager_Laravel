@@ -32,7 +32,7 @@ class PredictionTest extends TestCase
             'status'=>0,
             'model_id' => 1
         ];
-        // khởi tạo lớp CategoryRepository
+        // khởi tạo lớp PredictionRepository
         $this->predictionRepository = new PredictionRepository();
         $prediction = $this->predictionRepository->storePrediction($this->prediction);
         $this->assertInstanceOf(Prediction::class, $prediction);
@@ -42,6 +42,50 @@ class PredictionTest extends TestCase
         $this->assertEquals($this->prediction['status'], $prediction->status);
         $this->assertEquals($this->prediction['model_id'], $prediction->model_id);
         $this->assertDatabaseHas('predictions', $this->prediction);
+
+    }
+
+     /**
+     * A create prediction  feature test .
+     *
+     * @return void
+     */
+    public function testupdatePrediction()
+    {
+        $this->prediction = [
+            'patient_id' => 5,
+            'sonographer_id' =>6,
+            'doctor_id' => 1,
+            'status'=>0,
+            'model_id' => 1
+        ];
+        // khởi tạo lớp PredictionRepository
+        $this->predictionRepository = new PredictionRepository();
+        $prediction = $this->predictionRepository->updatePrediction($this->prediction);
+        $this->assertInstanceOf(Prediction::class, $prediction);
+        $this->assertEquals($this->prediction['patient_id'], $prediction->patient_id);
+        $this->assertEquals($this->prediction['sonographer_id'], $prediction->sonographer_id);
+        $this->assertEquals($this->prediction['doctor_id'], $prediction->doctor_id);
+        $this->assertEquals($this->prediction['status'], $prediction->status);
+        $this->assertEquals($this->prediction['model_id'], $prediction->model_id);
+        $this->assertDatabaseHas('predictions', $this->prediction);
+
+    }
+
+     /**
+     * A create prediction  feature test .
+     *
+     * @return void
+     */
+    public function testshowPrediction()
+    {
+        $this->prediction = [
+            'id'=>1
+        ];
+        // khởi tạo lớp PredictionRepository
+        $this->predictionRepository = new PredictionRepository();
+        $prediction = $this->predictionRepository->showPrediction($this->prediction->id);
+   
 
     }
 }
