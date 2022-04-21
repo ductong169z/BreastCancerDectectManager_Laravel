@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 
 @section('main-content')
-
+    <style type="text/css">
+        a[disabled="disabled"] {
+            pointer-events: none;
+        }
+    </style>
 
     <div class="bg-light p-4 rounded">
         <h1>Models</h1>
@@ -37,7 +41,7 @@
 
                     <td><a href="{{ route('models.show', $model->id) }}" class="btn btn-warning btn-sm">View</a></td>
                     <td><a href="{{ route('models.edit', $model->id) }}" class="btn btn-info btn-sm">Edit</a></td>
-                    <td><a href="{{ route('models.delete', $model->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
+                    <td><a href="{{ route('models.delete', $model->id) }}" id="delete-{{$model->id}}"  class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');" >Delete</a></td>
 
                 </tr>
             @endforeach
@@ -51,9 +55,12 @@
     </div>
     <script src="{{url('js/jquery-3.6.0.min.js')}}" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
-
             $('input[type="radio"]').click(function(){
                 var rdoModel = $(this).val();
+                var deleteButton = 'delete-'+rdoModel;
+                $('a').removeAttr("hidden");
+               $('#'+deleteButton).attr("hidden", "hidden");
+
                 $.ajax({
                     url:"{{ route('models.updateSelected')}}",
                     method:"POST",
@@ -66,6 +73,20 @@
                     }
                 });
             });
+
+            $(document).ready(function() {
+                $('input[name="rdoModel"]').each(function(i, obj) {
+                    if ($(this).is(':checked')) {
+                        var rdoModel = $(this).val();
+                        var id='delete-'+rdoModel;
+                        $('#'+id).attr("hidden", "hidden");
+                    };
+                });
+
+             });
+
+
+
     </script>
 
 @endsection
