@@ -62,7 +62,7 @@
                $('#'+deleteButton).attr("hidden", "hidden");
 
                 $.ajax({
-                    url:"{{ route('models.updateSelected')}}",
+                    url:"{{ route('models.update_selected')}}",
                     method:"POST",
                     data:{
                         '_token': $('input[name=_token]').val(),
